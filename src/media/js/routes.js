@@ -3,7 +3,7 @@ define('routes',
     function(router) {
 
     router.addRoutes([
-        {pattern: '^/$', view_name: 'hello_world'},
+        {pattern: '^/$', view_name: 'homepage'},
     ]);
 
     router.api.addRoutes({
