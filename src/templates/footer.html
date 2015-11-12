@@ -1,0 +1,39 @@
+<div id="footer" class="footer">
+  <ul class="footer-support-navigation">
+    {% if capabilities.device_type() == 'desktop' %}
+      <li>
+        <a href="https://support.mozilla.org/en-US/kb/marketplace-apps-firefox-desktop" target="_blank">{{ _('Support') }}</a>
+      </li>
+    {% elif capabilities.firefoxOS %}
+      <li>
+        <a href="https://support.mozilla.org/products/firefox-os/marketplace" target="_blank">{{ _('Support') }}</a>
+      </li>
+    {% elif capabilities.firefoxAndroid %}
+      <li>
+        <a href="https://support.mozilla.org/kb/install-android-apps-using-marketplace" target="_blank">{{ _('Support') }}</a>
+      </li>
+    {% endif %}
+    <li><a href="/developers/">{{ _('Develop Apps') }}</a></li>
+    {% if user.get_permission('developer') %}
+      <li><a href="/developers/submissions" rel="external">{{ _('My Submissions') }}</a></li>
+    {% endif %}
+    {% if user.get_permission('reviewer') %}
+      <li><a href="/reviewers/apps/queue/" rel="external" class="only-logged-in">{{ _('Reviewer Tools') }}</a></li>
+    {% endif %}
+    {% if user.get_permission('lookup') %}
+      <li><a href="/lookup/" rel="external" class="only-logged-in">{{ _('Lookup Tool') }}</a></li>
+    {% endif %}
+  </ul>
+  <div class="footer-content">
+    <h1 class="footzilla"><a href="https://www.mozilla.org/" target="_blank">mozilla</a></h1>
+    <p>
+      {{ _('Except where otherwise <a href="{legal_url}" target="_blank">noted</a>, content on this site is licensed under the <a href="{cc_url}" target="_blank">Creative Commons Attribution Share-Alike License v3.0</a> or any later version.',
+           legal_url='http://www.mozilla.org/about/legal.html#site',
+           cc_url='http://creativecommons.org/licenses/by-sa/3.0/') }}
+    </p>
+    <ul class="footer-extras">
+      <li><a href="https://www.mozilla.org/legal/fraud-report/index.html" target="_blank">
+        {{ _('Report Trademark Abuse') }}</a></li>
+    </ul>
+  </div>
+</div>

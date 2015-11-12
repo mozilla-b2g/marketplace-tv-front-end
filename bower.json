@@ -1,0 +1,20 @@
+{
+    "author": "Mozilla",
+    "name": "marketplace-template",
+    "description": "Template for Firefox Marketplace frontend projects.",
+    "version": "0.0.1",
+    "dependencies": {
+        "marketplace-constants": "*",
+        "marketplace-core-modules": "*",
+        "marketplace-jquery": "*",
+
+        "almond": "0.2.9",
+        "requirejs": "2.1.4",
+        "underscore": "1.4.4"
+    },
+    "ignore": [
+        "*.py",
+        "README.md",
+        "LICENSE"
+    ]
+}
