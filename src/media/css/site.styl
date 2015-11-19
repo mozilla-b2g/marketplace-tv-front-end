@@ -8,7 +8,14 @@
     box-sizing: border-box;
 }
 
+html,
 body {
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+
     background-color: $greyscale-grey;
 }
 
@@ -27,4 +34,9 @@ ul {
     &::after {
         clear: both;
     }
+}
+
+main,
+.page {
+    height: 100%;
 }
