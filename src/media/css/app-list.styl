@@ -30,11 +30,25 @@
 
     width: 150px;
     height: 150px;
+    outline: 0;
     border-radius: 100%;
     overflow: hidden;
 
     color: $greyscale-light-grey;
     background-color: $greyscale-light-grey;
+
+    backface-visibility: hidden;
+
+    transition: border-width .5s,
+                transform .5s;
+
+    &:focus {
+        z-index: 1;
+
+        border: 8px solid $greyscale-white;
+
+        transform: scale(1.5);
+    }
 
     img {
         width: 100%;
