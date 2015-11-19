@@ -1,7 +1,8 @@
 define('views/homepage',
-    ['core/l10n', 'core/z', 'spatial-navigation'],
-    function(l10n, z, SpatialNavigation) {
+    ['core/l10n', 'core/models', 'core/z', 'templates', 'spatial-navigation'],
+    function(l10n, models, z, nunjucks, SpatialNavigation) {
     var gettext = l10n.gettext;
+    var appsModel = models('apps');
 
     // Initialize spatial navigation.
     SpatialNavigation.init();
@@ -17,6 +18,15 @@ define('views/homepage',
 
         // Focus the first navigable element.
         SpatialNavigation.focus();
+    });
+
+    z.page.on('focus', '.focusable', function() {
+        // Update app preview area with current focused app.
+        z.page.find('.app-preview').html(
+            nunjucks.env.render('_includes/app_preview.html', {
+                app: appsModel.lookup($(this).data('slug'))
+            })
+        );
     });
 
     return function(builder) {
