@@ -23,7 +23,9 @@ define('settings_app',
         offline_cache_enabled: offline_cache_enabled,
         offline_cache_limit: 1024 * 1024 * 4, // 4 MB
 
-        model_prototypes: {},
+        model_prototypes: {
+            'apps': 'slug'
+        },
 
         fragment_error_template: 'errors/fragment.html',
         pagination_error_template: 'errors/pagination.html',

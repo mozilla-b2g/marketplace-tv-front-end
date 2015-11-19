@@ -7,7 +7,8 @@ define('routes',
     ]);
 
     router.api.addRoutes({
-        'hello-names': '/api/v2/hello/names/',
+        // TODO: Update API url after backend is ready.
+        'apps': '/api/v2/fireplace/multi-search/',
     });
 
     // Processors to set query arguments on API requests.

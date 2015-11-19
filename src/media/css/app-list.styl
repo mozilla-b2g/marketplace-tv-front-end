@@ -1,0 +1,50 @@
+/**
+ * App listing styles.
+ */
+
+@import 'lib';
+
+.app-list {
+    ul {
+        padding: 4em 3em 3em 4em;
+    }
+
+    li {
+        float: left;
+        margin: 0 1em 1em 0;
+
+        list-style: none;
+    }
+}
+
+.app-list-app {
+    position: relative;
+
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    overflow: hidden;
+
+    color: $greyscale-light-grey;
+    background-color: $greyscale-light-grey;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    .name {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+        padding: .5em .5em 1.5em;
+
+        text-align: center;
+
+        color: $greyscale-white;
+        background-color: $greyscale-dark-grey;
+        background-color: rgba(0, 0, 0, .375);
+    }
+}
