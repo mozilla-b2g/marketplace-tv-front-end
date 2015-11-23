@@ -32,12 +32,30 @@ define('views/homepage',
     });
 
     z.page.on('sn:enter-down', '.focusable', function() {
-        // Preview current focused app.
         if (!caps.webApps) {
             return;
         }
 
-        apps.install(appsModel.lookup($(this).data('slug')));
+        // Preview current focused app.
+        var focusedApp = appsModel.lookup($(this).data('slug'));
+        var focusedManifestURL = focusedApp.manifest_url;
+
+        apps.getInstalled().done(function(installedApps) {
+            var isInstalled = false;
+
+            // Check if app is installed.
+            installedApps.map(function(installedManifestURL) {
+                if (focusedManifestURL === installedManifestURL) {
+                    isInstalled = true;
+                }
+            });
+
+            if (isInstalled) {
+                apps.launch(focusedManifestURL);
+            } else {
+                apps.install(focusedApp);
+            }
+        });
     });
 
     return function(builder) {
