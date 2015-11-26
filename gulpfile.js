@@ -31,6 +31,7 @@ var packageFilesWhitelist = [
     'src/media/css/include.css',
     'src/media/css/splash.css',
     'src/media/fonts/FiraSans/firasansot-light-webfont.*',
+    'src/media/fonts/FiraSans/firasansot-regular-webfont.*',
     'src/media/js/l10n.js'
 ];
 var imageWhitelist = [

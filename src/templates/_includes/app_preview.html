@@ -3,7 +3,14 @@
        alt="{{ app.name }}" title="{{ app.name }}">
 </div>
 
-<h1 class="name">{{ app.name }}</h1>
-<span class="type hidden">{{ app.premium_type }}</span>
-<span class="author">By {{ app.author }}</span>
-<article class="description">{{ app.description | safe }}</article>
+<div class="detail">
+  <h1 class="name">{{ app.name }}</h1>
+  <div class="provider">
+    {% if app.author %}
+      <span>by</span>
+      <span>{{ app.author }}</span>
+    {% endif %}
+  </div>
+  <span class="price hidden">{{ app.premium_type }}</span>
+  <article class="description">{{ app.description | safe }}</article>
+</div>

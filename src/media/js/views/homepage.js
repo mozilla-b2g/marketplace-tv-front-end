@@ -24,7 +24,7 @@ define('views/homepage',
 
     z.page.on('focus', '.focusable', function() {
         var $appPreview = z.page.find('.app-preview');
-        var $appPreviewType;
+        var $appPreviewPrice;
 
         var focusedApp = appsModel.lookup($(this).data('slug'));
         var focusedManifestURL = focusedApp.manifest_url;
@@ -36,10 +36,10 @@ define('views/homepage',
             })
         );
 
-        $appPreviewType = $appPreview.find('.type');
+        $appPreviewPrice = $appPreview.find('.price');
 
         if (!caps.webApps) {
-            $appPreviewType.removeClass('hidden');
+            $appPreviewPrice.removeClass('hidden');
 
             return;
         }
@@ -48,11 +48,11 @@ define('views/homepage',
         apps.getInstalled().done(function(installedApps) {
             installedApps.map(function(installedManifestURL) {
                 if (installedManifestURL === focusedManifestURL) {
-                    $appPreviewType.html('installed');
+                    $appPreviewPrice.html('installed');
                 }
             });
 
-            $appPreviewType.removeClass('hidden');
+            $appPreviewPrice.removeClass('hidden');
         });
     });
 
