@@ -45,3 +45,6 @@ src/templates/commonplace/
 src/tests/commonplace/
 src/tests/marketplace-core-modules/
 tests/captures/*
+
+package/builds/*
+package/.tmp/*

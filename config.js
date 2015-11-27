@@ -33,7 +33,27 @@ var localConfig = extend(true, {
             'spatial-navigation': { 'exports': 'SpatialNavigation' }
         }
     },
-    PORT: 8674
+    PORT: 8674,
+    packageConfig: {
+        'prod': {
+            domain: 'https://marketplace.firefox.com',
+            media_url: 'https://marketplace.cdn.mozilla.net/media/',
+            name: 'Marketplace',
+            origin: 'app://marketplace.firefox.com'
+        },
+        'dev': {
+            domain: 'https://marketplace-dev.allizom.org',
+            media_url: 'https://marketplace-dev.mozflare.net/media/',
+            name: 'Dev',
+            origin: 'app://marketplace-dev.allizom.org'
+        },
+        'stage': {
+            domain: 'https://marketplace.allizom.org',
+            media_url: 'https://marketplace-stage.cdn.mozilla.net/media/',
+            name: 'Stage',
+            origin: 'app://marketplace.allizom.org'
+        }
+    }
 }, config);
 
 localConfig.inlineRequireConfig = config.makeInlineRequireConfig(
