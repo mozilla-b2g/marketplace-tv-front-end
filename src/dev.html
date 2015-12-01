@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest="manifest.appcache">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no,
@@ -16,6 +16,14 @@
       <link rel="stylesheet" href="/media/css/app-preview.styl.css">
       <link rel="stylesheet" href="/media/css/app-list.styl.css">
     {% endif %}
+
+    <script>
+      (function(navigator) {
+        if (!navigator.onLine) {
+          location.href = "offline.html";
+        }
+      })(window.navigator);
+    </script>
   </head>
 
   <body class="home" data-media="">

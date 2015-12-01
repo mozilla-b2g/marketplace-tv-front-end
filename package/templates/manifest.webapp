@@ -12,6 +12,7 @@
         "128": "app-icons/128.png"
     },
     "launch_path": "index.html",
+    "appcache_path": "manifest.appcache",
     "name": "{name}",
     "origin": "{origin}",
     "type": "web",
