@@ -6,6 +6,11 @@ define('views/homepage',
     var gettext = l10n.gettext;
     var appsModel = models('apps');
 
+    var $appPreview;
+    var $appList;
+
+    var appListHeight;
+
     // Initialize spatial navigation.
     SpatialNavigation.init();
 
@@ -15,6 +20,11 @@ define('views/homepage',
     });
 
     z.page.on('loaded', function() {
+        $appPreview = z.page.find('.app-preview');
+        $appList = z.page.find('.app-list');
+
+        appListHeight = $appList.innerHeight();
+
         // Add 'tabindex="-1"' to "currently-existing" navigable elements.
         SpatialNavigation.makeFocusable();
 
@@ -22,8 +32,39 @@ define('views/homepage',
         SpatialNavigation.focus();
     });
 
+    z.page.on('sn:willfocus', '.focusable', function() {
+        SpatialNavigation.pause();
+
+        var callback = function() {
+            SpatialNavigation.focus(this);
+            SpatialNavigation.resume();
+        };
+
+        var scrollTop = $appList.scrollTop();
+        var top = this.offsetTop;
+        var bottom = top + this.offsetHeight;
+        var margin = 5.8 * 10;
+        var newPosition;
+
+        if (scrollTop > top - margin) {
+            newPosition = top - margin;
+        } else if (scrollTop < bottom + margin - appListHeight) {
+            newPosition = bottom + margin - appListHeight;
+        }
+
+        if (newPosition) {
+            $appList.animate({ scrollTop: newPosition }, {
+                duration: 200,
+                done: callback.bind(this)
+            });
+        } else {
+            callback.call(this);
+        }
+
+        return false;
+    });
+
     z.page.on('focus', '.focusable', function() {
-        var $appPreview = z.page.find('.app-preview');
         var $appPreviewPrice;
 
         var focusedApp = appsModel.lookup(this.dataset.slug);
