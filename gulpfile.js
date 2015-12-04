@@ -32,7 +32,12 @@ var packageFilesWhitelist = [
     'src/media/css/splash.css',
     'src/media/fonts/FiraSans/firasansot-light-webfont.*',
     'src/media/fonts/FiraSans/firasansot-regular-webfont.*',
-    'src/media/js/l10n.js'
+    'src/media/js/l10n.js',
+    'src/tutorial/*',
+    'src/tutorial/css/*',
+    'src/tutorial/img/*',
+    'src/tutorial/js/*',
+    'src/tutorial/locales/*'
 ];
 var imageWhitelist = [
     // Match all images. If it isn't being used, it should be nixed.
