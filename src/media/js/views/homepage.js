@@ -23,12 +23,37 @@ define('views/homepage',
     });
 
     z.page.on('focus', '.focusable', function() {
+        var $appPreview = z.page.find('.app-preview');
+        var $appPreviewType;
+
+        var focusedApp = appsModel.lookup($(this).data('slug'));
+        var focusedManifestURL = focusedApp.manifest_url;
+
         // Update app preview area with current focused app.
-        z.page.find('.app-preview').html(
+        $appPreview.html(
             nunjucks.env.render('_includes/app_preview.html', {
-                app: appsModel.lookup($(this).data('slug'))
+                app: focusedApp
             })
         );
+
+        $appPreviewType = $appPreview.find('.type');
+
+        if (!caps.webApps) {
+            $appPreviewType.removeClass('hidden');
+
+            return;
+        }
+
+        // Update type when app is already installed.
+        apps.getInstalled().done(function(installedApps) {
+            installedApps.map(function(installedManifestURL) {
+                if (installedManifestURL === focusedManifestURL) {
+                    $appPreviewType.html('installed');
+                }
+            });
+
+            $appPreviewType.removeClass('hidden');
+        });
     });
 
     z.page.on('sn:enter-down', '.focusable', function() {
