@@ -1,6 +1,8 @@
 define('views/homepage',
-    ['core/l10n', 'core/models', 'core/z', 'templates', 'spatial-navigation'],
-    function(l10n, models, z, nunjucks, SpatialNavigation) {
+    ['apps', 'core/capabilities', 'core/l10n', 'core/models', 'core/z',
+     'templates', 'spatial-navigation'],
+    function(apps, caps, l10n, models, z,
+             nunjucks, SpatialNavigation) {
     var gettext = l10n.gettext;
     var appsModel = models('apps');
 
@@ -27,6 +29,33 @@ define('views/homepage',
                 app: appsModel.lookup($(this).data('slug'))
             })
         );
+    });
+
+    z.page.on('sn:enter-down', '.focusable', function() {
+        if (!caps.webApps) {
+            return;
+        }
+
+        // Preview current focused app.
+        var focusedApp = appsModel.lookup($(this).data('slug'));
+        var focusedManifestURL = focusedApp.manifest_url;
+
+        apps.getInstalled().done(function(installedApps) {
+            var isInstalled = false;
+
+            // Check if app is installed.
+            installedApps.map(function(installedManifestURL) {
+                if (focusedManifestURL === installedManifestURL) {
+                    isInstalled = true;
+                }
+            });
+
+            if (isInstalled) {
+                apps.launch(focusedManifestURL);
+            } else {
+                apps.install(focusedApp);
+            }
+        });
     });
 
     return function(builder) {
