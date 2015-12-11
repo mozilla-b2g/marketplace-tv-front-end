@@ -6,30 +6,23 @@
                                    initial-scale=1, maximum-scale=1">
     <title>Firefox Marketplace App</title>
 
-    <!--Remove me.-->
-    <link rel="stylesheet"
-          href="https://marketplace-dev-cdn.allizom.org/media/fireplace/css/splash.css">
-    <link rel="stylesheet"
-          href="https://marketplace-dev-cdn.allizom.org/media/fireplace/css/include.css">
-
     {% if compiled %}
       <link rel="stylesheet" href="/media/css/splash.css">
       <link rel="stylesheet" href="/media/css/include.css">
     {% else %}
       <!--Add stylesheets here.-->
+      <link rel="stylesheet" href="/media/css/normalize.css">
+      <link rel="stylesheet" href="/media/css/site.styl.css">
+      <link rel="stylesheet" href="/media/css/app-list.styl.css">
     {% endif %}
   </head>
 
   <body class="home" data-media="">
     <noscript><p>Sorry, you need JavaScript to use this site.</p></noscript>
 
-    <header id="site-header" class="header site-header"></header>
-
     <main>
       <div id="page" class="page" role="main"></div>
     </main>
-
-    <footer id="site-footer"></footer>
 
     {% if compiled %}
       <script src="/media/js/include.js" defer></script>

@@ -22,10 +22,6 @@ require(
     z.page.on('reload_chrome', function() {
         // Last minute template compilation.
         logger.log('Reloading chrome');
-        $('#site-header').html(
-            nunjucks.env.render('header.html'));
-        $('#site-footer').html(
-            nunjucks.env.render('footer.html'));
 
         z.body.toggleClass('logged-in', user.logged_in());
         z.page.trigger('reloaded_chrome');

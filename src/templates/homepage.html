@@ -1,0 +1,15 @@
+<div class="app-list">
+  <ul class="clearfix">
+    {% defer (url=api('apps'), pluck='objects', as='apps', key='slug') %}
+      {% for app in this %}
+        <li class="app-list-app">
+          <img src="{{ app.icons['128'] }}"
+               alt="{{ app.name }}" title="{{ app.name }}">
+          <span class="name">{{ app.name }}</span>
+        </li>
+      {% endfor %}
+    {% placeholder %}
+      <li>loading...</li>
+    {% end %}
+  </ul>
+</div>

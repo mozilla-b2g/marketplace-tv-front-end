@@ -9,6 +9,7 @@ var localConfig = extend(true, {
         // Bower configuration for which files to get, and where to put them.
         // [Source, excluding bower_components]: [Destination].
         // 'isotope/dist/isotope.pkgd.js': config.LIB_DEST_PATH,
+        'normalize.css/normalize.css': 'src/media/css/'
     },
     cssBundles: {
         // Arbitrary CSS bundles to create.

@@ -10,7 +10,9 @@
 
         "almond": "0.2.9",
         "requirejs": "2.1.4",
-        "underscore": "1.4.4"
+        "underscore": "1.4.4",
+
+        "normalize.css": "~3.0.3"
     },
     "ignore": [
         "*.py",
