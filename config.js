@@ -9,7 +9,8 @@ var localConfig = extend(true, {
         // Bower configuration for which files to get, and where to put them.
         // [Source, excluding bower_components]: [Destination].
         // 'isotope/dist/isotope.pkgd.js': config.LIB_DEST_PATH,
-        'normalize.css/normalize.css': 'src/media/css/'
+        'normalize.css/normalize.css': 'src/media/css/',
+        'js-spatial-navigation/spatial_navigation.js': 'src/media/js/lib/'
     },
     cssBundles: {
         // Arbitrary CSS bundles to create.
@@ -25,9 +26,11 @@ var localConfig = extend(true, {
         // [Module name]: [Module path].
         paths: {
             // 'isotope': 'lib/isotope.pkgd',
+            'spatial-navigation': 'lib/spatial_navigation'
         },
         shim: {
             // 'underscore': { 'exports': '_' }
+            'spatial-navigation': { 'exports': 'SpatialNavigation' }
         }
     },
     PORT: 8674
