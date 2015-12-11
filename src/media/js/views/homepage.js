@@ -83,6 +83,12 @@ define('views/homepage',
         });
     });
 
+    z.page.on('contextmenu', '.focusable', function() {
+        if (!caps.firefoxOS) {
+            return false;
+        }
+    });
+
     return function(builder) {
         builder.start('homepage.html');
 
