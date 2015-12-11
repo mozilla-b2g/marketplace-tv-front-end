@@ -4,6 +4,8 @@
 
 @import 'lib';
 
+$app-list-background-color = #CBCDCD;
+
 .app-list {
     position: absolute;
     top: $app-preview-height;
@@ -13,13 +15,15 @@
     width: 100%;
     overflow: auto;
 
+    background-color: $app-list-background-color;
+
     ul {
-        padding: 4em 3em 3em 4em;
+        padding: 6rem 11.6rem .2rem;
     }
 
     li {
         float: left;
-        margin: 0 1em 1em 0;
+        margin: 0 2.6rem 5.8rem;
 
         list-style: none;
     }
@@ -28,10 +32,11 @@
 .app-list-app {
     position: relative;
 
-    width: 150px;
-    height: 150px;
+    width: 18.9rem;
+    height: 18.9rem;
+    border-radius: 50%;
+    -moz-outline-radius: 60%;
     outline: 0;
-    border-radius: 100%;
     overflow: hidden;
 
     color: $greyscale-light-grey;
@@ -39,15 +44,26 @@
 
     backface-visibility: hidden;
 
-    transition: border-width .5s,
-                transform .5s;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.25, 0, 0, 1);
+    transition-duration: .42s;
 
-    &:focus {
-        z-index: 1;
+    &.focused {
+        outline: .8rem solid $greyscale-white;
 
-        border: 8px solid $greyscale-white;
+        transform: scale(1.4);
+    }
 
-        transform: scale(1.5);
+    &.pressed {
+        outline: 1rem solid $greyscale-white;
+
+        transform: scale(1.22);
+
+        transition-duration: .06s;
+    }
+
+    &.released {
+        transition-duration: .16s;
     }
 
     img {
@@ -61,12 +77,15 @@
         left: 0;
 
         width: 100%;
-        padding: .5em .5em 1.5em;
+        height: 6rem;
+        padding-top: 1rem;
 
+        font-size: 1.6rem;
+        font-style: italic;
+        line-height: 2.2rem;
         text-align: center;
 
         color: $greyscale-white;
-        background-color: $greyscale-dark-grey;
-        background-color: rgba(0, 0, 0, .375);
+        background-color: rgba(0, 0, 0, .4);
     }
 }

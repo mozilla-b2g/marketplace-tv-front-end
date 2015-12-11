@@ -24,10 +24,12 @@ define('views/homepage',
 
     z.page.on('focus', '.focusable', function() {
         var $appPreview = z.page.find('.app-preview');
-        var $appPreviewType;
+        var $appPreviewPrice;
 
-        var focusedApp = appsModel.lookup($(this).data('slug'));
+        var focusedApp = appsModel.lookup(this.dataset.slug);
         var focusedManifestURL = focusedApp.manifest_url;
+
+        this.classList.add('focused');
 
         // Update app preview area with current focused app.
         $appPreview.html(
@@ -36,10 +38,10 @@ define('views/homepage',
             })
         );
 
-        $appPreviewType = $appPreview.find('.type');
+        $appPreviewPrice = $appPreview.find('.price');
 
         if (!caps.webApps) {
-            $appPreviewType.removeClass('hidden');
+            $appPreviewPrice.removeClass('hidden');
 
             return;
         }
@@ -48,39 +50,68 @@ define('views/homepage',
         apps.getInstalled().done(function(installedApps) {
             installedApps.map(function(installedManifestURL) {
                 if (installedManifestURL === focusedManifestURL) {
-                    $appPreviewType.html('installed');
+                    $appPreviewPrice.html('installed');
                 }
             });
 
-            $appPreviewType.removeClass('hidden');
+            $appPreviewPrice.removeClass('hidden');
         });
     });
 
-    z.page.on('sn:enter-down', '.focusable', function() {
-        if (!caps.webApps) {
+    z.page.on('keydown mousedown touchstart', '.focusable', function(e) {
+        if (e.type === 'keydown' && e.keyCode !== KeyEvent.DOM_VK_RETURN) {
             return;
         }
 
-        // Preview current focused app.
-        var focusedApp = appsModel.lookup($(this).data('slug'));
-        var focusedManifestURL = focusedApp.manifest_url;
+        this.classList.add('pressed');
+    });
 
-        apps.getInstalled().done(function(installedApps) {
-            var isInstalled = false;
+    z.page.on('keyup mouseup touchend', '.focusable', function(e) {
+        if (e.type === 'keyup' && e.keyCode !== KeyEvent.DOM_VK_RETURN) {
+            return;
+        }
 
-            // Check if app is installed.
-            installedApps.map(function(installedManifestURL) {
-                if (focusedManifestURL === installedManifestURL) {
-                    isInstalled = true;
+        this.classList.remove('pressed');
+        this.classList.add('released');
+
+        if (e.type === 'keyup') {
+            if (!caps.webApps) {
+                return;
+            }
+
+            // Preview current focused app.
+            var focusedApp = appsModel.lookup(this.dataset.slug);
+            var focusedManifestURL = focusedApp.manifest_url;
+
+            apps.getInstalled().done(function(installedApps) {
+                var isInstalled = false;
+
+                // Check if app is installed.
+                installedApps.map(function(installedManifestURL) {
+                    if (focusedManifestURL === installedManifestURL) {
+                        isInstalled = true;
+                    }
+                });
+
+                if (isInstalled) {
+                    apps.launch(focusedManifestURL);
+                } else {
+                    apps.install(focusedApp);
                 }
             });
+        }
+    });
 
-            if (isInstalled) {
-                apps.launch(focusedManifestURL);
-            } else {
-                apps.install(focusedApp);
-            }
-        });
+    z.page.on('transitionend', '.focusable', function() {
+        if (this.classList.contains('released')) {
+            this.classList.remove('released');
+        }
+    });
+
+    z.page.on('blur', '.focusable', function() {
+        this.classList.remove('focused');
+        this.classList.remove('pressed');
+        this.classList.remove('released');
     });
 
     z.page.on('contextmenu', '.focusable', function() {

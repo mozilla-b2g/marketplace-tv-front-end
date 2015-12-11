@@ -11,41 +11,93 @@
 
     width: 100%;
     height: $app-preview-height;
-    padding: 3em 4em;
+    padding: 7.2rem 18.5rem 6.9rem 15rem;
 
-    color: $greyscale-white;
-    background-color: $greyscale-black;
+    background-image: url('../img/pattern-overlay.png');
+
+    .preview,
+    .detail {
+        height: 100%;
+    }
 
     .preview {
         float: right;
-        width: 40%;
-        height: 100%;
-        margin-left: 3em;
+        width: 57.5rem;
+
+        border-radius: .6rem;
         overflow: hidden;
 
-        color: $greyscale-dark-grey;
-        background-color: $greyscale-dark-grey;
+        color: transparent;
     }
 
     img {
         width: 100%;
     }
 
+    .detail {
+        position: relative;
+
+        width: 74rem;
+        padding-top: 1rem;
+
+        color: $greyscale-white;
+    }
+
+    .name,
+    .provider {
+        margin-right: 12rem;
+        overflow: hidden;
+
+        font-style: italic;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
     .name {
-        margin: 0 0 .25em;
+        height: 6.4rem;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-bottom: 1.2rem;
+
+        font-size: 5.2rem;
+        font-weight: normal;
     }
 
-    .type {
-        float: right;
+    .provider {
+        height: 6.3rem;
+        padding-bottom: 4rem;
+
+        font-size: 2.3rem;
+        white-space: nowrap;
+
+        color: $greyscale-white;
     }
 
-    .author {
+    .price {
+        position: absolute;
+        top: 3rem;
+        right: 0;
 
+        width: 10rem;
+        height: 3.2rem;
+
+        font-size: 3.2rem;
+        font-weight: bold;
+        text-align: right;
     }
 
     .description {
-        height: 8.5em;
-        margin-top: 1.5em;
+        height: 19rem;
         overflow: hidden;
+
+        font-size: 2.6rem;
+        font-style: italic;
+        line-height: 3.1rem;
+
+        a {
+            color: $greyscale-white;
+
+            text-decoration: none;
+        }
     }
 }
