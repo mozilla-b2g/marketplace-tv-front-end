@@ -6,3 +6,8 @@ install:
 -include node_modules/marketplace-gulp/Makefile
 
 TEST_URL?='http://localhost:8674'
+
+package:
+	@node_modules/.bin/gulp package
+
+.PHONY: package
