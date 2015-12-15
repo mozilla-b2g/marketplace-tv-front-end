@@ -3,8 +3,13 @@
 {% endif %}
 
 <div class="preview">
-  <img src="{{ app.previews[0].image_url }}"
-       alt="{{ app.name }}" title="{{ app.name }}">
+  {% if app.promo_imgs['640'] %}
+    <img src="{{ app.promo_imgs['640'] }}"
+         alt="{{ app.name }}" title="{{ app.name }}">
+  {% elif app.promo_imgs['320'] %}
+    <img src="{{ app.promo_imgs['320'] }}"
+         alt="{{ app.name }}" title="{{ app.name }}">
+  {% endif %}
 </div>
 
 <div class="detail">

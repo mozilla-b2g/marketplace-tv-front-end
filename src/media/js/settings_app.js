@@ -24,7 +24,7 @@ define('settings_app',
         offline_cache_limit: 1024 * 1024 * 4, // 4 MB
 
         model_prototypes: {
-            'apps': 'slug'
+            'apps': 'id'
         },
 
         fragment_error_template: 'errors/fragment.html',
