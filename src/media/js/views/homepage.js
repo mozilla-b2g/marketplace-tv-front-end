@@ -13,6 +13,15 @@ define('views/homepage',
 
     var appListHeight;
 
+    function findLargestIcon(icons) {
+        var iconSizes = Object.keys(icons);
+        var maxIconSize = iconSizes.reduce(function(prev, current) {
+            return parseInt(prev, 10) < parseInt(current, 10) ? current : prev;
+        });
+
+        return icons[maxIconSize];
+    }
+
     // Initialize spatial navigation.
     SpatialNavigation.init();
 
@@ -73,7 +82,16 @@ define('views/homepage',
         var focusedManifestURL = focusedApp.manifest_url;
 
         // Update context menu's label
-        appContextMenu.label = focusedManifestURL || '';
+        if (focusedApp.doc_type === 'webapp') {
+            appContextMenu.label = '#app:' + focusedManifestURL;
+        } else if (focusedApp.doc_type === 'website') {
+            appContextMenu.label = '#website:' +
+                                    encodeURIComponent(focusedApp.url) + ',' +
+                                    encodeURIComponent(focusedApp.name) + ',' +
+                                    encodeURIComponent(findLargestIcon(focusedApp.icons));
+        } else {
+            appContextMenu.label = '';
+        }
 
         this.classList.add('focused');
 
@@ -127,24 +145,28 @@ define('views/homepage',
 
             // Preview current focused app.
             var focusedApp = appsModel.lookup(this.dataset.slug);
-            var focusedManifestURL = focusedApp.manifest_url;
 
-            apps.getInstalled().done(function(installedApps) {
-                var isInstalled = false;
+            if (focusedApp.doc_type === 'webapp') {
+                var focusedManifestURL = focusedApp.manifest_url;
 
-                // Check if app is installed.
-                installedApps.map(function(installedManifestURL) {
-                    if (focusedManifestURL === installedManifestURL) {
-                        isInstalled = true;
+                apps.getInstalled().done(function(installedApps) {
+                    // Check if app is installed.
+                    var isInstalled = installedApps.some(function(installedManifestURL) {
+                        return focusedManifestURL === installedManifestURL;
+                    });
+
+                    if (isInstalled) {
+                        apps.launch(focusedManifestURL);
+                    } else {
+                        apps.install(focusedApp);
                     }
                 });
-
-                if (isInstalled) {
-                    apps.launch(focusedManifestURL);
-                } else {
-                    apps.install(focusedApp);
-                }
-            });
+            } else {
+                window.open(focusedApp.url, '_blank',
+                    'remote=true,preview=true' +
+                    ',name=' + encodeURIComponent(focusedApp.name) +
+                    ',iconUrl=' + encodeURIComponent(findLargestIcon(focusedApp.icons)));
+            }
         }
     });
 
@@ -158,12 +180,6 @@ define('views/homepage',
         this.classList.remove('focused');
         this.classList.remove('pressed');
         this.classList.remove('released');
-    });
-
-    z.page.on('contextmenu', '.focusable', function() {
-        if (!caps.firefoxOS) {
-            return false;
-        }
     });
 
     return function(builder) {
