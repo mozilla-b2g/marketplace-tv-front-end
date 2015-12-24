@@ -91,7 +91,7 @@ define('views/homepage',
         apps.getInstalled().done(function(installedApps) {
             installedApps.map(function(installedManifestURL) {
                 if (installedManifestURL === focusedManifestURL) {
-                    $appPreviewPrice.html('installed');
+                    $appPreviewPrice.addClass('installed');
                 }
             });
 
