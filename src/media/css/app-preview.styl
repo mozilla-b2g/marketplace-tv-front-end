@@ -18,6 +18,43 @@ $app-preview-background-color = #72C9B0;
     background-color: $app-preview-background-color;
     background-image: url('../img/pattern-overlay.png');
 
+    .suggested {
+        position: absolute;
+        top: 1.6rem;
+        left: 0;
+
+        padding: 0 .5rem 0 1rem;
+
+        font-size: 1.9rem;
+        font-style: italic;
+        line-height: 4.2rem;
+
+        color: $greyscale-white;
+        background: linear-gradient(90deg,
+                                    $suggested-star-color,
+                                    $suggested-flag-color);
+
+        &::before {
+            float: left;
+            margin-right: .5rem;
+
+            font-size: 4.2rem;
+        }
+
+        &::after {
+            content: '';
+
+            position: absolute;
+            top: 0;
+            right: -4rem;
+
+            width: 4rem;
+            height: 4.2rem;
+
+            background-image: url('../img/flag_R.png');
+        }
+    }
+
     .preview,
     .detail {
         height: 100%;
