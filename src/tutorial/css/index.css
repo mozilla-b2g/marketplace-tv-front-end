@@ -1,0 +1,133 @@
+@font-face {
+    src: local('FiraSansOT'),
+         local('FiraSans'),
+         local('Fira Sans OT'),
+         local('Fira Sans'),
+         url('../../media/fonts/FiraSans/firasansot-regular-webfont.woff') format('woff'),
+         url('../../media/fonts/FiraSans/firasansot-regular-webfont.ttf') format('truetype'),
+         url('../../media/fonts/FiraSans/firasansot-regular-webfont.svg#fira_sans_otregular') format('svg');
+    font-family: FiraSansWeb;
+    font-weight: 400;
+}
+
+html {
+    font-family: "Fira Sans OT", "Fira Sans", FiraSansWeb, sans-serif;
+    font-size: 10px;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    background-color: #000;
+}
+
+.tutorial-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    transition: opacity .1s;
+}
+
+.tutorial-container.finish {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.slide {
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+    min-width: 192rem;
+    min-height: 108rem;
+    opacity: 1;
+
+    transition: opacity 1s;
+}
+
+.slide.hidden {
+    opacity: 0;
+    visibility: hidden;
+
+    transition: none;
+}
+
+.slide-section.top,
+.slide-section.bottom {
+    position: absolute;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.slide-section.top {
+    top: 3.5rem;
+
+    width: 150rem;
+    height: 8rem;
+
+    font-size: 3.8rem;
+    font-style: italic;
+    line-height: 8rem;
+    text-align: center;
+
+    color: #FFF;
+}
+
+.slide-section.bottom {
+    bottom: 5.5rem;
+}
+
+.slide-description.circle {
+    display: inline-block;
+    margin: 0 .5rem;
+    border-radius: 4rem;
+    box-shadow: .5rem .5rem .5rem rgba(0, 0, 0, .5);
+
+    font-size: 4.5rem;
+    text-align: center;
+
+    background-color: #000;
+}
+
+.slide-description.ok-key {
+    width: 8rem;
+}
+
+.slide-description.option-key {
+    width: 22rem;
+}
+
+.slide-description.apps-key {
+    width: 16rem;
+}
+
+.slide-tutorial-image {
+    width: 100%;
+    height: auto;
+}
+
+.smart-button::-moz-focus-inner {
+    border: 0;
+}
+
+.smart-button[type=rounded-corner-text] {
+    width: 30.4rem;
+    margin: 0 1.5rem;
+
+    font-family: "Fira Sans OT", "Fira Sans", FiraSansWeb, sans-serif;
+    font-size: 4.5rem;
+
+    background-image: none;
+}

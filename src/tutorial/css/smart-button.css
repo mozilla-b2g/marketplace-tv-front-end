@@ -1,0 +1,111 @@
+/**
+ * Button state:
+ *    1. normal
+ *        In this state, we don't add any class.
+ *    2. focused (class name: focused)
+ *        The focused state may be triggered by keyboard or touch/mouse.
+ *    3. pressed (class name: pressed)
+ *        This state is triggered by user pressed confirm button, mousedown,
+ *        and touchdown.
+ *    4. released (class name: released)
+ *        This state is only for changing duration of transition. We enter this
+ *        state when user release the button. After transitionend, we goes back
+ *        to focused state.
+**/
+.smart-button {
+  font-family: "Fira Sans";
+  display: inline-block;
+  width: 8rem;
+  height: 8rem;
+  /* we need to set border to none to remove the button border */
+  border: none;
+  /* the radius is still make button as round even if we don't have border */
+  border-radius: 50%;
+  /* 50% is not a real circle because of rounding, we have to use a value larger
+     than 50% */
+  -moz-outline-radius: 60%;
+  outline: transparent 0 solid;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-repeat: no-repeat;
+  background-size: 5.4rem auto;
+  background-position: center center;
+  font-style: italic;
+
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.25, 0, 0, 1.0);
+  transition-duration: 0.42s;
+}
+
+.smart-button.focused {
+  outline: 0;
+  background-color: #ffffff;
+  transform: scale(1.2);
+  transition-duration: 0.42s;
+}
+
+.smart-button.released {
+  transition-duration: 0.16s;
+}
+
+.smart-button.toggled {
+  background-color: #00caf2;
+}
+
+.smart-button.pressed {
+  background-color: #00caf2;
+  transform: scale(0.8);
+  transition-duration: 0.06s;
+}
+
+.smart-button.disabled {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/**
+ * rounded-corner text button
+ */
+.smart-button[type="rounded-corner-text"] {
+  -moz-user-select: none;
+  width: auto;
+  height: 8rem;
+  border-radius: 4rem;
+  background-color: #5f6368;
+  padding: 0 3.8rem;
+  line-height: 8rem;
+  color: white;
+  text-align: center;
+  font-size: 2.4rem;
+  overflow: hidden;
+  transition-property: transform, color, background-color;
+}
+
+.smart-button[type="rounded-corner-text"].focused,
+.smart-button[type="rounded-corner-text"]:hover {
+  transform: scale(1.2);
+  color: #2d2d2d;
+  background-color: white;
+}
+
+.smart-button[type="rounded-corner-text"].pressed {
+  transform: scale(1);
+  color: white;
+  background-color: #5f6368;
+}
+
+.smart-button[type="rounded-corner-text"].primary {
+  background-color: #00caf2;
+}
+
+.smart-button[type="rounded-corner-text"].primary:hover,
+.smart-button[type="rounded-corner-text"].primary.focused {
+  color: #ffffff;
+  background-color: #00caf2;
+}
+
+.smart-button[type="rounded-corner-text"].primary.pressed {
+  background-color: #0097b5;
+}
+
+/**
+ * End of rounded-corner text button
+ */
