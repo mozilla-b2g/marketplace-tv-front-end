@@ -5,21 +5,27 @@
     <ul class="clearfix">
       {% for app in this %}
         <li class="app-list-app focusable" data-slug="{{ app.slug }}">
-          {% if app.icons['128'] %}
-            <img src="{{ app.icons['128'] }}"
-                 alt="{{ app.name }}" title="{{ app.name }}">
-          {% elif app.icons['64'] %}
-            <img src="{{ app.icons['64'] }}"
-                 alt="{{ app.name }}" title="{{ app.name }}">
-          {% elif app.icons['48'] %}
-            <img src="{{ app.icons['48'] }}"
-                 alt="{{ app.name }}" title="{{ app.name }}">
-          {% elif app.icons['32'] %}
-            <img src="{{ app.icons['32'] }}"
-                 alt="{{ app.name }}" title="{{ app.name }}">
-          {% endif %}
+          <div class="icon">
+            {% if app.icons['128'] %}
+              <img src="{{ app.icons['128'] }}"
+                   alt="{{ app.name }}" title="{{ app.name }}">
+            {% elif app.icons['64'] %}
+              <img src="{{ app.icons['64'] }}"
+                   alt="{{ app.name }}" title="{{ app.name }}">
+            {% elif app.icons['48'] %}
+              <img src="{{ app.icons['48'] }}"
+                   alt="{{ app.name }}" title="{{ app.name }}">
+            {% elif app.icons['32'] %}
+              <img src="{{ app.icons['32'] }}"
+                   alt="{{ app.name }}" title="{{ app.name }}">
+            {% endif %}
 
-          <span class="name">{{ app.name }}</span>
+            <span class="name">{{ app.name }}</span>
+          </div>
+
+          {% if app.tv_featured %}
+            <span class="star" data-icon="bookmark-on"></span>
+          {% endif %}
         </li>
       {% endfor %}
     </ul>

@@ -1,3 +1,7 @@
+{% if app.tv_featured %}
+  <span class="suggested" data-icon="bookmark-on">{{ _('Suggested') }}</span>
+{% endif %}
+
 <div class="preview">
   <img src="{{ app.previews[0].image_url }}"
        alt="{{ app.name }}" title="{{ app.name }}">
