@@ -6,6 +6,8 @@ define('views/homepage',
     var gettext = l10n.gettext;
     var appsModel = models('apps');
 
+    var appContextMenu = document.getElementById('contextmenu').children[0];
+
     var $appPreview;
     var $appList;
 
@@ -69,6 +71,9 @@ define('views/homepage',
 
         var focusedApp = appsModel.lookup(this.dataset.slug);
         var focusedManifestURL = focusedApp.manifest_url;
+
+        // Update context menu's label
+        appContextMenu.label = focusedManifestURL || '';
 
         this.classList.add('focused');
 

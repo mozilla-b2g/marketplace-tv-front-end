@@ -27,12 +27,16 @@
     </script>
   </head>
 
-  <body class="home" data-media="">
+  <body class="home" data-media="" contextmenu="contextmenu">
     <noscript><p>Sorry, you need JavaScript to use this site.</p></noscript>
 
     <main>
       <div id="page" class="page" role="main"></div>
     </main>
+
+    <menu type="context" id="contextmenu">
+      <menuitem></menuitem>
+    </menu>
 
     {% if compiled %}
       <script src="/media/js/include.js" defer></script>
