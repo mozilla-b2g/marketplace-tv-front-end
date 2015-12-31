@@ -5,8 +5,20 @@
     <ul class="clearfix">
       {% for app in this %}
         <li class="app-list-app focusable" data-slug="{{ app.slug }}">
-          <img src="{{ app.icons['128'] }}"
-               alt="{{ app.name }}" title="{{ app.name }}">
+          {% if app.icons['128'] %}
+            <img src="{{ app.icons['128'] }}"
+                 alt="{{ app.name }}" title="{{ app.name }}">
+          {% elif app.icons['64'] %}
+            <img src="{{ app.icons['64'] }}"
+                 alt="{{ app.name }}" title="{{ app.name }}">
+          {% elif app.icons['48'] %}
+            <img src="{{ app.icons['48'] }}"
+                 alt="{{ app.name }}" title="{{ app.name }}">
+          {% elif app.icons['32'] %}
+            <img src="{{ app.icons['32'] }}"
+                 alt="{{ app.name }}" title="{{ app.name }}">
+          {% endif %}
+
           <span class="name">{{ app.name }}</span>
         </li>
       {% endfor %}
