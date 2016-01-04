@@ -105,8 +105,6 @@ define('views/homepage',
         $appPreviewPrice = $appPreview.find('.price');
 
         if (!caps.webApps) {
-            $appPreviewPrice.removeClass('hidden');
-
             return;
         }
 
@@ -117,8 +115,6 @@ define('views/homepage',
                     $appPreviewPrice.addClass('installed');
                 }
             });
-
-            $appPreviewPrice.removeClass('hidden');
         });
     });
 
