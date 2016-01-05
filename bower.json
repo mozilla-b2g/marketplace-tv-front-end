@@ -12,7 +12,7 @@
         "underscore": "1.4.4",
 
         "normalize.css": "~3.0.3",
-        "js-spatial-navigation": "git@github.com:luke-chang/js-spatial-navigation.git"
+        "js-spatial-navigation": "git://github.com/luke-chang/js-spatial-navigation.git"
     },
     "ignore": [
         "*.py",
