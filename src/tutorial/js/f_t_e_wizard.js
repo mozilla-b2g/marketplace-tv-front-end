@@ -47,6 +47,7 @@
     this.propagateKeyEvent = options.propagateKeyEvent || false;
     this._simpleKeyNavigation = new SimpleKeyNavigation();
     this._onfinish = options.onfinish;
+    this._onPageChange = options.onPageChange;
 
     this._pages =
             Array.from(this._container.getElementsByClassName(this._pageClass));
@@ -91,9 +92,12 @@
     }
 
     this._hide(this._currentPage);
-    attachTransitionEnd(
-      this._pages[++this._currentPage], this._updateNavigation.bind(this)
-    );
+    attachTransitionEnd(this._pages[++this._currentPage], function () {
+      this._updateNavigation();
+      if (typeof this._onPageChange == 'function') {
+        this._onPageChange(this._pages[this._currentPage]);
+      }
+    }.bind(this));
     this._show(this._currentPage);
   };
 
@@ -103,9 +107,12 @@
     }
 
     this._hide(this._currentPage);
-    attachTransitionEnd(
-      this._pages[--this._currentPage], this._updateNavigation.bind(this)
-    );
+    attachTransitionEnd(this._pages[--this._currentPage], function () {
+      this._updateNavigation();
+      if (typeof this._onPageChange == 'function') {
+        this._onPageChange(this._pages[this._currentPage]);
+      }
+    }.bind(this));
     this._show(this._currentPage);
   };
 
