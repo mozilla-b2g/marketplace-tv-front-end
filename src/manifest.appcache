@@ -1,6 +1,10 @@
 CACHE MANIFEST
 index.html
-offline.html
+offline/index.html
+offline/css/index.css
+offline/js/l10n.js
+offline/js/index.js
+offline/locales/marketplace-offline.en-US.properties
 
 NETWORK:
 *

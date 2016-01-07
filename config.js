@@ -38,7 +38,7 @@ var localConfig = extend(true, {
         'prod': {
             domain: 'https://marketplace.firefox.com',
             media_url: 'https://marketplace.cdn.mozilla.net/media/',
-            name: 'Marketplace',
+            name: 'Web Apps',
             origin: 'app://marketplace.firefox.com'
         },
         'dev': {

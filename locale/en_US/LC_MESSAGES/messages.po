@@ -1,0 +1,15 @@
+#: /media/js/views/homepage.js
+msgid "Homepage"
+msgstr "Homepage"
+
+#: /templates/_includes/app_preview.html
+msgid "Suggested"
+msgstr "Suggested"
+
+#: /templates/_includes/app_preview.html
+msgid "by {author}"
+msgstr "by {author}"
+
+#: /templates/_includes/app_preview.html
+msgid "Free"
+msgstr "Free"

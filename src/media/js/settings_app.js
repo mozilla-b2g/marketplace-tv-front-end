@@ -32,7 +32,7 @@ define('settings_app',
 
         switches: [],
 
-        title_suffix: 'Firefox Marketplace App'
+        title_suffix: 'Firefox Web Apps'
     });
 
     settings._extend(settingsLocal);

@@ -25,14 +25,15 @@ var packageFilesWhitelist = [
     // include.js not included since it is written straight to package folder.
     // Locale files will be dynamically whitelisted later.
     'src/index.html',
-    'src/offline.html',
     'src/manifest.appcache',
     'src/app-icons/*.png',
     'src/media/css/include.css',
-    'src/media/css/splash.css',
     'src/media/fonts/FiraSans/firasansot-light-webfont.*',
     'src/media/fonts/FiraSans/firasansot-regular-webfont.*',
-    'src/media/js/l10n.js',
+    'src/offline/*',
+    'src/offline/css/*',
+    'src/offline/js/*',
+    'src/offline/locales/*',
     'src/tutorial/*',
     'src/tutorial/css/*',
     'src/tutorial/img/*',
@@ -171,10 +172,10 @@ function getLanguageWhitelist() {
     // var template = fs.readFileSync('src/app.html').toString();
     // var langMatch = template.match(/<body data-languages="\[(.*?)\]"?/);
     // var langs = langMatch[1].replace(/&#34;/g, '').replace(/\s/g, '').split(',');
-    // return langs.map(function(lang) {
-    //     return 'src/media/locales/' + lang + '.js';
-    // });
-    return [];
+    var langs = ['en-US'];
+    return langs.map(function(lang) {
+        return 'src/media/locales/' + lang + '.js';
+    });
 }
 
 
