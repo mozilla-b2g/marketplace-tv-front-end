@@ -76,10 +76,14 @@ define('views/homepage',
     });
 
     z.page.on('focus', '.focusable', function() {
-        var $appPreviewPrice;
-
         var focusedApp = appsModel.lookup(this.dataset.slug);
         var focusedManifestURL = focusedApp.manifest_url;
+
+        var $appPreviewName;
+        var $appPreviewNameText;
+        var $appPreviewPrice;
+
+        var appPreviewNameOverflowLength;
 
         // Update context menu's label
         if (focusedApp.doc_type === 'webapp') {
@@ -102,7 +106,68 @@ define('views/homepage',
             })
         );
 
+        $appPreviewName = $appPreview.find('.name');
+        $appPreviewNameText = $appPreview.find('.text');
         $appPreviewPrice = $appPreview.find('.price');
+
+        // Set app preview area name's text carousel.
+        appPreviewNameOverflowLength =
+            $appPreviewName.width() - $appPreviewNameText.width();
+
+        if (appPreviewNameOverflowLength < 0) {
+            // Save space for italic font style.
+            appPreviewNameOverflowLength -= 5;
+
+            // Recursively calling this function to make the carousel effect.
+            var carousel = function(delay) {
+                // Delay time will be 0 if there is no transition duration is given.
+                delay = delay || 0;
+
+                // Check if we are still previewing the same app.
+                // If not, the recursive stops.
+                if ($appPreview.has($appPreviewName).length) {
+                    // Default waiting time is 3 sec, so the total waiting time
+                    // will be transition duration plus 3 sec.
+                    setTimeout(function() {
+                        // Check if the text has been indented or not.
+                        var appPreviewNameIndentLength =
+                            parseInt($appPreviewName.css('text-indent'));
+
+                        if (appPreviewNameIndentLength < 0) {
+                            // Go back directly to the begin of the text without transition.
+                            $appPreviewName.css({
+                                'text-indent': 0,
+                                'transition': 'none',
+                                'text-overflow': 'ellipsis'
+                            });
+
+                            // No transition duration.
+                            carousel();
+                        } else {
+                            // Transition duration will be decided by how much the length exceed.
+                            var duration = appPreviewNameOverflowLength * -8;
+
+                            // Move the text smoothly with text indent transition.
+                            // Text overflow will temporary been unset since its
+                            // harder to read with ellipsis when the text is moving.
+                            $appPreviewName.css({
+                                'text-indent': appPreviewNameOverflowLength,
+                                'transition-property': 'text-indent',
+                                'transition-duration': (duration / 1000) + 's',
+                                'transition-timing-function': 'linear',
+                                'text-overflow': 'unset'
+                            });
+
+                            // Transition duration should be added to the next waiting time.
+                            carousel(duration);
+                        }
+                    }, delay + 3000);
+                }
+            };
+
+            // Starts the carousel. Will wait for 3 sec at the first time before starting.
+            carousel();
+        }
 
         if (!caps.webApps) {
             return;
