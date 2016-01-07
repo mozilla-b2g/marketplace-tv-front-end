@@ -13,4 +13,8 @@
       location.href = '../index.html';
     }
   });
+
+  window.oncontextmenu = function() {
+    return false;
+  };
 })();
