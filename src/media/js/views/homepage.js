@@ -30,6 +30,13 @@ define('views/homepage',
         selector: '.focusable'
     });
 
+    // Prevent back button so the website will not go back to the tutorial page.
+    document.onkeyup = function(e) {
+        if (e.keyCode === 27) { // Esc key
+            e.preventDefault();
+        }
+    };
+
     z.page.on('loaded', function() {
         $appPreview = z.page.find('.app-preview');
         $appList = z.page.find('.app-list');
