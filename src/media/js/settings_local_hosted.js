@@ -3,8 +3,8 @@ define('settings_local',
     function(polyfill) {
 
     // core/polyfill is needed for `window.location.origin`.
-    settings._extend({
+    return {
         api_url: window.location.origin,
         media_url: document.body.getAttribute('data-media')
-    });
+    };
 });
