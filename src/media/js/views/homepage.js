@@ -169,18 +169,7 @@ define('views/homepage',
             carousel();
         }
 
-        if (!caps.webApps) {
-            return;
-        }
-
-        // Update type when app is already installed.
-        apps.getInstalled().done(function(installedApps) {
-            installedApps.map(function(installedManifestURL) {
-                if (installedManifestURL === focusedManifestURL) {
-                    $appPreviewPrice.addClass('installed');
-                }
-            });
-        });
+        $appPreviewPrice.removeClass('hidden');
     });
 
     z.page.on('keydown mousedown touchstart', '.focusable', function(e) {
