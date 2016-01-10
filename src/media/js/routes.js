@@ -4,7 +4,8 @@ define('routes',
 
     router.addRoutes([
         {pattern: '^/$', view_name: 'homepage'},
-        {pattern: '^/index.html$', view_name: 'homepage'}
+        {pattern: '^/index.html$', view_name: 'homepage'},
+        {pattern: '^/tv', view_name: 'homepage'}
     ]);
 
     router.api.addRoutes({
