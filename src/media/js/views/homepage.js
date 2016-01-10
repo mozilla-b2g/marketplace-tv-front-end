@@ -76,7 +76,7 @@ define('views/homepage',
     });
 
     z.page.on('focus', '.focusable', function() {
-        var focusedApp = appsModel.lookup(this.dataset.slug);
+        var focusedApp = appsModel.lookup(this.dataset.id);
         var focusedManifestURL = focusedApp.manifest_url;
 
         var $appPreviewName;
@@ -205,7 +205,7 @@ define('views/homepage',
             }
 
             // Preview current focused app.
-            var focusedApp = appsModel.lookup(this.dataset.slug);
+            var focusedApp = appsModel.lookup(this.dataset.id);
 
             if (focusedApp.doc_type === 'webapp') {
                 var focusedManifestURL = focusedApp.manifest_url;
