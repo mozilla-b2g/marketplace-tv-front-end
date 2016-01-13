@@ -64,7 +64,7 @@
 /**
  * rounded-corner text button
  */
-.smart-button[type="rounded-corner-text"] {
+.smart-button[data-type="rounded-corner-text"] {
   -moz-user-select: none;
   width: auto;
   height: 8rem;
@@ -79,30 +79,30 @@
   transition-property: transform, color, background-color;
 }
 
-.smart-button[type="rounded-corner-text"].focused,
-.smart-button[type="rounded-corner-text"]:hover {
+.smart-button[data-type="rounded-corner-text"].focused,
+.smart-button[data-type="rounded-corner-text"]:hover {
   transform: scale(1.2);
   color: #2d2d2d;
   background-color: white;
 }
 
-.smart-button[type="rounded-corner-text"].pressed {
+.smart-button[data-type="rounded-corner-text"].pressed {
   transform: scale(1);
   color: white;
   background-color: #5f6368;
 }
 
-.smart-button[type="rounded-corner-text"].primary {
+.smart-button[data-type="rounded-corner-text"].primary {
   background-color: #00caf2;
 }
 
-.smart-button[type="rounded-corner-text"].primary:hover,
-.smart-button[type="rounded-corner-text"].primary.focused {
+.smart-button[data-type="rounded-corner-text"].primary:hover,
+.smart-button[data-type="rounded-corner-text"].primary.focused {
   color: #ffffff;
   background-color: #00caf2;
 }
 
-.smart-button[type="rounded-corner-text"].primary.pressed {
+.smart-button[data-type="rounded-corner-text"].primary.pressed {
   background-color: #0097b5;
 }
 

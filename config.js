@@ -26,11 +26,11 @@ var localConfig = extend(true, {
         // [Module name]: [Module path].
         paths: {
             // 'isotope': 'lib/isotope.pkgd',
-            'spatial-navigation': 'lib/spatial_navigation'
+            'lib/spatial_navigation': 'lib/spatial_navigation'
         },
         shim: {
             // 'underscore': { 'exports': '_' }
-            'spatial-navigation': { 'exports': 'SpatialNavigation' }
+            'lib/spatial_navigation': { 'exports': 'SpatialNavigation' }
         }
     },
     PORT: 8674,

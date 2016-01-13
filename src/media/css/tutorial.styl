@@ -1,0 +1,123 @@
+/**
+ * Tutorial styles.
+ */
+
+@import 'lib';
+
+.tutorial-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    background-color: $greyscale-black;
+}
+
+.slide {
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+    min-width: 192rem;
+    min-height: 108rem;
+
+    transition: opacity 1s;
+
+    &.hidden {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+
+        transition: none;
+
+        .slide-button {
+            display: none;
+        }
+    }
+}
+
+.slide-section-top,
+.slide-section-bottom {
+    position: absolute;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.slide-section-top {
+    top: 3.5rem;
+
+    width: 150rem;
+    height: 8rem;
+
+    font-size: 3.8rem;
+    font-style: italic;
+    line-height: 8rem;
+    text-align: center;
+
+    color: $greyscale-white;
+
+    .circle {
+        display: inline-block;
+        margin: 0 .5rem;
+        border-radius: 4rem;
+        box-shadow: .5rem .5rem .5rem rgba(0, 0, 0, .5);
+
+        font-size: 4.5rem;
+        text-align: center;
+
+        background-color: $greyscale-black;
+    }
+
+    .ok-key {
+        width: 8rem;
+    }
+
+    .option-key {
+        width: 22rem;
+    }
+
+    .apps-key {
+        width: 16rem;
+    }
+}
+
+.slide-section-mid {
+    width: 100%;
+    height: 100%;
+}
+
+.slide-section-bottom {
+    bottom: 5.5rem;
+}
+
+.slide-image {
+    width: 100%;
+    height: 100%;
+}
+
+for num in (1..3) {
+    .slide-image-0{num} {
+        background-image: url('../img/tutorial_' + num + '.png');
+    }
+}
+
+.slide-button {
+    &::-moz-focus-inner {
+        border: 0;
+    }
+
+    &[data-type="rounded-corner-text"] {
+        width: 30.4rem;
+        margin: 0 1.5rem;
+
+        font-family: $primary-font-family;
+        font-size: 4.5rem;
+
+        background-image: none;
+    }
+}

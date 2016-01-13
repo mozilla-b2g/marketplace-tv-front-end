@@ -5,6 +5,7 @@ define('routes',
     router.addRoutes([
         {pattern: '^/$', view_name: 'homepage'},
         {pattern: '^/index.html$', view_name: 'homepage'},
+        {pattern: '^/tv/tutorial', view_name: 'tutorial'},
         {pattern: '^/tv', view_name: 'homepage'}
     ]);
 
