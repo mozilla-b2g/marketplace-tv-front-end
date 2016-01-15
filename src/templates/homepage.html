@@ -1,7 +1,7 @@
 <div class="app-preview"></div>
 
 <div class="app-list">
-  {% defer (url=api('apps'), pluck='objects', as='apps', key='id') %}
+  {% defer (url=api('apps'), id='app-list', pluck='objects', as='apps', key='id') %}
     <ul class="clearfix">
       {% for app in this %}
         <li class="app-list-app focusable" data-id="{{ app.id }}">

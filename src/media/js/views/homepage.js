@@ -212,5 +212,9 @@ define('views/homepage',
 
         builder.z('type', 'root');
         builder.z('title', gettext('Homepage'));
+
+        builder.onload('app-list').fail(function() {
+            z.page.trigger('navigate', '/tv/offline/');
+        });
     };
 });
