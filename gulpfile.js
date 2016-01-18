@@ -25,15 +25,9 @@ var packageFilesWhitelist = [
     // include.js not included since it is written straight to package folder.
     // Locale files will be dynamically whitelisted later.
     'src/index.html',
-    'src/manifest.appcache',
     'src/app-icons/*.png',
     'src/media/css/include.css',
-    'src/media/fonts/FiraSans/firasansot-light-webfont.*',
     'src/media/fonts/FiraSans/firasansot-regular-webfont.*',
-    'src/offline/*',
-    'src/offline/css/*',
-    'src/offline/js/*',
-    'src/offline/locales/*',
     'src/tutorial/*',
     'src/tutorial/css/*',
     'src/tutorial/img/*',

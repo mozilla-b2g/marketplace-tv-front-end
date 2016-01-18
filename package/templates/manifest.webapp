@@ -9,7 +9,6 @@
         "336": "media/img/app-icons/appic_web_apps.png"
     },
     "launch_path": "index.html",
-    "appcache_path": "manifest.appcache",
     "name": "{name}",
     "origin": "{origin}",
     "type": "web",
