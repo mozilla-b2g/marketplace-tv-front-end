@@ -19,32 +19,24 @@ msgid "Free"
 msgstr "Free"
 
 #: /templates/tutorial.html
-msgid "Press"
-msgstr "Press"
+msgid "Press <b>OK</b> to open and use an app"
+msgstr "Press <b>OK</b> to open and use an app"
 
 #: /templates/tutorial.html
-msgid "OK"
-msgstr "OK"
+msgid "Press <b>OPTION</b> to add an app to the Apps folder"
+msgstr "Press <b>OPTION</b> to add an app to the Apps folder"
 
 #: /templates/tutorial.html
-msgid "to open and use an app"
-msgstr "to open and use an app"
+msgid "Press <b>APPS</b> to see apps added to the Apps folder"
+msgstr "Press <b>APPS</b> to see apps added to the Apps folder"
 
 #: /templates/tutorial.html
-msgid "OPTION"
-msgstr "OPTION"
+msgid "Add to Apps"
+msgstr "Add to Apps"
 
 #: /templates/tutorial.html
-msgid "to add an app to the Apps folder"
-msgstr "to add an app to the Apps folder"
-
-#: /templates/tutorial.html
-msgid "APPS"
-msgstr "APPS"
-
-#: /templates/tutorial.html
-msgid "to see apps added to the Apps folder"
-msgstr "to see apps added to the Apps folder"
+msgid "Apps"
+msgstr "Apps"
 
 #: /templates/tutorial.html
 msgid "Next"

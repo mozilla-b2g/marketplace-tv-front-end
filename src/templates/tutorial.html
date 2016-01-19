@@ -2,22 +2,24 @@
   {% for i in range(1, 4) %}
     <div class="slide {% if i > 1 %} hidden {% endif %}">
       <div class="slide-section-top">
-        <span>{{ _('Press') }}</span>
-
         {% if i == 1 %}
-          <span class="circle ok-key">{{ _('OK') }}</span>
-          <span>{{ _('key to open and use an app') }}</span>
+          <span>{{ _('Press <b>OK</b> to open and use an app') }}</span>
         {% elif i == 2 %}
-          <span class="circle option-key">{{ _('OPTION') }}</span>
-          <span>{{ _('to add an app to the Apps folder') }}</span>
+          <span>{{ _('Press <b>OPTION</b> to add an app to the Apps folder') }}</span>
         {% elif i == 3 %}
-          <span class="circle apps-key">{{ _('APPS') }}</span>
-          <span>{{ _('to see apps added to the Apps folder') }}</span>
+          <span>{{ _('Press <b>APPS</b> to see apps added to the Apps folder') }}</span>
         {% endif %}
       </div>
 
       <div class="slide-section-mid">
         <div class="slide-image slide-image-0{{ i }}"></div>
+        {% if i == 2 %}
+          <div class="circle">
+            <span>{{ _('Add to Apps') }}</span>
+          </div>
+        {% elif i == 3 %}
+          <span class="text">{{ _('Apps') }}</span>
+        {% endif %}
       </div>
 
       <div class="slide-section-bottom">
