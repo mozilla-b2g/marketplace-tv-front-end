@@ -2,6 +2,10 @@
 msgid "Homepage"
 msgstr "Homepage"
 
+#: /media/js/views/tutorial.js
+msgid "Tutorial"
+msgstr "Tutorial"
+
 #: /templates/_includes/app_preview.html
 msgid "Suggested"
 msgstr "Suggested"
@@ -13,3 +17,43 @@ msgstr "by {author}"
 #: /templates/_includes/app_preview.html
 msgid "Free"
 msgstr "Free"
+
+#: /templates/tutorial.html
+msgid "Press"
+msgstr "Press"
+
+#: /templates/tutorial.html
+msgid "OK"
+msgstr "OK"
+
+#: /templates/tutorial.html
+msgid "to open and use an app"
+msgstr "to open and use an app"
+
+#: /templates/tutorial.html
+msgid "OPTION"
+msgstr "OPTION"
+
+#: /templates/tutorial.html
+msgid "to add an app to the Apps folder"
+msgstr "to add an app to the Apps folder"
+
+#: /templates/tutorial.html
+msgid "APPS"
+msgstr "APPS"
+
+#: /templates/tutorial.html
+msgid "to see apps added to the Apps folder"
+msgstr "to see apps added to the Apps folder"
+
+#: /templates/tutorial.html
+msgid "Next"
+msgstr "Next"
+
+#: /templates/tutorial.html
+msgid "Back"
+msgstr "Back"
+
+#: /templates/tutorial.html
+msgid "Done"
+msgstr "Done"

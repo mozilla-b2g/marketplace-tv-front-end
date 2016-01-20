@@ -1,8 +1,8 @@
 define('views/homepage',
     ['apps', 'core/capabilities', 'core/l10n', 'core/models', 'core/z',
-     'templates', 'spatial-navigation'],
+     'templates', 'smart_button', 'spatial_navigation'],
     function(apps, caps, l10n, models, z,
-             nunjucks, SpatialNavigation) {
+             nunjucks, smartButton, SpatialNavigation) {
     var gettext = l10n.gettext;
     var appsModel = models('apps');
 
@@ -22,14 +22,6 @@ define('views/homepage',
         return icons[maxIconSize];
     }
 
-    // Initialize spatial navigation.
-    SpatialNavigation.init();
-
-    // Define the navigable elements.
-    SpatialNavigation.add({
-        selector: '.focusable'
-    });
-
     // Prevent back button so the website will not go back to the tutorial page.
     document.onkeyup = function(e) {
         if (e.keyCode === 27) { // Esc key
@@ -37,20 +29,18 @@ define('views/homepage',
         }
     };
 
-    z.page.on('loaded', function() {
-        $appPreview = z.page.find('.app-preview');
-        $appList = z.page.find('.app-list');
+    z.page.on('loaded reloaded_chrome', function() {
+        if (z.page.find('.app-preview').length) {
+            $appPreview = z.page.find('.app-preview');
+            $appList = z.page.find('.app-list');
 
-        appListHeight = $appList.innerHeight();
+            appListHeight = $appList.innerHeight();
 
-        // Add 'tabindex="-1"' to "currently-existing" navigable elements.
-        SpatialNavigation.makeFocusable();
-
-        // Focus the first navigable element.
-        SpatialNavigation.focus();
+            SpatialNavigation.startFocus();
+        }
     });
 
-    z.page.on('sn:willfocus', '.focusable', function() {
+    z.page.on('sn:willfocus', '.app-list-app', function() {
         SpatialNavigation.pause();
 
         var callback = function() {
@@ -82,7 +72,7 @@ define('views/homepage',
         return false;
     });
 
-    z.page.on('focus', '.focusable', function() {
+    z.page.on('focus', '.app-list-app', function() {
         var focusedApp = appsModel.lookup(this.dataset.id);
         var focusedManifestURL = focusedApp.manifest_url;
 
@@ -103,8 +93,6 @@ define('views/homepage',
         } else {
             appContextMenu.label = '';
         }
-
-        this.classList.add('focused');
 
         // Update app preview area with current focused app.
         $appPreview.html(
@@ -179,67 +167,44 @@ define('views/homepage',
         $appPreviewPrice.removeClass('hidden');
     });
 
-    z.page.on('keydown mousedown touchstart', '.focusable', function(e) {
-        if (e.type === 'keydown' && e.keyCode !== KeyEvent.DOM_VK_RETURN) {
+    z.page.on('keyup', '.app-list-app', function(e) {
+        if (e.keyCode !== KeyEvent.DOM_VK_RETURN || !caps.webApps) {
             return;
         }
 
-        this.classList.add('pressed');
-    });
+        // Preview current focused app.
+        var focusedApp = appsModel.lookup(this.dataset.id);
 
-    z.page.on('keyup mouseup touchend', '.focusable', function(e) {
-        if (e.type === 'keyup' && e.keyCode !== KeyEvent.DOM_VK_RETURN) {
-            return;
-        }
+        if (focusedApp.doc_type === 'webapp') {
+            var focusedManifestURL = focusedApp.manifest_url;
 
-        this.classList.remove('pressed');
-        this.classList.add('released');
-
-        if (e.type === 'keyup') {
-            if (!caps.webApps) {
-                return;
-            }
-
-            // Preview current focused app.
-            var focusedApp = appsModel.lookup(this.dataset.id);
-
-            if (focusedApp.doc_type === 'webapp') {
-                var focusedManifestURL = focusedApp.manifest_url;
-
-                apps.getInstalled().done(function(installedApps) {
-                    // Check if app is installed.
-                    var isInstalled = installedApps.some(function(installedManifestURL) {
-                        return focusedManifestURL === installedManifestURL;
-                    });
-
-                    if (isInstalled) {
-                        apps.launch(focusedManifestURL);
-                    } else {
-                        apps.install(focusedApp);
-                    }
+            apps.getInstalled().done(function(installedApps) {
+                // Check if app is installed.
+                var isInstalled = installedApps.some(function(installedManifestURL) {
+                    return focusedManifestURL === installedManifestURL;
                 });
-            } else {
-                window.open(focusedApp.url, '_blank',
-                    'remote=true,preview=true' +
-                    ',name=' + encodeURIComponent(focusedApp.name) +
-                    ',iconUrl=' + encodeURIComponent(findLargestIcon(focusedApp.icons)));
-            }
-        }
-    });
 
-    z.page.on('transitionend', '.focusable', function() {
-        if (this.classList.contains('released')) {
-            this.classList.remove('released');
+                if (isInstalled) {
+                    apps.launch(focusedManifestURL);
+                } else {
+                    apps.install(focusedApp);
+                }
+            });
+        } else {
+            window.open(focusedApp.url, '_blank',
+                'remote=true,preview=true' +
+                ',name=' + encodeURIComponent(focusedApp.name) +
+                ',iconUrl=' + encodeURIComponent(findLargestIcon(focusedApp.icons)));
         }
-    });
-
-    z.page.on('blur', '.focusable', function() {
-        this.classList.remove('focused');
-        this.classList.remove('pressed');
-        this.classList.remove('released');
     });
 
     return function(builder) {
+        if (!localStorage.getItem('marketplace.tutorial.fteskip')) {
+             z.page.trigger('navigate', '/tv/tutorial/');
+
+             return;
+        }
+
         builder.start('homepage.html');
 
         builder.z('type', 'root');
