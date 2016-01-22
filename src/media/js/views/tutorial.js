@@ -3,9 +3,34 @@ define('views/tutorial',
     function(l10n, z, smartButton, SpatialNavigation) {
     var gettext = l10n.gettext;
 
+    var imageLoader = document.createElement('img');
+
+    // Ensure background image is loaded.
+    function loadBackgroundImage($slide, callback) {
+        imageLoader.src = $slide.find('.slide-image')
+                                .css('background-image')
+                                .replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
+
+        imageLoader.onload = function() {
+            $slide.removeClass('invisible');
+
+            callback();
+        };
+
+        imageLoader.onerror = function() {
+            localStorage.setItem('marketplace.tutorial.fteskip', true);
+
+            z.page.trigger('navigate', '/tv/');
+        };
+    }
+
     z.page.on('loaded reloaded_chrome', function() {
         if (z.page.find('.tutorial-container').length) {
-            SpatialNavigation.startFocus();
+            var $slide = z.page.find('.invisible');
+
+            loadBackgroundImage($slide, function() {
+                SpatialNavigation.startFocus();
+            });
         }
     });
 
@@ -21,16 +46,22 @@ define('views/tutorial',
             var $prevSlide = $slide.prev();
 
             $slide.addClass('hidden');
-            $prevSlide.removeClass('hidden');
+            $prevSlide.addClass('invisible')
+                      .removeClass('hidden');
 
-            SpatialNavigation.focus($prevSlide.find('.primary'));
+            loadBackgroundImage($prevSlide, function() {
+                SpatialNavigation.focus($prevSlide.find('.primary'));
+            });
         } else if (behavior === 'next') {
             var $nextSlide = $slide.next();
 
             $slide.addClass('hidden');
-            $nextSlide.removeClass('hidden');
+            $nextSlide.addClass('invisible')
+                      .removeClass('hidden');
 
-            SpatialNavigation.focus($nextSlide.find('.primary'));
+            loadBackgroundImage($nextSlide, function() {
+                SpatialNavigation.focus($nextSlide.find('.primary'));
+            });
         } else if (behavior === 'finish') {
             $slide.addClass('hidden');
 
