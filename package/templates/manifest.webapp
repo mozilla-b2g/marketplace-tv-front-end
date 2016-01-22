@@ -6,7 +6,7 @@
         "url": "http://mozilla.org"
     },
     "icons": {
-        "336": "app-icons/appic_web_apps.png"
+        "336": "media/img/app-icons/appic_web_apps.png"
     },
     "launch_path": "index.html",
     "appcache_path": "manifest.appcache",
