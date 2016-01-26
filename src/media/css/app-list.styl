@@ -38,6 +38,10 @@ $app-list-background-color = #CBCDCD;
 
     smart-button-animation();
 
+    &:focus {
+        outline: 0;
+    }
+
     &.focused {
         transform: scale(1.4);
 
@@ -78,36 +82,34 @@ $app-list-background-color = #CBCDCD;
 
         color: $greyscale-light-grey;
         background-color: $greyscale-light-grey;
-
-        backface-visibility: hidden;
+        background-size: 100% auto;
+        background-position: center center;
 
         smart-button-animation();
-    }
 
-    img {
-        width: 100%;
-        height: auto;
-    }
+        &::after {
+            content: attr(data-name);
+            box-sizing: border-box;
 
-    .name {
-        position: absolute;
-        bottom: 0;
-        left: 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
 
-        width: 100%;
-        height: 6rem;
-        padding: 1rem 3rem 0;
-        overflow: hidden;
+            width: 100%;
+            height: 6rem;
+            padding: 1rem 3rem 0;
+            overflow: hidden;
 
-        font-size: 1.6rem;
-        font-style: italic;
-        line-height: 2.2rem;
-        text-align: center;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+            font-size: 1.6rem;
+            font-style: italic;
+            line-height: 2.2rem;
+            text-align: center;
+            white-space: nowrap;
+            text-overflow: ellipsis;
 
-        color: $greyscale-white;
-        background-color: rgba(0, 0, 0, .4);
+            color: $greyscale-white;
+            background-color: rgba(0, 0, 0, .4);
+        }
     }
 
     .star {
