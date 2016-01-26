@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="manifest.appcache">
+<html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no,
@@ -19,14 +19,6 @@
       <link rel="stylesheet" href="/media/css/smart-button.styl.css">
       <link rel="stylesheet" href="/media/css/tutorial.styl.css">
     {% endif %}
-
-    <script>
-      (function(navigator) {
-        if (!navigator.onLine) {
-          location.href = 'offline/index.html';
-        }
-      })(window.navigator);
-    </script>
   </head>
 
   <body class="home" data-media="media/" contextmenu="contextmenu">
