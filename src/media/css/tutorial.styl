@@ -58,37 +58,76 @@
     font-style: italic;
     line-height: 8rem;
     text-align: center;
+    text-shadow: 0 0 5px rgba(0, 0, 0, .5);
 
     color: $greyscale-white;
 
-    .circle {
+    b {
         display: inline-block;
         margin: 0 .5rem;
+        padding: 0 4rem;
         border-radius: 4rem;
-        box-shadow: .5rem .5rem .5rem rgba(0, 0, 0, .5);
+        box-shadow: 0 0 5px rgba(0, 0, 0, .5);
 
         font-size: 4.5rem;
+        font-weight: normal;
+        text-indent: -.8rem;
         text-align: center;
 
         background-color: $greyscale-black;
-    }
-
-    .ok-key {
-        width: 8rem;
-    }
-
-    .option-key {
-        width: 22rem;
-    }
-
-    .apps-key {
-        width: 16rem;
     }
 }
 
 .slide-section-mid {
     width: 100%;
     height: 100%;
+
+    .circle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 21.8rem;
+        height: 21.8rem;
+        margin: -10.9rem 0 0 -10.9rem;
+        padding: 4.5rem 0;
+        border-radius: 50%;
+
+        font-size: 1.9rem;
+        font-style: italic;
+        line-height: 2.5rem;
+        text-align: center;
+
+        color: $greyscale-black;
+        background-color: $greyscale-white;
+
+        &::before {
+            content: '';
+
+            display: block;
+            width: 9rem;
+            height: 9rem;
+            margin: 0 auto 1.3rem;
+
+            background-image: url('../img/tutorial_install.png');
+        }
+    }
+
+    .text {
+        position: absolute;
+        top: 19.5rem;
+        left: 50%;
+
+        width: 50rem;
+        margin-left: -25rem;
+
+        font-size: 4.2rem;
+        font-style: italic;
+        line-height: 4.2rem;
+        text-align: center;
+
+        color: $greyscale-white;
+    }
 }
 
 .slide-section-bottom {
@@ -112,11 +151,10 @@ for num in (1..3) {
     }
 
     &[data-type="rounded-corner-text"] {
-        width: 30.4rem;
-        margin: 0 1.5rem;
+        width: 23.7rem;
+        margin: 0 2rem;
 
         font-family: $primary-font-family;
-        font-size: 4.5rem;
 
         background-image: none;
     }
