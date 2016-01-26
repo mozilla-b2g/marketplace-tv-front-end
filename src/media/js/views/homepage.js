@@ -6,10 +6,9 @@ define('views/homepage',
     var gettext = l10n.gettext;
     var appsModel = models('apps');
 
-    var appContextMenu = document.getElementById('contextmenu').children[0];
-
     var $appPreview;
     var $appList;
+    var $appContextMenuItem;
 
     var appListHeight;
 
@@ -33,6 +32,7 @@ define('views/homepage',
         if (z.page.find('.app-preview').length) {
             $appPreview = z.page.find('.app-preview');
             $appList = z.page.find('.app-list');
+            $appContextMenuItem = z.page.find('.contextmenu-item');
 
             appListHeight = $appList.innerHeight();
 
@@ -84,14 +84,14 @@ define('views/homepage',
 
         // Update context menu's label
         if (focusedApp.doc_type === 'webapp') {
-            appContextMenu.label = '#app:' + focusedManifestURL;
+            $appContextMenuItem.attr('label', '#app:' + focusedManifestURL);
         } else if (focusedApp.doc_type === 'website') {
-            appContextMenu.label = '#website:' +
-                                    encodeURIComponent(focusedApp.url) + ',' +
-                                    encodeURIComponent(focusedApp.name) + ',' +
-                                    encodeURIComponent(findLargestIcon(focusedApp.icons));
+            $appContextMenuItem.attr('label', '#website:' +
+                encodeURIComponent(focusedApp.url) + ',' +
+                encodeURIComponent(focusedApp.name) + ',' +
+                encodeURIComponent(findLargestIcon(focusedApp.icons)));
         } else {
-            appContextMenu.label = '';
+            $appContextMenuItem.attr('label', '');
         }
 
         // Update app preview area with current focused app.
