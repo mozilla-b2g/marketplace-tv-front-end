@@ -1,6 +1,6 @@
 <div class="tutorial-container">
   {% for i in range(1, 4) %}
-    <div class="slide {% if i > 1 %} hidden {% endif %}">
+    <div class="slide {% if i > 1 %} hidden {% else %} invisible {% endif %}">
       <div class="slide-section-top">
         {% if i == 1 %}
           <span>{{ _('Press <b>OK</b> to open and use an app') }}</span>
