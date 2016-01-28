@@ -22,11 +22,14 @@ define('views/homepage',
     }
 
     // Prevent back button so the website will not go back to the tutorial page.
-    document.onkeyup = function(e) {
-        if (e.keyCode === 27) { // Esc key
-            e.preventDefault();
+    window.addEventListener('keydown', function(e) {
+        if (e.keyCode === window.KeyEvent.DOM_VK_BACK_SPACE ||
+            e.key === 'Backspace') {
+            if (z.page.find('.app-preview').length) {
+                e.preventDefault();
+            }
         }
-    };
+    });
 
     z.page.on('loaded reloaded_chrome', function() {
         if (z.page.find('.app-preview').length) {
@@ -168,7 +171,7 @@ define('views/homepage',
     });
 
     z.page.on('keyup', '.app-list-app', function(e) {
-        if (e.keyCode !== KeyEvent.DOM_VK_RETURN || !caps.webApps) {
+        if (e.keyCode !== window.KeyEvent.DOM_VK_RETURN || !caps.webApps) {
             return;
         }
 
