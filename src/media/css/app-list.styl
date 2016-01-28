@@ -87,6 +87,10 @@ $app-list-background-color = #CBCDCD;
 
         smart-button-animation();
 
+        &:focus {
+            outline: 0;
+        }
+
         &::after {
             content: attr(data-name);
             box-sizing: border-box;
