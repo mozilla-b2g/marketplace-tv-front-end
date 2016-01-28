@@ -24,6 +24,29 @@ define('views/tutorial',
         };
     }
 
+    // Enable back button going back to the previous slide.
+    window.addEventListener('keydown', function(e) {
+        if (e.keyCode === window.KeyEvent.DOM_VK_BACK_SPACE ||
+            e.key === 'Backspace') {
+            if (z.page.find('.tutorial-container').length) {
+                e.preventDefault();
+
+                var $slide = z.page.find('.slide').not('.hidden');
+                var $prevSlide = $slide.prev();
+
+                if ($prevSlide.length) {
+                    $slide.addClass('hidden');
+                    $prevSlide.addClass('invisible')
+                              .removeClass('hidden');
+
+                    loadBackgroundImage($prevSlide, function() {
+                        SpatialNavigation.focus($prevSlide.find('.primary'));
+                    });
+                }
+            }
+        }
+    });
+
     z.page.on('loaded reloaded_chrome', function() {
         if (z.page.find('.tutorial-container').length) {
             var $slide = z.page.find('.invisible');
@@ -35,7 +58,7 @@ define('views/tutorial',
     });
 
     z.page.on('keyup', '.slide-button', function(e) {
-        if (e.keyCode !== KeyEvent.DOM_VK_RETURN) {
+        if (e.keyCode !== window.KeyEvent.DOM_VK_RETURN) {
             return;
         }
 
