@@ -17,8 +17,8 @@
     <span class="text">{{ app.name }}</span>
   </h1>
   <div class="provider">
-    {% if app.author %}
-      <span>{{ _('by {author}')|format(author=app.author) }}</span>
+    {% if app.developer_name %}
+      <span>{{ _('by {author}')|format(author=app.developer_name) }}</span>
     {% endif %}
   </div>
   <span class="price hidden">{{ _('Free') }}</span>
