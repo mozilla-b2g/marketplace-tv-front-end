@@ -4,24 +4,26 @@
   {% defer (url=api('apps'), id='app-list', pluck='objects', as='apps', key='id') %}
     <ul class="clearfix">
       {% for app in this %}
-        <li class="app-list-app focusable" data-id="{{ app.id }}">
-          {% if app.icons['128'] %}
-            <div class="icon" data-name="{{ app.name }}"
-                 style="background-image: url('{{ app.icons['128'] }}');"></div>
-          {% elif app.icons['64'] %}
-            <div class="icon" data-name="{{ app.name }}"
-                 style="background-image: url('{{ app.icons['64'] }}');"></div>
-          {% elif app.icons['48'] %}
-            <div class="icon" data-name="{{ app.name }}"
-                 style="background-image: url('{{ app.icons['48'] }}');"></div>
-          {% elif app.icons['32'] %}
-            <div class="icon" data-name="{{ app.name }}"
-                 style="background-image: url('{{ app.icons['32'] }}');"></div>
-          {% endif %}
+        <li class="smart-button focusable" data-id="{{ app.id }}">
+          <div class="app-list-app">
+            {% if app.icons['128'] %}
+              <div class="icon" data-name="{{ app.name }}"
+                   style="background-image: url('{{ app.icons['128'] }}');"></div>
+            {% elif app.icons['64'] %}
+              <div class="icon" data-name="{{ app.name }}"
+                   style="background-image: url('{{ app.icons['64'] }}');"></div>
+            {% elif app.icons['48'] %}
+              <div class="icon" data-name="{{ app.name }}"
+                   style="background-image: url('{{ app.icons['48'] }}');"></div>
+            {% elif app.icons['32'] %}
+              <div class="icon" data-name="{{ app.name }}"
+                   style="background-image: url('{{ app.icons['32'] }}');"></div>
+            {% endif %}
 
-          {% if app.tv_featured %}
-            <span class="star" data-icon="bookmark-on"></span>
-          {% endif %}
+            {% if app.tv_featured %}
+              <span class="star" data-icon="bookmark-on"></span>
+            {% endif %}
+          </div>
         </li>
       {% endfor %}
     </ul>
