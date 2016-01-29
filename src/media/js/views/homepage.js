@@ -43,7 +43,7 @@ define('views/homepage',
         }
     });
 
-    z.page.on('sn:willfocus', '.app-list-app', function() {
+    z.page.on('sn:willfocus', '.smart-button', function() {
         SpatialNavigation.pause();
 
         var callback = function() {
@@ -75,7 +75,7 @@ define('views/homepage',
         return false;
     });
 
-    z.page.on('focus', '.app-list-app', function() {
+    z.page.on('focus', '.smart-button', function() {
         var focusedApp = appsModel.lookup(this.dataset.id);
         var focusedManifestURL = focusedApp.manifest_url;
 
@@ -170,7 +170,7 @@ define('views/homepage',
         $appPreviewPrice.removeClass('hidden');
     });
 
-    z.page.on('keyup', '.app-list-app', function(e) {
+    z.page.on('keyup', '.smart-button', function(e) {
         if (e.keyCode !== window.KeyEvent.DOM_VK_RETURN || !caps.webApps) {
             return;
         }
