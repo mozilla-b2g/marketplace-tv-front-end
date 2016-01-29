@@ -6,6 +6,7 @@ define('routes',
         {pattern: '^/$', view_name: 'homepage'},
         {pattern: '^/index.html$', view_name: 'homepage'},
         {pattern: '^/tv/tutorial', view_name: 'tutorial'},
+        {pattern: '^/tv/offline', view_name: 'offline'},
         {pattern: '^/tv', view_name: 'homepage'}
     ]);
 

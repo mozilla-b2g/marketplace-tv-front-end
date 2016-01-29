@@ -6,6 +6,10 @@ msgstr "Homepage"
 msgid "Tutorial"
 msgstr "Tutorial"
 
+#: /media/js/views/offline.js
+msgid "Offline"
+msgstr "Offline"
+
 #: /templates/_includes/app_preview.html
 msgid "Suggested"
 msgstr "Suggested"
@@ -49,3 +53,11 @@ msgstr "Back"
 #: /templates/tutorial.html
 msgid "Done"
 msgstr "Done"
+
+#: /templates/offline.html
+msgid "Unable to Connect"
+msgstr "Unable to Connect"
+
+#: /templates/offline.html
+msgid "A network error occurred while trying to reach the site."
+msgstr "A network error occurred while trying to reach the site."
