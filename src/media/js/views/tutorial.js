@@ -28,7 +28,7 @@ define('views/tutorial',
     window.addEventListener('keydown', function(e) {
         if (e.keyCode === window.KeyEvent.DOM_VK_BACK_SPACE ||
             e.key === 'Backspace') {
-            if (z.page.find('.tutorial-container').length) {
+            if (z.page.find('.slide-container').length) {
                 e.preventDefault();
 
                 var $slide = z.page.find('.slide').not('.hidden');
@@ -48,7 +48,7 @@ define('views/tutorial',
     });
 
     z.page.on('loaded reloaded_chrome', function() {
-        if (z.page.find('.tutorial-container').length) {
+        if (z.page.find('.slide-container').length) {
             var $slide = z.page.find('.invisible');
 
             loadBackgroundImage($slide, function() {
@@ -94,7 +94,7 @@ define('views/tutorial',
         }
     });
 
-    z.page.on('contextmenu', '.tutorial-container', function(e) {
+    z.page.on('contextmenu', '.slide-container', function(e) {
         e.preventDefault();
     });
 

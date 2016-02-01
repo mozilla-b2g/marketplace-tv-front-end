@@ -1,4 +1,4 @@
-<div class="tutorial-container">
+<div class="slide-container">
   {% for i in range(1, 4) %}
     <div class="slide {% if i > 1 %} hidden {% else %} invisible {% endif %}">
       <div class="slide-section-top">
@@ -11,7 +11,7 @@
         {% endif %}
       </div>
 
-      <div class="slide-section-mid">
+      <div class="slide-section-middle">
         <div class="slide-image slide-image-0{{ i }}"></div>
         {% if i == 2 %}
           <div class="circle">

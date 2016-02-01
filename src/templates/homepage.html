@@ -4,7 +4,7 @@
   {% defer (url=api('apps'), id='app-list', pluck='objects', as='apps', key='id') %}
     <ul class="clearfix">
       {% for app in this %}
-        <li class="smart-button focusable" data-id="{{ app.id }}">
+        <li class="smart-button app-button focusable" data-id="{{ app.id }}">
           <div class="app-list-app">
             {% if app.icons['128'] %}
               <div class="icon" data-name="{{ app.name }}"
