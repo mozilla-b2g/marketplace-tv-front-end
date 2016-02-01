@@ -1,8 +1,8 @@
 define('views/homepage',
     ['apps', 'core/capabilities', 'core/l10n', 'core/models', 'core/z',
-     'templates', 'smart_button', 'spatial_navigation'],
+     'templates', 'image_loader', 'smart_button', 'spatial_navigation'],
     function(apps, caps, l10n, models, z,
-             nunjucks, smartButton, SpatialNavigation) {
+             nunjucks, imageLoader, smartButton, SpatialNavigation) {
     var gettext = l10n.gettext;
     var appsModel = models('apps');
 
@@ -80,8 +80,6 @@ define('views/homepage',
         var focusedManifestURL = focusedApp.manifest_url;
 
         var $appPreviewName;
-        var $appPreviewNameText;
-        var $appPreviewPrice;
 
         var appPreviewNameOverflowLength;
 
@@ -105,12 +103,10 @@ define('views/homepage',
         );
 
         $appPreviewName = $appPreview.find('.name');
-        $appPreviewNameText = $appPreview.find('.text');
-        $appPreviewPrice = $appPreview.find('.price');
 
         // Set app preview area name's text carousel.
         appPreviewNameOverflowLength =
-            $appPreviewName.width() - $appPreviewNameText.width();
+            $appPreviewName.width() - $appPreview.find('.text').width();
 
         if (appPreviewNameOverflowLength < 0) {
             // Save space for italic font style.
@@ -167,7 +163,11 @@ define('views/homepage',
             carousel();
         }
 
-        $appPreviewPrice.removeClass('hidden');
+        $appPreview.find('.price').removeClass('hidden');
+
+        imageLoader.getImage(focusedApp.promo_imgs['640']).done(function() {
+            $appPreview.find('.preview').removeClass('invisible');
+        });
     });
 
     z.page.on('keyup', '.app-button', function(e) {
