@@ -83,16 +83,53 @@ define('views/homepage',
 
         var appPreviewNameOverflowLength;
 
+        // Clear the hash '#preview' when previewing apps.
+        location.hash = '';
+
+        // Reset context menu.
+        $appContextMenuItem.removeAttr('label icon')
+                           .off('click');
+
         // Update context menu's label
         if (focusedApp.doc_type === 'webapp') {
-            $appContextMenuItem.attr('label', '#app:' + focusedManifestURL);
+            apps.checkInstalled(focusedManifestURL).done(function(isInstalled) {
+                if (isInstalled) {
+                    $appContextMenuItem.attr('label', '#app:' + focusedManifestURL);
+                } else {
+                    $appContextMenuItem.attr({
+                        label: gettext('Add to Apps'),
+                        icon: (function() {
+                            var path = ['media', 'marketplace-tv-front-end',
+                                        'img', 'install.png'];
+
+                            // The path of installed icon is different from server.
+                            //
+                            // On marketplace server:
+                            // `media/marketplace-tv-front-end/img/install.png`
+                            //
+                            // On local server or github page:
+                            // `marketplace-tv-front-end/media/img/install.png`
+                            if (!location.origin.match(/marketplace/)) {
+                                var tempPath = path[0];
+
+                                path[0] = path[1];
+                                path[1] = tempPath;
+                            }
+
+                            return path.join('/');
+                        })()
+                    });
+
+                    $appContextMenuItem.on('click', function() {
+                        apps.install(focusedApp);
+                    });
+                }
+            });
         } else if (focusedApp.doc_type === 'website') {
             $appContextMenuItem.attr('label', '#website:' +
                 encodeURIComponent(focusedApp.url) + ',' +
                 encodeURIComponent(focusedApp.name) + ',' +
                 encodeURIComponent(findLargestIcon(focusedApp.icons)));
-        } else {
-            $appContextMenuItem.attr('label', '');
         }
 
         // Update app preview area with current focused app.
@@ -181,15 +218,12 @@ define('views/homepage',
         if (focusedApp.doc_type === 'webapp') {
             var focusedManifestURL = focusedApp.manifest_url;
 
-            apps.getInstalled().done(function(installedApps) {
-                // Check if app is installed.
-                var isInstalled = installedApps.some(function(installedManifestURL) {
-                    return focusedManifestURL === installedManifestURL;
-                });
-
+            apps.checkInstalled(focusedManifestURL).done(function(isInstalled) {
                 if (isInstalled) {
                     apps.launch(focusedManifestURL);
                 } else {
+                    location.hash = 'preview';
+
                     apps.install(focusedApp);
                 }
             });

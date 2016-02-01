@@ -1,4 +1,8 @@
 #: /media/js/views/homepage.js
+msgid "Add to Apps"
+msgstr "Add to Apps"
+
+#: /media/js/views/homepage.js
 msgid "Homepage"
 msgstr "Homepage"
 

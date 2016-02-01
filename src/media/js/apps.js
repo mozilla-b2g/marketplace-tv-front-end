@@ -5,18 +5,16 @@ define('apps', ['core/defer'], function(defer) {
     'use strict';
     var installer = window.navigator.mozApps;
 
-    function getInstalled() {
+    function checkInstalled(manifestURL) {
         var def = defer.Deferred();
         var request = installer.getInstalled();
 
         request.onsuccess = function() {
-            var installedApps = [];
-
-            request.result.map(function(installedApp) {
-                installedApps.push(installedApp.manifestURL);
+            var isInstalled = request.result.some(function(installedApp) {
+                return manifestURL === installedApp.manifestURL;
             });
 
-            def.resolve(installedApps);
+            def.resolve(isInstalled);
         };
 
         return def.promise();
@@ -39,7 +37,7 @@ define('apps', ['core/defer'], function(defer) {
     }
 
     return {
-        getInstalled: getInstalled,
+        checkInstalled: checkInstalled,
         install: install,
         launch: launch
     };
