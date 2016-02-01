@@ -68,6 +68,12 @@ $app-preview-background-color = #72C9B0;
         overflow: hidden;
 
         color: transparent;
+
+        transition: opacity 1s;
+
+        &.invisible {
+            opacity: 0;
+        }
     }
 
     img {

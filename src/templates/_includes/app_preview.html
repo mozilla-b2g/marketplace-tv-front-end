@@ -2,7 +2,7 @@
   <span class="suggested" data-icon="bookmark-on">{{ _('Suggested') }}</span>
 {% endif %}
 
-<div class="preview">
+<div class="preview invisible">
   {% if app.promo_imgs['640'] %}
     <img src="{{ app.promo_imgs['640'] }}"
          alt="{{ app.name }}" title="{{ app.name }}">

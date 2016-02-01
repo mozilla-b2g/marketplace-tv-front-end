@@ -1,27 +1,27 @@
 define('views/tutorial',
-    ['core/l10n', 'core/z', 'smart_button', 'spatial_navigation'],
-    function(l10n, z, smartButton, SpatialNavigation) {
+    ['core/l10n', 'core/z', 'image_loader', 'smart_button', 'spatial_navigation'],
+    function(l10n, z, imageLoader, smartButton, SpatialNavigation) {
     var gettext = l10n.gettext;
-
-    var imageLoader = document.createElement('img');
 
     // Ensure background image is loaded.
     function loadBackgroundImage($slide, callback) {
-        imageLoader.src = $slide.find('.slide-image')
-                                .css('background-image')
-                                .replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
+        var imageSrc = $slide.find('.slide-image')
+                             .css('background-image')
+                             .replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
 
-        imageLoader.onload = function() {
+        var imagePromise = imageLoader.getImage(imageSrc);
+
+        imagePromise.done(function() {
             $slide.removeClass('invisible');
 
             callback();
-        };
+        });
 
-        imageLoader.onerror = function() {
+        imagePromise.fail(function() {
             localStorage.setItem('marketplace.tutorial.fteskip', true);
 
             z.page.trigger('navigate', '/tv/');
-        };
+        });
     }
 
     // Enable back button going back to the previous slide.
