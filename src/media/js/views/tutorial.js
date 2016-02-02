@@ -1,15 +1,13 @@
 define('views/tutorial',
-    ['core/l10n', 'core/z', 'image_loader', 'smart_button', 'spatial_navigation'],
-    function(l10n, z, imageLoader, smartButton, SpatialNavigation) {
+    ['core/l10n', 'core/z', 'image_helper', 'smart_button', 'spatial_navigation'],
+    function(l10n, z, imageHelper, smartButton, SpatialNavigation) {
     var gettext = l10n.gettext;
 
     // Ensure background image is loaded.
     function loadBackgroundImage($slide, callback) {
-        var imageSrc = $slide.find('.slide-image')
-                             .css('background-image')
-                             .replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
-
-        var imagePromise = imageLoader.getImage(imageSrc);
+        var imagePromise = imageHelper.loadImage(
+            imageHelper.getBackgroundImageURL($slide.find('.slide-image'))
+        );
 
         imagePromise.done(function() {
             $slide.removeClass('invisible');

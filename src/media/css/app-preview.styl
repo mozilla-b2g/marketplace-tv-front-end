@@ -17,77 +17,72 @@ $app-preview-background-color = #72C9B0;
 
     background-color: $app-preview-background-color;
     background-image: url('../img/Pattern_overlay.png');
+}
 
-    .suggested {
+.app-preview-suggested {
+    position: absolute;
+    top: 1.6rem;
+    left: 0;
+
+    padding: 0 .5rem 0 1rem;
+
+    font-size: 1.9rem;
+    font-style: italic;
+    line-height: 4.2rem;
+
+    color: $greyscale-white;
+    background: linear-gradient(90deg,
+                                $suggested-star-color,
+                                $suggested-flag-color);
+
+    &::before {
+        float: left;
+        margin-right: .5rem;
+
+        font-size: 4.2rem;
+    }
+
+    .flag {
         position: absolute;
-        top: 1.6rem;
-        left: 0;
+        top: 0;
+        right: -4rem;
 
-        padding: 0 .5rem 0 1rem;
+        width: 4rem;
+        height: 4.2rem;
 
-        font-size: 1.9rem;
-        font-style: italic;
-        line-height: 4.2rem;
-
-        color: $greyscale-white;
-        background: linear-gradient(90deg,
-                                    $suggested-star-color,
-                                    $suggested-flag-color);
-
-        &::before {
-            float: left;
-            margin-right: .5rem;
-
-            font-size: 4.2rem;
-        }
-
-        &::after {
-            content: '';
-
-            position: absolute;
-            top: 0;
-            right: -4rem;
-
-            width: 4rem;
-            height: 4.2rem;
-
-            background-image: url('../img/flag_R.png');
-        }
+        background-image: url('../img/flag_R.png');
     }
+}
 
-    .preview,
-    .detail {
-        height: 100%;
-    }
+.app-preview-image {
+    float: right;
+    width: 57.5rem;
+    height: 100%;
 
-    .preview {
-        float: right;
-        width: 57.5rem;
+    border-radius: .6rem;
+    overflow: hidden;
 
-        border-radius: .6rem;
-        overflow: hidden;
+    color: transparent;
 
-        color: transparent;
+    transition: opacity 1s;
 
-        transition: opacity 1s;
-
-        &.invisible {
-            opacity: 0;
-        }
+    &.invisible {
+        opacity: 0;
     }
 
     img {
         width: 100%;
     }
+}
 
-    .detail {
-        position: relative;
+.app-preview-detail {
+    position: relative;
 
-        width: 89rem;
-        padding-top: 1rem;
+    width: 89rem;
+    height: 100%;
+    padding-top: 1rem;
 
-        color: $greyscale-white;
-    }
+    color: $greyscale-white;
 
     .name,
     .provider {

@@ -1,8 +1,8 @@
 define('views/homepage',
     ['apps', 'core/capabilities', 'core/l10n', 'core/models', 'core/z',
-     'templates', 'image_loader', 'smart_button', 'spatial_navigation'],
+     'templates', 'image_helper', 'smart_button', 'spatial_navigation'],
     function(apps, caps, l10n, models, z,
-             nunjucks, imageLoader, smartButton, SpatialNavigation) {
+             nunjucks, imageHelper, smartButton, SpatialNavigation) {
     var gettext = l10n.gettext;
     var appsModel = models('apps');
 
@@ -79,6 +79,7 @@ define('views/homepage',
         var focusedApp = appsModel.lookup(this.dataset.id);
         var focusedManifestURL = focusedApp.manifest_url;
 
+        var $appPreviewSuggested;
         var $appPreviewName;
 
         var appPreviewNameOverflowLength;
@@ -99,21 +100,26 @@ define('views/homepage',
                     $appContextMenuItem.attr({
                         label: gettext('Add to Apps'),
                         icon: (function() {
+                            // The path of installed icon is different from server.
+
+                            // On marketplace server:
+                            // `media/marketplace-tv-front-end/img/install.png`
                             var path = ['media', 'marketplace-tv-front-end',
                                         'img', 'install.png'];
 
-                            // The path of installed icon is different from server.
-                            //
-                            // On marketplace server:
-                            // `media/marketplace-tv-front-end/img/install.png`
-                            //
-                            // On local server or github page:
+                            // On github page:
                             // `marketplace-tv-front-end/media/img/install.png`
                             if (!location.origin.match(/marketplace/)) {
                                 var tempPath = path[0];
 
                                 path[0] = path[1];
                                 path[1] = tempPath;
+                            }
+
+                            // On local server:
+                            // `/media/img/install.png`
+                            if (location.origin.match(/localhost/)) {
+                                path[0] = '';
                             }
 
                             return path.join('/');
@@ -139,9 +145,22 @@ define('views/homepage',
             })
         );
 
-        $appPreviewName = $appPreview.find('.name');
+        // Ensure suggested flag image is loaded.
+        if (focusedApp.tv_featured) {
+            $appPreviewSuggested = $appPreview.find('.app-preview-suggested');
+
+            imageHelper.loadImage(
+                imageHelper.getBackgroundImageURL(
+                    $appPreviewSuggested.find('.flag')
+                )
+            ).done(function() {
+                $appPreviewSuggested.removeClass('hidden');
+            });
+        }
 
         // Set app preview area name's text carousel.
+        $appPreviewName = $appPreview.find('.name');
+
         appPreviewNameOverflowLength =
             $appPreviewName.width() - $appPreview.find('.text').width();
 
@@ -202,8 +221,8 @@ define('views/homepage',
 
         $appPreview.find('.price').removeClass('hidden');
 
-        imageLoader.getImage(focusedApp.promo_imgs['640']).done(function() {
-            $appPreview.find('.preview').removeClass('invisible');
+        imageHelper.loadImage(focusedApp.promo_imgs['640']).done(function() {
+            $appPreview.find('.app-preview-image').removeClass('invisible');
         });
     });
 
