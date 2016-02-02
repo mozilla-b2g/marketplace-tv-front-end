@@ -1,8 +1,11 @@
 {% if app.tv_featured %}
-  <span class="suggested" data-icon="bookmark-on">{{ _('Suggested') }}</span>
+  <div class="app-preview-suggested hidden" data-icon="bookmark-on">
+    <span>{{ _('Suggested') }}</span>
+    <span class="flag"></span>
+  </div>
 {% endif %}
 
-<div class="preview invisible">
+<div class="app-preview-image invisible">
   {% if app.promo_imgs['640'] %}
     <img src="{{ app.promo_imgs['640'] }}"
          alt="{{ app.name }}" title="{{ app.name }}">
@@ -12,15 +15,17 @@
   {% endif %}
 </div>
 
-<div class="detail">
+<div class="app-preview-detail">
   <h1 class="name">
     <span class="text">{{ app.name }}</span>
   </h1>
+
   <div class="provider">
     {% if app.developer_name %}
       <span>{{ _('by {author}')|format(author=app.developer_name) }}</span>
     {% endif %}
   </div>
+
   <span class="price hidden">{{ _('Free') }}</span>
   <article class="description">{{ app.description | safe }}</article>
 </div>
