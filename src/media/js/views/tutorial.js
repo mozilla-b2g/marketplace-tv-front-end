@@ -3,13 +3,18 @@ define('views/tutorial',
     function(l10n, z, imageHelper, smartButton, SpatialNavigation) {
     var gettext = l10n.gettext;
 
+    var $slideSpinner;
+
     // Ensure background image is loaded.
     function loadBackgroundImage($slide, callback) {
         var imagePromise = imageHelper.loadImage(
             imageHelper.getBackgroundImageURL($slide.find('.slide-image'))
         );
 
+        $slideSpinner.removeClass('hidden');
+
         imagePromise.done(function() {
+            $slideSpinner.addClass('hidden');
             $slide.removeClass('invisible');
 
             callback();
@@ -47,9 +52,9 @@ define('views/tutorial',
 
     z.page.on('loaded reloaded_chrome', function() {
         if (z.page.find('.slide-container').length) {
-            var $slide = z.page.find('.invisible');
+            $slideSpinner = z.page.find('.slide-spinner');
 
-            loadBackgroundImage($slide, function() {
+            loadBackgroundImage(z.page.find('.invisible'), function() {
                 SpatialNavigation.startFocus();
             });
         }
