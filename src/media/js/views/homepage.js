@@ -10,8 +10,6 @@ define('views/homepage',
     var $appList;
     var $appContextMenuItem;
 
-    var appListHeight;
-
     function findLargestIcon(icons) {
         var iconSizes = Object.keys(icons);
         var maxIconSize = iconSizes.reduce(function(prev, current) {
@@ -37,8 +35,6 @@ define('views/homepage',
             $appList = z.page.find('.app-list');
             $appContextMenuItem = z.page.find('.contextmenu-item');
 
-            appListHeight = $appList.innerHeight();
-
             SpatialNavigation.startFocus();
         }
     });
@@ -51,16 +47,29 @@ define('views/homepage',
             SpatialNavigation.resume();
         };
 
-        var scrollTop = $appList.scrollTop();
+        var appListScrollTop = $appList.scrollTop();
+        var appListHeight = $appList.innerHeight();
+
         var top = this.offsetTop;
-        var bottom = top + this.offsetHeight;
+        var height = this.offsetHeight;
         var margin = 5.8 * 10;
+
+        var appTop = top - margin;
+        var appBottom = top + height + margin - appListHeight;
+        var appHeight = height + margin * 2;
+
         var newPosition;
 
-        if (scrollTop > top - margin) {
-            newPosition = top - margin;
-        } else if (scrollTop < bottom + margin - appListHeight) {
-            newPosition = bottom + margin - appListHeight;
+        if (appListHeight < appHeight) {
+            // Current scope height is too narrow.
+            // Scroll to the center of the app.
+            newPosition = appTop + (appHeight - appListHeight) / 2;
+        } else if (appListScrollTop >= appTop) {
+            // App is above current scope.
+            newPosition = appTop;
+        } else if (appListScrollTop < appBottom) {
+            // App is below current scope.
+            newPosition = appBottom;
         }
 
         if (newPosition) {
