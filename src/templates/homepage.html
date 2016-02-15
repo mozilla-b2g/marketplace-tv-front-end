@@ -6,18 +6,12 @@
       {% for app in this %}
         <li class="smart-button app-button focusable" data-id="{{ app.id }}">
           <div class="app-list-app">
-            {% if app.icons['128'] %}
+            {% if app.icons['336'] %}
+              <div class="icon" data-name="{{ app.name }}"
+                   style="background-image: url('{{ app.icons['336'] }}');"></div>
+            {% elif app.icons['128'] %}
               <div class="icon" data-name="{{ app.name }}"
                    style="background-image: url('{{ app.icons['128'] }}');"></div>
-            {% elif app.icons['64'] %}
-              <div class="icon" data-name="{{ app.name }}"
-                   style="background-image: url('{{ app.icons['64'] }}');"></div>
-            {% elif app.icons['48'] %}
-              <div class="icon" data-name="{{ app.name }}"
-                   style="background-image: url('{{ app.icons['48'] }}');"></div>
-            {% elif app.icons['32'] %}
-              <div class="icon" data-name="{{ app.name }}"
-                   style="background-image: url('{{ app.icons['32'] }}');"></div>
             {% endif %}
 
             {% if app.tv_featured %}
