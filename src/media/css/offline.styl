@@ -5,10 +5,16 @@
 @import 'lib';
 
 .offline-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+
     width: 100%;
     height: 100%;
 
     background-image: url('../img/bg_loading_error.png');
+    background-size: cover;
+    background-position: center;
 }
 
 .offline-description,
@@ -23,7 +29,7 @@
 }
 
 .offline-description {
-    top: 46rem;
+    top: (46 / 108) * 100%
 
     font-style: italic;
 
@@ -48,7 +54,7 @@
 }
 
 .offline-control {
-    top: 70.6rem;
+    top: (70.6 / 108) * 100%;
 }
 
 .offline-button {
