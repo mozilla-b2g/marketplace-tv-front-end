@@ -31,8 +31,6 @@
 
         width: 100%;
         height: 100%;
-        min-width: 192rem;
-        min-height: 108rem;
 
         transition: opacity 1s;
 
@@ -77,10 +75,11 @@
 }
 
 .slide-section-top {
-    top: 3.5rem;
+    top: 8%;
 
     width: 150rem;
     height: 8rem;
+    margin-top: -5rem;
 
     font-size: 3.8rem;
     font-style: italic;
@@ -143,11 +142,11 @@
 
     .text {
         position: absolute;
-        top: 19.5rem;
+        top: 2.5%;
         left: 50%;
 
         width: 50rem;
-        margin-left: -25rem;
+        margin: 16.875rem 0 0 -25rem;
 
         font-size: 4.2rem;
         font-style: italic;
@@ -159,12 +158,16 @@
 }
 
 .slide-section-bottom {
-    bottom: 5.5rem;
+    bottom: 7.5%;
+    margin-bottom: -2.625rem;
 }
 
 .slide-image {
     width: 100%;
     height: 100%;
+
+    background-size: cover;
+    background-position: center bottom;
 }
 
 for num in (1..3) {
