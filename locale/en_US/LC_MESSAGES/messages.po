@@ -22,10 +22,6 @@ msgstr "Suggested"
 msgid "by {author}"
 msgstr "by {author}"
 
-#: /templates/_includes/app_preview.html
-msgid "Free"
-msgstr "Free"
-
 #: /templates/tutorial.html
 msgid "Press <b>OK</b> to open and use an app"
 msgstr "Press <b>OK</b> to open and use an app"

@@ -228,8 +228,6 @@ define('views/homepage',
             carousel();
         }
 
-        $appPreview.find('.price').removeClass('hidden');
-
         imageHelper.loadImage(focusedApp.promo_imgs['640']).done(function() {
             $appPreview.find('.app-preview-image').removeClass('invisible');
         });
