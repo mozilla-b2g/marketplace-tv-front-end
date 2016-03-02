@@ -8,7 +8,8 @@ define('views/homepage',
 
     var $appPreview;
     var $appList;
-    var $appContextMenuItem;
+    var $appContextMenuInstall;
+    var $appContextMenuLink;
 
     function findLargestIcon(icons) {
         var iconSizes = Object.keys(icons);
@@ -33,7 +34,13 @@ define('views/homepage',
         if (z.page.find('.app-preview').length) {
             $appPreview = z.page.find('.app-preview');
             $appList = z.page.find('.app-list');
-            $appContextMenuItem = z.page.find('.contextmenu-item');
+
+            $appContextMenuInstall = z.page.find('.contextmenu-install');
+            $appContextMenuLink = z.page.find('.contextmenu-link');
+
+            $appContextMenuLink.attr({
+                icon: imageHelper.getIconURL('link.png')
+            });
 
             SpatialNavigation.startFocus();
         }
@@ -97,51 +104,33 @@ define('views/homepage',
         location.hash = '';
 
         // Reset context menu.
-        $appContextMenuItem.removeAttr('label icon')
-                           .off('click');
+        $appContextMenuInstall.removeAttr('label icon')
+                              .off('click');
+
+        $appContextMenuLink.off('click');
 
         // Update context menu's label
         if (focusedApp.doc_type === 'webapp') {
             apps.checkInstalled(focusedManifestURL).done(function(isInstalled) {
                 if (isInstalled) {
-                    $appContextMenuItem.attr('label', '#app:' + focusedManifestURL);
+                    $appContextMenuInstall.attr('label', '#app:' + focusedManifestURL);
                 } else {
-                    $appContextMenuItem.attr({
+                    $appContextMenuInstall.attr({
                         label: gettext('Add to Apps'),
-                        icon: (function() {
-                            // The path of installed icon is different from server.
-
-                            // On marketplace server:
-                            // `media/marketplace-tv-front-end/img/install.png`
-                            var path = ['media', 'marketplace-tv-front-end',
-                                        'img', 'install.png'];
-
-                            // On github page:
-                            // `marketplace-tv-front-end/media/img/install.png`
-                            if (!location.origin.match(/marketplace/)) {
-                                var tempPath = path[0];
-
-                                path[0] = path[1];
-                                path[1] = tempPath;
-                            }
-
-                            // On local server:
-                            // `/media/img/install.png`
-                            if (location.origin.match(/localhost/)) {
-                                path[0] = '';
-                            }
-
-                            return path.join('/');
-                        })()
+                        icon: imageHelper.getIconURL('install.png')
                     });
 
-                    $appContextMenuItem.on('click', function() {
+                    $appContextMenuInstall.on('click', function() {
                         apps.install(focusedApp);
+                    });
+
+                    $appContextMenuLink.on('click', function() {
+                        alert(focusedManifestURL);
                     });
                 }
             });
         } else if (focusedApp.doc_type === 'website') {
-            $appContextMenuItem.attr('label', '#website:' +
+            $appContextMenuInstall.attr('label', '#website:' +
                 encodeURIComponent(focusedApp.url) + ',' +
                 encodeURIComponent(focusedApp.name) + ',' +
                 encodeURIComponent(findLargestIcon(focusedApp.icons)));
