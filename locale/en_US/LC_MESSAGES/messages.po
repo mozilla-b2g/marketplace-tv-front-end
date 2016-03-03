@@ -22,6 +22,10 @@ msgstr "Suggested"
 msgid "by {author}"
 msgstr "by {author}"
 
+#: /templates/homepage.html
+msgid "URL"
+msgstr "URL"
+
 #: /templates/tutorial.html
 msgid "Press <b>OK</b> to open and use an app"
 msgstr "Press <b>OK</b> to open and use an app"
