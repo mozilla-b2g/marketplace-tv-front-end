@@ -27,6 +27,10 @@ msgid "URL"
 msgstr "URL"
 
 #: /templates/tutorial.html
+msgid "Learn how to use"
+msgstr "Learn how to use"
+
+#: /templates/tutorial.html
 msgid "Press <b>OK</b> to open and use an app"
 msgstr "Press <b>OK</b> to open and use an app"
 
