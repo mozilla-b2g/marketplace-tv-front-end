@@ -2,12 +2,13 @@
   {% for i in range(1, 4) %}
     <div class="slide {% if i > 1 %} hidden {% else %} invisible {% endif %}">
       <div class="slide-section-top">
+        <div class="title">{{ _('Learn how to use') }}</div>
         {% if i == 1 %}
-          <span>{{ _('Press <b>OK</b> to open and use an app') }}</span>
+          <div class="description">{{ _('Press <b>OK</b> to open and use an app') }}</div>
         {% elif i == 2 %}
-          <span>{{ _('Press <b>OPTION</b> to add an app to the Apps folder') }}</span>
+          <div class="description">{{ _('Press <b>OPTION</b> to add an app to the Apps folder') }}</div>
         {% elif i == 3 %}
-          <span>{{ _('Press <b>APPS</b> to see apps added to the Apps folder') }}</span>
+          <div class="description">{{ _('Press <b>APPS</b> to see apps added to the Apps folder') }}</div>
         {% endif %}
       </div>
 
@@ -17,8 +18,6 @@
           <div class="circle">
             <span>{{ _('Add to Apps') }}</span>
           </div>
-        {% elif i == 3 %}
-          <span class="text">{{ _('Apps') }}</span>
         {% endif %}
       </div>
 

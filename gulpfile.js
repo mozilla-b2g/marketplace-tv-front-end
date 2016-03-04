@@ -27,7 +27,7 @@ var packageFilesWhitelist = [
     'src/index.html',
     'src/app-icons/*.png',
     'src/media/css/include.css',
-    'src/media/fonts/FiraSans/firasansot-regular-webfont.*',
+    'src/media/fonts/FiraSans/*',
     'src/tutorial/*',
     'src/tutorial/css/*',
     'src/tutorial/img/*',

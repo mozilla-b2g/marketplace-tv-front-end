@@ -61,7 +61,7 @@
     height: 200px;
     margin: -100px 0 0 -100px;
 
-    background-image: url('../img/pinner_sprite.png');
+    background-image: url('../img/spinner_sprite.png');
 
     animation: spinner 1.133s steps(33) infinite;
 }
@@ -75,19 +75,29 @@
 }
 
 .slide-section-top {
-    top: 8%;
-
     width: 150rem;
-    height: 8rem;
-    margin-top: -5rem;
 
-    font-size: 3.8rem;
     font-style: italic;
-    line-height: 8rem;
     text-align: center;
     text-shadow: 0 0 5px rgba(0, 0, 0, .5);
 
     color: $greyscale-white;
+
+    .title {
+        height: 5.5rem;
+        margin: 7.5rem 0 6.5rem;
+
+        font-family: $light-font-family;
+        font-size: 5.5rem;
+        line-height: 5.5rem;
+    }
+
+    .description {
+        height: 8rem;
+
+        font-size: 3.8rem;
+        line-height: 8rem;
+    }
 
     b {
         display: inline-block;
@@ -96,7 +106,7 @@
         border-radius: 4rem;
         box-shadow: 0 0 5px rgba(0, 0, 0, .5);
 
-        font-size: 4.5rem;
+        font-size: 3.8rem;
         font-weight: normal;
         text-indent: -.8rem;
         text-align: center;
@@ -111,55 +121,38 @@
 
     .circle {
         position: absolute;
-        top: 50%;
+        top: (53.1 / 108) * 100%;
         left: 50%;
 
-        width: 21.8rem;
-        height: 21.8rem;
-        margin: -10.9rem 0 0 -10.9rem;
-        padding: 4.5rem 0;
+        width: 17.5rem;
+        height: 17.5rem;
+        margin-left: -8.75rem;
         border-radius: 50%;
 
-        font-size: 1.9rem;
+        font-size: 1.5rem;
         font-style: italic;
-        line-height: 2.5rem;
+        line-height: 1.5rem;
         text-align: center;
 
-        color: $greyscale-black;
+        color: $greyscale-white;
         background-color: $greyscale-white;
 
         &::before {
             content: '';
 
             display: block;
-            width: 9rem;
-            height: 9rem;
-            margin: 0 auto 1.3rem;
+            width: 7.2rem;
+            height: 7.2rem;
+            margin: 5.15rem auto 6.65rem;
 
             background-image: url('../img/tutorial_install.png');
+            background-size: 100% 100%;
         }
-    }
-
-    .text {
-        position: absolute;
-        top: 2.5%;
-        left: 50%;
-
-        width: 50rem;
-        margin: 16.875rem 0 0 -25rem;
-
-        font-size: 4.2rem;
-        font-style: italic;
-        line-height: 4.2rem;
-        text-align: center;
-
-        color: $greyscale-white;
     }
 }
 
 .slide-section-bottom {
-    bottom: 7.5%;
-    margin-bottom: -2.625rem;
+    bottom: 6rem;;
 }
 
 .slide-image {
