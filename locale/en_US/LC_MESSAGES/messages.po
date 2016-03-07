@@ -26,6 +26,10 @@ msgstr "by {author}"
 msgid "URL"
 msgstr "URL"
 
+#: /templates/footer.html
+msgid "Powered by Mozilla"
+msgstr "Powered by Mozilla"
+
 #: /templates/tutorial.html
 msgid "Learn how to use"
 msgstr "Learn how to use"
