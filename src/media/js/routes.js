@@ -5,9 +5,10 @@ define('routes',
     router.addRoutes([
         {pattern: '^/$', view_name: 'homepage'},
         {pattern: '^/index.html$', view_name: 'homepage'},
-        {pattern: '^/tv/tutorial', view_name: 'tutorial'},
-        {pattern: '^/tv/offline', view_name: 'offline'},
-        {pattern: '^/tv', view_name: 'homepage'}
+        {pattern: '^/tv/tutorial/?$', view_name: 'tutorial'},
+        {pattern: '^/tv/offline/?$', view_name: 'offline'},
+        {pattern: '^/tv/privacy/?$', view_name: 'privacy'},
+        {pattern: '^/tv/?$', view_name: 'homepage'}
     ]);
 
     router.api.addRoutes({

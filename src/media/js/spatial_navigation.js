@@ -6,7 +6,8 @@ define('spatial_navigation', ['lib/spatial_navigation'],
 
     // Define the navigable elements.
     SpatialNavigation.add({
-        selector: '.focusable'
+        selector: '.focusable',
+        enterTo: 'last-focused'
     });
 
     SpatialNavigation.startFocus = function(element) {

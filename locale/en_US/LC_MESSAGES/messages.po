@@ -73,3 +73,31 @@ msgstr "Unable to Connect"
 #: /templates/offline.html
 msgid "A network error occurred while trying to reach the site."
 msgstr "A network error occurred while trying to reach the site."
+
+#: /templates/privacy.html
+msgid "Privacy Notice"
+msgstr "Privacy Notice"
+
+#: /templates/privacy.html
+msgid "Privacy Notice Summary"
+msgstr "Privacy Notice Summary"
+
+#: /templates/privacy.html
+msgid "This notice is a summary of our privacy practices. To learn more about the information we collect from users and how we handle that information please read our <a href="{privacy_url}" target="_blank">Mozilla Website Privacy Notice</a> and <a href="{terms_url}" target="_blank">Terms of Use</a>."
+msgstr "This notice is a summary of our privacy practices. To learn more about the information we collect from users and how we handle that information please read our <a href="{privacy_url}" target="_blank">Mozilla Website Privacy Notice</a> and <a href="{terms_url}" target="_blank">Terms of Use</a>."
+
+#: /templates/privacy.html
+msgid "Unless indicated otherwise, the Web Apps on the Web Apps Discovery Portal are not made by us and you should check their privacy policies before using them."
+msgstr "Unless indicated otherwise, the Web Apps on the Web Apps Discovery Portal are not made by us and you should check their privacy policies before using them."
+
+#: /templates/privacy.html
+msgid "The Web Apps Discovery Portal uses cookies and other web technologies to help us understand how users use the service through aggregate analytics."
+msgstr "The Web Apps Discovery Portal uses cookies and other web technologies to help us understand how users use the service through aggregate analytics."
+
+#: /templates/privacy.html
+msgid "For more information on how to report claims of copyright or trademark infringement, please see: https://www.mozilla.org/about/legal/report-infringement/."
+msgstr "For more information on how to report claims of copyright or trademark infringement, please see: https://www.mozilla.org/about/legal/report-infringement/."
+
+#: /templates/privacy.html
+msgid "OK"
+msgstr "OK"

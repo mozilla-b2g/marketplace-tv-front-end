@@ -4,8 +4,6 @@
 
 @import 'lib';
 
-$app-list-background-color = #CBCDCD;
-
 .app-list {
     position: absolute;
     bottom: 0;
@@ -15,7 +13,7 @@ $app-list-background-color = #CBCDCD;
     height: 53.4%;
     overflow: hidden;
 
-    background-color: $app-list-background-color;
+    background-color: $main-background-color;
 
     ul {
         padding: 3.1rem 11.6rem;
@@ -34,7 +32,7 @@ $app-list-background-color = #CBCDCD;
             top: 0;
             left: 0;
 
-            color: $app-list-background-color;
+            color: $main-background-color;
         }
     }
 
@@ -62,9 +60,9 @@ $app-list-background-color = #CBCDCD;
     outline: 0 solid $greyscale-white;
     -moz-outline-radius: 60%;
 
-    background-color: $app-list-background-color;
+    background-color: $main-background-color;
 
-    smart-button-animation();
+    cubic-bezier-transition();
 
     .focused & {
         outline-width: .8rem;

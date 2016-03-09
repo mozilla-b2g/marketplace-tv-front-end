@@ -44,6 +44,10 @@ define('views/homepage',
                 icon: imageHelper.getIconURL('link.png')
             });
 
+            SpatialNavigation.add({
+                selector: '.footer-link'
+            });
+
             SpatialNavigation.startFocus();
         }
     });

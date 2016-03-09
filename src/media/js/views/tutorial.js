@@ -52,6 +52,8 @@ define('views/tutorial',
 
     z.page.on('loaded reloaded_chrome', function() {
         if (z.page.find('.slide-container').length) {
+            $('#site-footer').html('');
+
             $slideSpinner = z.page.find('.slide-spinner');
 
             loadBackgroundImage(z.page.find('.invisible'), function() {

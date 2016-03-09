@@ -27,11 +27,6 @@ require(
         z.page.trigger('reloaded_chrome');
     }).trigger('reload_chrome');
 
-    z.body.on('click', '.site-header .back', function(e) {
-        e.preventDefault();
-        navigation.back();
-    });
-
     // Perform initial navigation.
     z.page.trigger('navigate',
                    [window.location.pathname + window.location.search]);
