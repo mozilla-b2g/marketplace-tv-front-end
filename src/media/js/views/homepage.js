@@ -32,8 +32,6 @@ define('views/homepage',
 
     z.page.on('loaded reloaded_chrome', function() {
         if (z.page.find('.app-preview').length) {
-            $('#site-footer').html(nunjucks.env.render('footer.html'));
-
             $appPreview = z.page.find('.app-preview');
             $appList = z.page.find('.app-list');
 

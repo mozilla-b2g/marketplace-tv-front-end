@@ -5,8 +5,6 @@ define('views/offline',
 
     z.page.on('loaded reloaded_chrome', function() {
         if (z.page.find('.offline-container').length) {
-            $('#site-footer').html('');
-
             SpatialNavigation.startFocus(z.page.find('.primary'));
         }
     });

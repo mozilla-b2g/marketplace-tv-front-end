@@ -13,8 +13,6 @@ define('views/privacy',
 
     z.page.on('loaded reloaded_chrome', function() {
         if (z.page.find('.privacy-container').length) {
-            $('#site-footer').html('');
-
             // Prevent the keyup event of enter key from previous page.
             hasFocused = false;
 
