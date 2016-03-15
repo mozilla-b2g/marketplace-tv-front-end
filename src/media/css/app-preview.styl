@@ -16,18 +16,18 @@ $app-preview-background-color = #72C9B0;
     padding: (7.2 / 192) * 100% 18.5rem (6.9 / 192) * 100% 15rem;
 
     background-color: $app-preview-background-color;
-    background-image: url('../img/Pattern_overlay.png');
+    background-image: url('../img/pattern_overlay.png');
 }
 
 .app-preview-suggested {
     position: absolute;
     top: 1.6rem;
     left: 0;
+    z-index: 1;
 
     padding: 0 .5rem 0 1rem;
 
     font-size: 1.9rem;
-    font-style: italic;
     line-height: 4.2rem;
 
     color: $greyscale-white;
@@ -95,7 +95,6 @@ $app-preview-background-color = #72C9B0;
         margin-right: 12rem;
         overflow: hidden;
 
-        font-style: italic;
         white-space: nowrap;
         text-overflow: ellipsis;
     }
@@ -125,7 +124,6 @@ $app-preview-background-color = #72C9B0;
         overflow: hidden;
 
         font-size: 2.6rem;
-        font-style: italic;
         line-height: 3.1rem;
 
         a {

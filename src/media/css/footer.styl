@@ -15,18 +15,37 @@ $footer-background-color = #BFC2C2;
 }
 
 .footer {
-    padding: 2.4rem 0 2.1rem;
+    padding: 2.5rem 0;
 
-    text-align: right;
+    text-align: center;
 
     background-color: $footer-background-color;
 }
 
+.footer-link {
+    display: block;
+    outline: 0;
+
+    font-family: $primary-font-family;
+    font-size: 2.1rem;
+    line-height: 3rem;
+
+    color: $greyscale-white;
+
+    cubic-bezier-transition();
+
+    &:focus {
+        transform: scale(1.2);
+    }
+}
+
 .footer-logo {
-    display: inline-block;
+    position: absolute;
+    top: 2.4rem;
+    right: 17rem;
+
     width: 117px;
     height: 32px;
-    margin-right: 17rem;
     overflow: hidden;
 
     text-indent: 100%;

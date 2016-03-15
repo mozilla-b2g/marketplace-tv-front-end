@@ -12,7 +12,7 @@ require(
      'core/l10n', 'core/log', 'core/navigation', 'core/nunjucks',
      'core/settings', 'core/user', 'core/z',
      // Modules we require to initialize global stuff.
-     'core/forms', 'core/login', 'helpers_local'],
+     'core/forms', 'core/login', 'footer', 'helpers_local'],
     function(l10n, log, navigation, nunjucks,
              settings, user, z) {
     var logger = log('main');
@@ -26,11 +26,6 @@ require(
         z.body.toggleClass('logged-in', user.logged_in());
         z.page.trigger('reloaded_chrome');
     }).trigger('reload_chrome');
-
-    z.body.on('click', '.site-header .back', function(e) {
-        e.preventDefault();
-        navigation.back();
-    });
 
     // Perform initial navigation.
     z.page.trigger('navigate',
