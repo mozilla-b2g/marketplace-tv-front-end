@@ -1,6 +1,8 @@
 define('views/privacy',
-    ['core/l10n', 'core/z', 'smart_button', 'spatial_navigation', 'scrollable'],
-    function(l10n, z, smartButton, SpatialNavigation, Scrollable) {
+    ['core/l10n', 'core/z',
+     'key_helper', 'smart_button', 'spatial_navigation', 'scrollable'],
+    function(l10n, z,
+             keyHelper, smartButton, SpatialNavigation, Scrollable) {
     var gettext = l10n.gettext;
 
     var $privacyButton;
@@ -66,7 +68,7 @@ define('views/privacy',
     });
 
     z.page.on('keyup mouseup touchend', '.privacy-button', function(e) {
-        if (e.type === 'keyup' && e.keyCode !== window.KeyEvent.DOM_VK_RETURN) {
+        if (e.type === 'keyup' && !keyHelper.isEnterKey(e.keyCode)) {
             return;
         }
 
@@ -90,10 +92,10 @@ define('views/privacy',
     });
 
     z.page.on('keydown', '.privacy-content', function(e) {
-        if (e.keyCode !== window.KeyEvent.DOM_VK_UP &&
-            e.keyCode !== window.KeyEvent.DOM_VK_LEFT &&
-            e.keyCode !== window.KeyEvent.DOM_VK_DOWN &&
-            e.keyCode !== window.KeyEvent.DOM_VK_RIGHT) {
+        if (!keyHelper.isUpKey(e.keyCode) &&
+            !keyHelper.isLeftKey(e.keyCode) &&
+            !keyHelper.isDownKey(e.keyCode) &&
+            !keyHelper.isRightKey(e.keyCode)) {
             return;
         }
 
@@ -102,8 +104,7 @@ define('views/privacy',
         var linkFocused = $privacyContentLink.eq(focusedIndex)
                                              .hasClass('focused');
 
-        if (e.keyCode === window.KeyEvent.DOM_VK_UP ||
-            e.keyCode === window.KeyEvent.DOM_VK_LEFT) {
+        if (keyHelper.isUpKey(e.keyCode) || keyHelper.isLeftKey(e.keyCode)) {
             if (linkFocused &&
                 linkTop + scrollable.SCROLL_OFFSET > contentHeight) {
                 // Unfocus when link is out of scrolling viewport.
@@ -134,8 +135,7 @@ define('views/privacy',
             }
         }
 
-        if (e.keyCode === window.KeyEvent.DOM_VK_DOWN ||
-            e.keyCode === window.KeyEvent.DOM_VK_RIGHT) {
+        if (keyHelper.isDownKey(e.keyCode) || keyHelper.isRightKey(e.keyCode)) {
             if (linkFocused &&
                 linkTop - scrollable.SCROLL_OFFSET < 0) {
                 // Unfocus when link is out of scrolling viewport.
@@ -169,11 +169,10 @@ define('views/privacy',
             }
         }
 
-        if (e.keyCode === window.KeyEvent.DOM_VK_UP ||
-            e.keyCode === window.KeyEvent.DOM_VK_LEFT) {
+        if (keyHelper.isUpKey(e.keyCode) || keyHelper.isLeftKey(e.keyCode)) {
             scrollable.scrollUp();
-        } else if (e.keyCode === window.KeyEvent.DOM_VK_DOWN ||
-                   e.keyCode === window.KeyEvent.DOM_VK_RIGHT) {
+        } else if (keyHelper.isDownKey(e.keyCode) ||
+                   keyHelper.isRightKey(e.keyCode)) {
             scrollable.scrollDown();
         }
     });
@@ -194,8 +193,7 @@ define('views/privacy',
 
     z.page.on('keydown mousedown touchstart',
               '.privacy-content a', function(e) {
-        if (e.type === 'keydown' &&
-            e.keyCode !== window.KeyEvent.DOM_VK_RETURN) {
+        if (e.type === 'keydown' && !keyHelper.isEnterKey(e.keyCode)) {
             return;
         }
 

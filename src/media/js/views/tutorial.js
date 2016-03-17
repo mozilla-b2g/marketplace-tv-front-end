@@ -1,8 +1,8 @@
 define('views/tutorial',
     ['core/l10n', 'core/z',
-     'image_helper', 'smart_button', 'spatial_navigation'],
+     'key_helper', 'image_helper', 'smart_button', 'spatial_navigation'],
     function(l10n, z,
-             imageHelper, smartButton, SpatialNavigation) {
+             keyHelper, imageHelper, smartButton, SpatialNavigation) {
     var gettext = l10n.gettext;
 
     var $slideSpinner;
@@ -41,8 +41,7 @@ define('views/tutorial',
 
     // Enable back button going back to the previous slide.
     z.page.on('keydown', function(e) {
-        if (e.keyCode !== window.KeyEvent.DOM_VK_BACK_SPACE &&
-            e.key !== 'Backspace') {
+        if (!keyHelper.isBackKey(e.keyCode)) {
             return;
         }
 
@@ -69,7 +68,7 @@ define('views/tutorial',
     });
 
     z.page.on('keyup mouseup touchend', '.slide-button', function(e) {
-        if (e.type === 'keyup' && e.keyCode !== window.KeyEvent.DOM_VK_RETURN) {
+        if (e.type === 'keyup' && !keyHelper.isEnterKey(e.keyCode)) {
             return;
         }
 

@@ -1,9 +1,9 @@
 define('views/homepage',
     ['apps', 'core/l10n', 'core/models', 'core/z',
-     'image_helper', 'smart_button', 'spatial_navigation',
+     'key_helper', 'image_helper', 'smart_button', 'spatial_navigation',
      'views/app_preview', 'views/app_context_menu'],
     function(apps, l10n, models, z,
-             imageHelper, smartButton, SpatialNavigation,
+             keyHelper, imageHelper, smartButton, SpatialNavigation,
              appPreview, appContextMenu) {
     var gettext = l10n.gettext;
     var appsModel = models('apps');
@@ -60,8 +60,7 @@ define('views/homepage',
 
     // Prevent back button so the website will not go back to the tutorial page.
     z.page.on('keydown', function(e) {
-        if (e.keyCode !== window.KeyEvent.DOM_VK_BACK_SPACE &&
-            e.key !== 'Backspace') {
+        if (!keyHelper.isBackKey(e.keyCode)) {
             return;
         }
 
@@ -101,7 +100,7 @@ define('views/homepage',
     });
 
     z.page.on('keyup mouseup touchend', '.app-button', function(e) {
-        if (e.type === 'keyup' && e.keyCode !== window.KeyEvent.DOM_VK_RETURN) {
+        if (e.type === 'keyup' && !keyHelper.isEnterKey(e.keyCode)) {
             return;
         }
 
