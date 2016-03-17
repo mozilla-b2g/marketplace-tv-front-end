@@ -17,6 +17,7 @@ $app-preview-background-color = #72C9B0;
 
     background-color: $app-preview-background-color;
     background-image: url('../img/pattern_overlay.png');
+    background-size: cover;
 }
 
 .app-preview-suggested {
@@ -37,9 +38,11 @@ $app-preview-background-color = #72C9B0;
 
     &::before {
         float: left;
+        width: 25px;
         margin-right: .5rem;
 
         font-size: 4.2rem;
+        white-space: nowrap;
     }
 
     .flag {
@@ -51,6 +54,7 @@ $app-preview-background-color = #72C9B0;
         height: 4.2rem;
 
         background-image: url('../img/flag_R.png');
+        background-size: cover;
     }
 }
 
