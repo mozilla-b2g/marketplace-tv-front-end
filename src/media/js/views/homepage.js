@@ -1,54 +1,16 @@
 define('views/homepage',
-    ['apps', 'core/capabilities', 'core/l10n', 'core/models', 'core/z',
-     'smart_button', 'spatial_navigation',
-     'views/app-preview', 'views/app-context-menu'],
-    function(apps, caps, l10n, models, z,
-             smartButton, SpatialNavigation,
+    ['apps', 'core/l10n', 'core/models', 'core/z',
+     'image_helper', 'smart_button', 'spatial_navigation',
+     'views/app_preview', 'views/app_context_menu'],
+    function(apps, l10n, models, z,
+             imageHelper, smartButton, SpatialNavigation,
              appPreview, appContextMenu) {
     var gettext = l10n.gettext;
     var appsModel = models('apps');
 
     var $appList;
 
-    function findLargestIcon(icons) {
-        var iconSizes = Object.keys(icons);
-        var maxIconSize = iconSizes.reduce(function(prev, current) {
-            return parseInt(prev, 10) < parseInt(current, 10) ? current : prev;
-        });
-
-        return icons[maxIconSize];
-    }
-
-    // Prevent back button so the website will not go back to the tutorial page.
-    window.addEventListener('keydown', function(e) {
-        if (e.keyCode === window.KeyEvent.DOM_VK_BACK_SPACE ||
-            e.key === 'Backspace') {
-            if (z.page.find('.app-preview').length) {
-                e.preventDefault();
-            }
-        }
-    });
-
-    z.page.on('loaded reloaded_chrome', function() {
-        if (z.page.find('.app-preview').length) {
-            $appList = z.page.find('.app-list');
-
-            SpatialNavigation.add({
-                selector: '.footer-link'
-            });
-
-            SpatialNavigation.startFocus();
-        }
-    });
-
-    z.page.on('sn:willfocus', '.app-button', function() {
-        SpatialNavigation.pause();
-
-        var callback = function() {
-            SpatialNavigation.focus(this);
-            SpatialNavigation.resume();
-        };
-
+    function scrollToApp(callback) {
         var appListScrollTop = $appList.scrollTop();
         var appListHeight = $appList.innerHeight();
 
@@ -82,40 +44,64 @@ define('views/homepage',
         } else {
             callback.call(this);
         }
+    }
+
+    z.page.on('loaded reloaded_chrome', function() {
+        if (z.page.find('.app-preview').length) {
+            $appList = z.page.find('.app-list');
+
+            SpatialNavigation.add({
+                selector: '.footer-link'
+            });
+
+            SpatialNavigation.startFocus();
+        }
+    });
+
+    // Prevent back button so the website will not go back to the tutorial page.
+    z.page.on('keydown', function(e) {
+        if (e.keyCode !== window.KeyEvent.DOM_VK_BACK_SPACE &&
+            e.key !== 'Backspace') {
+            return;
+        }
+
+        if (z.page.find('.app-preview').length) {
+            e.preventDefault();
+        }
+    });
+
+    z.page.on('mouseover', '.app-button', function() {
+        scrollToApp.call(this, function() {
+            this.focus();
+        });
+    });
+
+    z.page.on('sn:willfocus', '.app-button', function() {
+        SpatialNavigation.pause();
+
+        scrollToApp.call(this, function() {
+            SpatialNavigation.focus(this);
+            SpatialNavigation.resume();
+        });
 
         return false;
     });
 
-    z.page.on('focus', '.app-button', function() {
+    z.page.on('focus', '.app-button', function(e) {
         var focusedApp = appsModel.lookup(this.dataset.id);
-        var focusedManifestURL = focusedApp.manifest_url;
 
         // Clear the hash '#preview' when previewing apps.
         location.hash = '';
 
-        // Reset context menu.
-        appContextMenu.resetAll();
-
-        // Update context menu's label
-        if (focusedApp.doc_type === 'webapp') {
-            apps.checkInstalled(focusedManifestURL).done(function(isInstalled) {
-                if (isInstalled) {
-                    appContextMenu.setDeleteFromApps(focusedApp);
-                } else {
-                    appContextMenu.setAddToApps(focusedApp);
-                }
-            });
-        } else if (focusedApp.doc_type === 'website') {
-            appContextMenu.setWebsite(
-                focusedApp, findLargestIcon(focusedApp.icons));
-        }
-
         // Update app preview area with current focused app.
         appPreview.render(focusedApp);
+
+        // Set context menu.
+        appContextMenu.set(focusedApp);
     });
 
-    z.page.on('keyup', '.app-button', function(e) {
-        if (e.keyCode !== window.KeyEvent.DOM_VK_RETURN || !caps.webApps) {
+    z.page.on('keyup mouseup touchend', '.app-button', function(e) {
+        if (e.type === 'keyup' && e.keyCode !== window.KeyEvent.DOM_VK_RETURN) {
             return;
         }
 
@@ -139,7 +125,7 @@ define('views/homepage',
                 'remote=true,preview=true' +
                 ',name=' + encodeURIComponent(focusedApp.name) +
                 ',iconUrl=' + encodeURIComponent(
-                    findLargestIcon(focusedApp.icons)
+                    imageHelper.findLargestIcon(focusedApp.icons)
                 )
             );
         }

@@ -1,4 +1,13 @@
 define('image_helper', ['core/defer'], function(defer) {
+    function findLargestIcon(icons) {
+        var iconSizes = Object.keys(icons);
+        var maxIconSize = iconSizes.reduce(function(prev, current) {
+            return parseInt(prev, 10) < parseInt(current, 10) ? current : prev;
+        });
+
+        return icons[maxIconSize];
+    }
+
     function getIconURL(icon) {
         // The path of icon is different from server.
 
@@ -47,6 +56,7 @@ define('image_helper', ['core/defer'], function(defer) {
     }
 
     return {
+        findLargestIcon: findLargestIcon,
         getIconURL: getIconURL,
         getBackgroundImageURL: getBackgroundImageURL,
         loadImage: loadImage

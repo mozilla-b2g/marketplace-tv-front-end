@@ -1,4 +1,4 @@
-define('views/app-preview',
+define('views/app_preview',
     ['core/z', 'templates', 'image_helper'],
     function(z, nunjucks, imageHelper) {
     var $appPreview;

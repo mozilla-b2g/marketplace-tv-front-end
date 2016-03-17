@@ -1,6 +1,8 @@
 define('views/tutorial',
-    ['core/l10n', 'core/z', 'image_helper', 'smart_button', 'spatial_navigation'],
-    function(l10n, z, imageHelper, smartButton, SpatialNavigation) {
+    ['core/l10n', 'core/z',
+     'image_helper', 'smart_button', 'spatial_navigation'],
+    function(l10n, z,
+             imageHelper, smartButton, SpatialNavigation) {
     var gettext = l10n.gettext;
 
     var $slideSpinner;
@@ -27,29 +29,6 @@ define('views/tutorial',
         });
     }
 
-    // Enable back button going back to the previous slide.
-    window.addEventListener('keydown', function(e) {
-        if (e.keyCode === window.KeyEvent.DOM_VK_BACK_SPACE ||
-            e.key === 'Backspace') {
-            if (z.page.find('.slide-container').length) {
-                e.preventDefault();
-
-                var $slide = z.page.find('.slide').not('.hidden');
-                var $prevSlide = $slide.prev();
-
-                if ($prevSlide.length) {
-                    $slide.addClass('hidden');
-                    $prevSlide.addClass('invisible')
-                              .removeClass('hidden');
-
-                    loadBackgroundImage($prevSlide, function() {
-                        SpatialNavigation.focus($prevSlide.find('.primary'));
-                    });
-                }
-            }
-        }
-    });
-
     z.page.on('loaded reloaded_chrome', function() {
         if (z.page.find('.slide-container').length) {
             $slideSpinner = z.page.find('.slide-spinner');
@@ -60,8 +39,37 @@ define('views/tutorial',
         }
     });
 
-    z.page.on('keyup', '.slide-button', function(e) {
-        if (e.keyCode !== window.KeyEvent.DOM_VK_RETURN) {
+    // Enable back button going back to the previous slide.
+    z.page.on('keydown', function(e) {
+        if (e.keyCode !== window.KeyEvent.DOM_VK_BACK_SPACE &&
+            e.key !== 'Backspace') {
+            return;
+        }
+
+        if (z.page.find('.slide-container').length) {
+            e.preventDefault();
+
+            var $slide = z.page.find('.slide').not('.hidden');
+            var $prevSlide = $slide.prev();
+
+            if ($prevSlide.length) {
+                $slide.addClass('hidden');
+                $prevSlide.addClass('invisible')
+                          .removeClass('hidden');
+
+                loadBackgroundImage($prevSlide, function() {
+                    SpatialNavigation.focus($prevSlide.find('.primary'));
+                });
+            }
+        }
+    });
+
+    z.page.on('mouseover', '.slide-button', function(e) {
+        this.focus();
+    });
+
+    z.page.on('keyup mouseup touchend', '.slide-button', function(e) {
+        if (e.type === 'keyup' && e.keyCode !== window.KeyEvent.DOM_VK_RETURN) {
             return;
         }
 

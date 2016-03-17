@@ -8,6 +8,8 @@ define('smart_button', ['core/z'], function(z) {
             return;
         }
 
+        e.preventDefault();
+
         this.classList.add('pressed');
     });
 
@@ -31,6 +33,4 @@ define('smart_button', ['core/z'], function(z) {
         this.classList.remove('pressed');
         this.classList.remove('released');
     });
-
-    return {};
 });

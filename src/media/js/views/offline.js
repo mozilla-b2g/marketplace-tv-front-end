@@ -9,8 +9,12 @@ define('views/offline',
         }
     });
 
-    z.page.on('keyup', '.offline-button', function(e) {
-        if (e.keyCode !== window.KeyEvent.DOM_VK_RETURN) {
+    z.page.on('mouseover', '.offline-button', function() {
+        this.focus();
+    });
+
+    z.page.on('keyup mouseup touchend', '.offline-button', function(e) {
+        if (e.type === 'keyup' && e.keyCode !== window.KeyEvent.DOM_VK_RETURN) {
             return;
         }
 
