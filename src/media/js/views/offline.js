@@ -1,6 +1,6 @@
 define('views/offline',
-    ['core/l10n', 'core/z', 'smart_button', 'spatial_navigation'],
-    function(l10n, z, smartButton, SpatialNavigation) {
+    ['core/l10n', 'core/z', 'key_helper', 'smart_button', 'spatial_navigation'],
+    function(l10n, z, keyHelper, smartButton, SpatialNavigation) {
     var gettext = l10n.gettext;
 
     z.page.on('loaded reloaded_chrome', function() {
@@ -9,8 +9,12 @@ define('views/offline',
         }
     });
 
-    z.page.on('keyup', '.offline-button', function(e) {
-        if (e.keyCode !== window.KeyEvent.DOM_VK_RETURN) {
+    z.page.on('mouseover', '.offline-button', function() {
+        this.focus();
+    });
+
+    z.page.on('keyup mouseup touchend', '.offline-button', function(e) {
+        if (e.type === 'keyup' && !keyHelper.isEnterKey(e.keyCode)) {
             return;
         }
 

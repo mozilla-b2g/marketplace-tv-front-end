@@ -17,7 +17,7 @@ define('scrollable', function() {
     };
 
     Scrollable.prototype.getScrollTop = function s_getScrollTop() {
-        return Math.abs(parseInt(this.$scrollable.css('margin-top')));
+        return Math.abs(parseInt(this.$scrollable.css('margin-top'), 10));
     };
 
     Scrollable.prototype.getScrollHeight = function s_getScrollHeight() {

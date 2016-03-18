@@ -1,18 +1,20 @@
-define('smart_button', ['core/z'], function(z) {
+define('smart_button', ['core/z', 'key_helper'], function(z, keyHelper) {
     z.page.on('focus', '.focusable', function() {
         this.classList.add('focused');
     });
 
     z.page.on('keydown mousedown touchstart', '.focusable', function(e) {
-        if (e.type === 'keydown' && e.keyCode !== KeyEvent.DOM_VK_RETURN) {
+        if (e.type === 'keydown' && !keyHelper.isEnterKey(e.keyCode)) {
             return;
         }
+
+        e.preventDefault();
 
         this.classList.add('pressed');
     });
 
     z.page.on('keyup mouseup touchend', '.focusable', function(e) {
-        if (e.type === 'keyup' && e.keyCode !== KeyEvent.DOM_VK_RETURN) {
+        if (e.type === 'keyup' && !keyHelper.isEnterKey(e.keyCode)) {
             return;
         }
 
@@ -31,6 +33,4 @@ define('smart_button', ['core/z'], function(z) {
         this.classList.remove('pressed');
         this.classList.remove('released');
     });
-
-    return {};
 });

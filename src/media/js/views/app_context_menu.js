@@ -1,4 +1,4 @@
-define('views/app-context-menu',
+define('views/app_context_menu',
     ['apps', 'core/l10n', 'core/z', 'image_helper'],
     function(apps, l10n, z, imageHelper) {
     var gettext = l10n.gettext;
@@ -6,16 +6,35 @@ define('views/app-context-menu',
     var $appContextMenuInstall;
     var $appContextMenuLink;
 
-    function resetAll() {
+    function setContextMenu(app) {
+        // Reset context menu.
+        resetContextMenu();
+
+        // Update context menu's label
+        if (app.doc_type === 'webapp') {
+            apps.checkInstalled(app.manifest_url).done(function(isInstalled) {
+                if (isInstalled) {
+                    setDeleteFromApps(app);
+                } else {
+                    setAddToApps(app);
+                }
+            });
+        } else if (app.doc_type === 'website') {
+            setWebsite(app);
+        }
+    }
+
+    function resetContextMenu() {
         $appContextMenuInstall.removeAttr('label icon').off('click');
         $appContextMenuLink.off('click');
     }
 
-    function setWebsite(app, appIcon) {
+    function setWebsite(app) {
         $appContextMenuInstall.attr('label', '#website:' +
-            encodeURIComponent(app.url) + ',' +
-            encodeURIComponent(app.name) + ',' +
-            encodeURIComponent(appIcon));
+            [app.url, app.name, imageHelper.findLargestIcon(app.icons)]
+                .map(function(item) {
+                    return encodeURIComponent(item);
+                }).join(','));
     }
 
     function setAddToApps(app) {
@@ -49,9 +68,6 @@ define('views/app-context-menu',
     });
 
     return {
-        resetAll: resetAll,
-        setWebsite: setWebsite,
-        setAddToApps: setAddToApps,
-        setDeleteFromApps: setDeleteFromApps
+        set: setContextMenu
     };
 });
