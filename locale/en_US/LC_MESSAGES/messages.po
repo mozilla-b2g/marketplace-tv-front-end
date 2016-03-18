@@ -83,8 +83,8 @@ msgid "Privacy Notice Summary"
 msgstr "Privacy Notice Summary"
 
 #: /templates/privacy.html
-msgid "This notice is a summary of our privacy practices. To learn more about the information we collect from users and how we handle that information please read our <a href="{privacy_url}" target="_blank">Mozilla Website Privacy Notice</a> and <a href="{terms_url}" target="_blank">Terms of Use</a>."
-msgstr "This notice is a summary of our privacy practices. To learn more about the information we collect from users and how we handle that information please read our <a href="{privacy_url}" target="_blank">Mozilla Website Privacy Notice</a> and <a href="{terms_url}" target="_blank">Terms of Use</a>."
+msgid "This notice is a summary of our privacy practices. To learn more about the information we collect from users and how we handle that information please read our <a href=\"{privacy_url}\" target=\"_blank\">Mozilla Website Privacy Notice</a> and <a href=\"{terms_url}\" target=\"_blank\">Terms of Use</a>."
+msgstr "This notice is a summary of our privacy practices. To learn more about the information we collect from users and how we handle that information please read our <a href=\"{privacy_url}\" target=\"_blank\">Mozilla Website Privacy Notice</a> and <a href=\"{terms_url}\" target=\"_blank\">Terms of Use</a>."
 
 #: /templates/privacy.html
 msgid "Unless indicated otherwise, the Web Apps on the Web Apps Discovery Portal are not made by us and you should check their privacy policies before using them."
