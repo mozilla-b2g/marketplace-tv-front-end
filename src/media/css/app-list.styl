@@ -139,7 +139,7 @@
     }
 
     // chrome only
-    &:not(*:root) {
+    @supports (-webkit-appearance:none) {
         outline-color: $main-background-color;
     }
 }

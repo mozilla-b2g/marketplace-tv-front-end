@@ -75,15 +75,17 @@ define('views/homepage',
         });
     });
 
-    z.page.on('sn:willfocus', '.app-button', function() {
-        SpatialNavigation.pause();
+    z.page.on('sn:willfocus', '.app-button', function(e) {
+        if (e.originalEvent.detail.previousElement) {
+            SpatialNavigation.pause();
 
-        scrollToApp.call(this, function() {
-            SpatialNavigation.focus(this);
-            SpatialNavigation.resume();
-        });
+            scrollToApp.call(this, function() {
+                SpatialNavigation.focus(this);
+                SpatialNavigation.resume();
+            });
 
-        return false;
+            return false;
+        }
     });
 
     z.page.on('focus', '.app-button', function(e) {
