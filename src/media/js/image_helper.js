@@ -1,31 +1,36 @@
 define('image_helper', ['core/defer'], function(defer) {
     function findLargestIcon(icons) {
-        return icons[Math.max.apply(null, Object.keys(icons))];
+        var iconSizes = Object.keys(icons);
+        var maxIconSize = iconSizes.reduce(function(prev, current) {
+            return parseInt(prev, 10) < parseInt(current, 10) ? current : prev;
+        });
+
+        return icons[maxIconSize];
     }
 
     function getIconURL(icon) {
         // The path of icon is different from server.
-        var path = '/img/' + icon;
 
         // On marketplace server:
         // `media/marketplace-tv-front-end/img/{icon}.png`
-        if (location.origin.match(/marketplace/)) {
-            path = 'media/marketplace-tv-front-end' + path;
-        }
+        var path = ['media', 'marketplace-tv-front-end', 'img', icon];
 
         // On github page:
-        // `/marketplace-tv-front-end/media/img/{icon}.png`
-        if (location.origin.match(/github/)) {
-            path = '/marketplace-tv-front-end/media' + path;
+        // `marketplace-tv-front-end/media/img/{icon}.png`
+        if (!location.origin.match(/marketplace/)) {
+            var tempPath = path[0];
+
+            path[0] = path[1];
+            path[1] = tempPath;
         }
 
         // On local server:
         // `/media/img/{icon}.png`
         if (location.origin.match(/localhost/)) {
-            path = '/media' + path;
+            path[0] = '';
         }
 
-        return path;
+        return path.join('/');
     }
 
     function getBackgroundImageURL($element) {

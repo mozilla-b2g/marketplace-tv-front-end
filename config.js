@@ -43,7 +43,7 @@ var localConfig = extend(true, {
         },
         'dev': {
             domain: 'https://marketplace-dev.allizom.org',
-            media_url: 'https://marketplace-dev.allizom.org/media/',
+            media_url: 'https://marketplace-dev.mozflare.net/media/',
             name: 'Dev',
             origin: 'app://marketplace-dev.allizom.org'
         },
