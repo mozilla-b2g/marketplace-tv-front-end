@@ -1,14 +1,20 @@
 #: /media/js/views/homepage.js
-msgid "Add to Apps"
-msgstr "Add to Apps"
-
-#: /media/js/views/homepage.js
 msgid "Homepage"
 msgstr "Homepage"
+
+#: /media/js/views/app_context_menu.js
+#: /templates/tutorial.html
+msgid "Add to Apps"
+msgstr "Add to Apps"
 
 #: /media/js/views/tutorial.js
 msgid "Tutorial"
 msgstr "Tutorial"
+
+#: /media/js/views/privacy.js
+#: /templates/_includes/footer.html
+msgid "Privacy Notice"
+msgstr "Privacy Notice"
 
 #: /media/js/views/offline.js
 msgid "Offline"
@@ -22,13 +28,13 @@ msgstr "Suggested"
 msgid "by {author}"
 msgstr "by {author}"
 
+#: /templates/_includes/footer.html
+msgid "Powered by Mozilla"
+msgstr "Powered by Mozilla"
+
 #: /templates/homepage.html
 msgid "URL"
 msgstr "URL"
-
-#: /templates/footer.html
-msgid "Powered by Mozilla"
-msgstr "Powered by Mozilla"
 
 #: /templates/tutorial.html
 msgid "Learn how to use"
@@ -47,14 +53,6 @@ msgid "Press <b>APPS</b> to see apps added to the Apps folder"
 msgstr "Press <b>APPS</b> to see apps added to the Apps folder"
 
 #: /templates/tutorial.html
-msgid "Add to Apps"
-msgstr "Add to Apps"
-
-#: /templates/tutorial.html
-msgid "Apps"
-msgstr "Apps"
-
-#: /templates/tutorial.html
 msgid "Next"
 msgstr "Next"
 
@@ -66,6 +64,10 @@ msgstr "Back"
 msgid "Done"
 msgstr "Done"
 
+#: /templates/privacy.html
+msgid "OK"
+msgstr "OK"
+
 #: /templates/offline.html
 msgid "Unable to Connect"
 msgstr "Unable to Connect"
@@ -73,31 +75,3 @@ msgstr "Unable to Connect"
 #: /templates/offline.html
 msgid "A network error occurred while trying to reach the site."
 msgstr "A network error occurred while trying to reach the site."
-
-#: /templates/privacy.html
-msgid "Privacy Notice"
-msgstr "Privacy Notice"
-
-#: /templates/privacy.html
-msgid "Privacy Notice Summary"
-msgstr "Privacy Notice Summary"
-
-#: /templates/privacy.html
-msgid "This notice is a summary of our privacy practices. To learn more about the information we collect from users and how we handle that information please read our <a href=\"{privacy_url}\" target=\"_blank\">Mozilla Website Privacy Notice</a> and <a href=\"{terms_url}\" target=\"_blank\">Terms of Use</a>."
-msgstr "This notice is a summary of our privacy practices. To learn more about the information we collect from users and how we handle that information please read our <a href=\"{privacy_url}\" target=\"_blank\">Mozilla Website Privacy Notice</a> and <a href=\"{terms_url}\" target=\"_blank\">Terms of Use</a>."
-
-#: /templates/privacy.html
-msgid "Unless indicated otherwise, the Web Apps on the Web Apps Discovery Portal are not made by us and you should check their privacy policies before using them."
-msgstr "Unless indicated otherwise, the Web Apps on the Web Apps Discovery Portal are not made by us and you should check their privacy policies before using them."
-
-#: /templates/privacy.html
-msgid "The Web Apps Discovery Portal uses cookies and other web technologies to help us understand how users use the service through aggregate analytics."
-msgstr "The Web Apps Discovery Portal uses cookies and other web technologies to help us understand how users use the service through aggregate analytics."
-
-#: /templates/privacy.html
-msgid "For more information on how to report claims of copyright or trademark infringement, please see: https://www.mozilla.org/about/legal/report-infringement/."
-msgstr "For more information on how to report claims of copyright or trademark infringement, please see: https://www.mozilla.org/about/legal/report-infringement/."
-
-#: /templates/privacy.html
-msgid "OK"
-msgstr "OK"
