@@ -70,11 +70,13 @@ define('views/homepage',
     });
 
     z.page.on('mouseover', '.app-button', function() {
-        scrollToApp.call(this, this.focus);
+        scrollToApp.call(this, function() {
+            this.focus();
+        });
     });
 
     z.page.on('sn:willfocus', '.app-button', function(e) {
-        if (e.originalEvent.detail.hasOwnProperty('previousElement')) {
+        if (e.originalEvent.detail.previousElement) {
             SpatialNavigation.pause();
 
             scrollToApp.call(this, function() {

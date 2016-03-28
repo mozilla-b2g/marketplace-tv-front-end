@@ -32,10 +32,7 @@ $privacy-scrollbar-color = #CACCCE;
 }
 
 .privacy-content {
-    position: relative;
-
     max-height: $privacy-content-height;
-    min-height: 20rem;
     margin: 0 -3rem 11rem 0;
     padding-right: 3rem;
     outline: none;
@@ -45,7 +42,7 @@ $privacy-scrollbar-color = #CACCCE;
         cubic-bezier-transition();
     }
 
-    h3 {
+    .title {
         margin: 0 0 7rem;
 
         font-family: $light-italic-font-family;
@@ -54,12 +51,12 @@ $privacy-scrollbar-color = #CACCCE;
         text-align: center;
     }
 
-    ul {
+    .statement {
         font-size: 2.6rem;
         line-height: 3.6rem;
     }
 
-    li {
+    .item {
         margin-bottom: 3.6rem;
 
         list-style: none;

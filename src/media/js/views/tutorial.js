@@ -5,7 +5,7 @@ define('views/tutorial',
              keyHelper, imageHelper, smartButton, SpatialNavigation) {
     var gettext = l10n.gettext;
 
-    var $spinner;
+    var $slideSpinner;
 
     // Ensure background image is loaded.
     function loadBackgroundImage($slide, callback) {
@@ -13,10 +13,10 @@ define('views/tutorial',
             imageHelper.getBackgroundImageURL($slide.find('.slide-image'))
         );
 
-        $spinner.removeClass('hidden');
+        $slideSpinner.removeClass('hidden');
 
         imagePromise.done(function() {
-            $spinner.addClass('hidden');
+            $slideSpinner.addClass('hidden');
             $slide.removeClass('invisible');
 
             callback();
@@ -31,7 +31,7 @@ define('views/tutorial',
 
     z.page.on('loaded reloaded_chrome', function() {
         if (z.page.find('.slide-container').length) {
-            $spinner = z.page.find('.spinner');
+            $slideSpinner = z.page.find('.slide-spinner');
 
             loadBackgroundImage(z.page.find('.invisible'), function() {
                 SpatialNavigation.startFocus();

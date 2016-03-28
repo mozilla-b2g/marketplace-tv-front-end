@@ -4,6 +4,16 @@
 
 @import 'lib';
 
+@keyframes spinner {
+    0%{
+        background-position: 0 0;
+    }
+
+    100%{
+        background-position: -6600px 0;
+    }
+}
+
 .slide-container {
     position: fixed;
     top: 0;
@@ -40,6 +50,20 @@
             }
         }
     }
+}
+
+.slide-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 200px;
+    height: 200px;
+    margin: -100px 0 0 -100px;
+
+    background-image: url('../img/spinner_sprite.png');
+
+    animation: spinner 1.133s steps(33) infinite;
 }
 
 .slide-section-top,
