@@ -28,6 +28,7 @@ var packageFilesWhitelist = [
     'src/app-icons/*.png',
     'src/media/css/include.css',
     'src/media/fonts/FiraSans/*',
+    'src/media/docs/privacy/*',
     'src/tutorial/*',
     'src/tutorial/css/*',
     'src/tutorial/img/*',
