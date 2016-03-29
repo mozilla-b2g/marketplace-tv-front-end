@@ -1,3 +1,15 @@
+ltr() {
+    [dir="ltr"] & {
+        {block}
+    }
+}
+
+rtl() {
+    [dir="rtl"] & {
+        {block}
+    }
+}
+
 cubic-bezier-transition() {
     transition-property: all;
     transition-timing-function: cubic-bezier(.25, 0, 0, 1);

@@ -16,11 +16,12 @@
     background-color: $main-background-color;
 
     ul {
+        display: flex;
+        flex-wrap: wrap;
         padding: 3.1rem 11.6rem;
     }
 
     li {
-        float: left;
         margin: 2.9rem 2.6rem;
 
         list-style: none;
@@ -43,6 +44,8 @@
         font-family: $primary-italic-font-family;
 
         background-color: $main-background-color;
+
+        cubic-bezier-transition();
 
         &.focused {
             transform: scale(1.2);
@@ -91,7 +94,7 @@
 
         color: $greyscale-light-grey;
         background-color: $greyscale-light-grey;
-        background-size: 100% auto;
+        background-size: cover;
         background-position: center center;
 
         &::after {
@@ -119,7 +122,6 @@
     .star {
         position: absolute;
         top: 0;
-        left: 0;
 
         width: 4.5rem;
         height: 4.5rem;
@@ -139,8 +141,32 @@
         }
     }
 
+    +ltr() {
+        .star {
+            left: 0;
+        }
+    }
+
+    +rtl() {
+        .star {
+            right: 0;
+        }
+    }
+
     // chrome only
     @supports (-webkit-appearance:none) {
+        +rtl() {
+            .star::before {
+                text-indent: -39rem;
+            }
+        }
+    }
+}
+
+// chrome only
+@supports (-webkit-appearance:none) {
+    .app-list .app-button,
+    .app-list-app {
         outline-color: $main-background-color;
     }
 }

@@ -11,44 +11,48 @@ $app-preview-background-color = #72C9B0;
     top: 0;
     left: 0;
 
+    display: flex;
+    justify-content: space-around;
+
     width: 100%;
     height: 46.6rem;
-    padding: (7.2 / 192) * 100% 18.5rem (6.9 / 192) * 100% 15rem;
 
     background-color: $app-preview-background-color;
     background-image: url('../img/pattern_overlay.png');
     background-size: cover;
+
+    +ltr() {
+        padding: 7.2rem 18.5rem 6.9rem 15rem;
+    }
+
+    +rtl() {
+        padding: 7.2rem 15rem 6.9rem 18.5rem;
+    }
 }
 
 .app-preview-suggested {
     position: absolute;
     top: 1.6rem;
-    left: 0;
     z-index: 1;
 
-    padding: 0 .5rem 0 1rem;
+    display: flex;
+    height: 4.2rem;
 
     font-size: 1.9rem;
     line-height: 4.2rem;
+    white-space: nowrap;
 
     color: $greyscale-white;
-    background: linear-gradient(90deg,
-                                $suggested-star-color,
-                                $suggested-flag-color);
 
     &::before {
-        float: left;
         width: 25px;
-        margin-right: .5rem;
 
         font-size: 4.2rem;
-        white-space: nowrap;
     }
 
     .flag {
         position: absolute;
         top: 0;
-        right: -4rem;
 
         width: 4rem;
         height: 4.2rem;
@@ -56,39 +60,59 @@ $app-preview-background-color = #72C9B0;
         background-image: url('../img/flag_R.png');
         background-size: cover;
     }
-}
 
-.app-preview-image {
-    float: right;
-    width: (57.5 / 158.5) * 100%;
-    height: 100%;
-    min-height: 20rem;
-    border-radius: .6rem;
-    overflow: hidden;
+    +ltr() {
+        left: 0;
 
-    text-align: right;
+        padding: 0 .5rem 0 1rem;
 
-    color: transparent;
+        background: linear-gradient(90deg,
+                                    $suggested-star-color,
+                                    $suggested-flag-color);
 
-    transition: opacity 1s;
+        &::before {
+            margin-right: .5rem;
+        }
 
-    &.invisible {
-        opacity: 0;
+        .flag {
+            right: -4rem;
+        }
     }
 
-    img {
-        width: auto;
-        height: 100%;
-        border-radius: .6rem;
+
+    +rtl() {
+        right: 0;
+
+        padding: 0 1rem 0 .5rem;
+
+        background: linear-gradient(90deg,
+                                    $suggested-flag-color,
+                                    $suggested-star-color);
+
+        &::before {
+            margin-left: .5rem;
+        }
+
+        .flag {
+            left: -4rem;
+
+            transform: scaleX(-1);
+        }
+    }
+
+    // chrome only
+    @supports (-webkit-appearance:none) {
+        +rtl() {
+            &::before {
+                text-indent: -36.375rem;
+            }
+        }
     }
 }
 
 .app-preview-detail {
     position: relative;
 
-    width: (89 / 158.5) * 100%;
-    height: 100%;
-    min-height: 20rem;
     padding-top: 1rem;
     overflow: hidden;
 
@@ -96,7 +120,6 @@ $app-preview-background-color = #72C9B0;
 
     .name,
     .provider {
-        margin-right: 12rem;
         overflow: hidden;
 
         white-space: nowrap;
@@ -105,8 +128,7 @@ $app-preview-background-color = #72C9B0;
 
     .name {
         height: 6.4rem;
-        margin-top: 0;
-        margin-bottom: 0;
+        margin: 0;
         padding-bottom: 1.2rem;
 
         font-size: 5.2rem;
@@ -135,5 +157,52 @@ $app-preview-background-color = #72C9B0;
 
             text-decoration: none;
         }
+    }
+
+    +ltr() {
+        .name,
+        .provider {
+            margin-right: 12rem;
+        }
+    }
+
+    +rtl() {
+        .name,
+        .provider {
+            margin-left: 12rem;
+        }
+    }
+}
+
+.app-preview-image {
+    flex: none;
+    display: flex;
+    justify-content: flex-end;
+
+    width: 57.5rem;
+    height: 100%;
+    border-radius: .6rem;
+    overflow: hidden;
+
+    color: transparent;
+
+    transition: opacity 1s;
+
+    &.invisible {
+        opacity: 0;
+    }
+
+    img {
+        width: auto;
+        height: 100%;
+        border-radius: .6rem;
+    }
+
+    +ltr() {
+        margin-left: 12rem;
+    }
+
+    +rtl() {
+        margin-right: 12rem;
     }
 }
