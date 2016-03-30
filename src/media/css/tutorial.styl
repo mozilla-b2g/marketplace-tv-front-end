@@ -4,108 +4,108 @@
 
 @import 'lib';
 
-.slide-container {
-    position: fixed;
-    top: 0;
-    left: 0;
+$shadow = 0 0 5px rgba(0, 0, 0, .5);
+
+.tutorial-container {
+    full-screen();
+
     z-index: 999;
 
-    width: 100%;
-    height: 100%;
     overflow: hidden;
 
     background-color: $greyscale-black;
+}
 
-    .slide {
-        position: fixed;
+.tutorial-slide {
+    full-screen(absolute);
 
-        width: 100%;
-        height: 100%;
+    transition: opacity 1s;
 
-        transition: opacity 1s;
+    &.invisible {
+        opacity: 0;
+    }
 
-        &.invisible {
-            opacity: 0;
-        }
+    &.hidden {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
 
-        &.hidden {
-            display: block;
-            opacity: 0;
-            visibility: hidden;
+        transition: none;
 
-            transition: none;
-
-            .slide-button {
-                display: none;
-            }
+        .tutorial-button {
+            display: none;
         }
     }
 }
 
-.slide-section-top,
-.slide-section-bottom {
-    position: absolute;
-    left: 50%;
-
-    transform: translateX(-50%);
+.tutorial-section-top,
+.tutorial-section-bottom {
+    centered-screen-horizontal();
 }
 
-.slide-section-top {
-    width: 150rem;
+.tutorial-section-top {
+    width: rem(150);
 
     text-align: center;
-    text-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    text-shadow: $shadow;
 
     color: $greyscale-white;
 
     .title {
-        height: 5.5rem;
-        margin: 7.5rem 0 6.5rem;
+        margin: rem(7.5) 0 rem(6.5);
 
         font-family: $light-italic-font-family;
-        font-size: 5.5rem;
-        line-height: 5.5rem;
+        font-size: rem(5.5);
+        line-height: @font-size;
     }
 
     .description {
-        height: 8rem;
-
-        font-size: 3.8rem;
-        line-height: 8rem;
+        font-size: rem(3.8);
+        line-height: rem(8);
     }
 
     b {
         display: inline-block;
-        margin: 0 .5rem;
-        padding: 0 4rem;
-        border-radius: 4rem;
-        box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+        margin: 0 rem(.5);
+        padding: 0 rem(4);
+        border-radius: rem(4);
+        box-shadow: $shadow;
 
-        font-size: 3.8rem;
+        font-size: rem(3.8);
         font-weight: normal;
-        text-indent: -.8rem;
         text-align: center;
 
         background-color: $greyscale-black;
     }
+
+    +ltr() {
+        b {
+            text-indent: rem(-.8);
+        }
+    }
+
+    +rtl() {
+        b {
+            text-indent: rem(.8);
+        }
+    }
 }
 
-.slide-section-middle {
+.tutorial-section-middle {
     width: 100%;
-    height: 100%;
+    height: @width;
 
     .circle {
-        position: absolute;
-        top: (53.1 / 108) * 100%;
-        left: 50%;
+        centered-screen-horizontal();
 
-        width: 17.5rem;
-        height: 17.5rem;
-        margin-left: -8.75rem;
+        top: (53.1 / 108) * 100%;
+
+        width: rem(17.5);
+        height: @width;
         border-radius: 50%;
 
-        font-size: 1.5rem;
-        line-height: 1.5rem;
+        font-size: rem(1.5);
+        line-height: @font-size;
         text-align: center;
 
         color: $greyscale-white;
@@ -115,36 +115,36 @@
             content: '';
 
             display: block;
-            width: 7.2rem;
-            height: 7.2rem;
-            margin: 5.15rem auto 6.65rem;
+            width: rem(7.2);
+            height: @width;
+            margin: rem(5.15) auto rem(6.65);
 
             background-image: url('../img/tutorial_install.png');
-            background-size: 100% 100%;
+            background-size: cover;
         }
     }
 }
 
-.slide-section-bottom {
-    bottom: 6rem;;
+.tutorial-section-bottom {
+    bottom: rem(6);
 }
 
-.slide-image {
+.tutorial-image {
     width: 100%;
-    height: 100%;
+    height: @width;
 
     background-size: cover;
     background-position: center bottom;
 }
 
 for num in (1..3) {
-    .slide-image-0{num} {
+    .tutorial-image-0{num} {
         background-image: url('../img/tutorial_' + num + '.png');
     }
 }
 
-.slide-button {
-    margin: 0 2rem;
+.tutorial-button {
+    margin: 0 rem(2);
 
     font-family: $primary-italic-font-family;
 

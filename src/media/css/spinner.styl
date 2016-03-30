@@ -15,13 +15,10 @@
 }
 
 .spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    centered-screen();
 
-    width: 200px;
-    height: 200px;
-    margin: -100px 0 0 -100px;
+    width: rem(20);
+    height: @width;
 
     background-image: url('../img/spinner_sprite.png');
 

@@ -10,7 +10,7 @@ define('views/tutorial',
     // Ensure background image is loaded.
     function loadBackgroundImage($slide, callback) {
         var imagePromise = imageHelper.loadImage(
-            imageHelper.getBackgroundImageURL($slide.find('.slide-image'))
+            imageHelper.getBackgroundImageURL($slide.find('.tutorial-image'))
         );
 
         $spinner.removeClass('hidden');
@@ -30,7 +30,7 @@ define('views/tutorial',
     }
 
     z.page.on('loaded reloaded_chrome', function() {
-        if (z.page.find('.slide-container').length) {
+        if (z.page.find('.tutorial-container').length) {
             $spinner = z.page.find('.spinner');
 
             loadBackgroundImage(z.page.find('.invisible'), function() {
@@ -45,10 +45,10 @@ define('views/tutorial',
             return;
         }
 
-        if (z.page.find('.slide-container').length) {
+        if (z.page.find('.tutorial-container').length) {
             e.preventDefault();
 
-            var $slide = z.page.find('.slide').not('.hidden');
+            var $slide = z.page.find('.tutorial-slide').not('.hidden');
             var $prevSlide = $slide.prev();
 
             if ($prevSlide.length) {
@@ -63,17 +63,17 @@ define('views/tutorial',
         }
     });
 
-    z.page.on('mouseover', '.slide-button', function(e) {
+    z.page.on('mouseover', '.tutorial-button', function(e) {
         this.focus();
     });
 
-    z.page.on('keyup mouseup touchend', '.slide-button', function(e) {
+    z.page.on('keyup mouseup touchend', '.tutorial-button', function(e) {
         if (e.type === 'keyup' && !keyHelper.isEnterKey(e.keyCode)) {
             return;
         }
 
         var behavior = $(this).data('behavior');
-        var $slide = $(this).closest('.slide');
+        var $slide = $(this).closest('.tutorial-slide');
 
         if (behavior === 'prev') {
             var $prevSlide = $slide.prev();
@@ -104,7 +104,7 @@ define('views/tutorial',
         }
     });
 
-    z.page.on('contextmenu', '.slide-container', function(e) {
+    z.page.on('contextmenu', '.tutorial-container', function(e) {
         e.preventDefault();
     });
 

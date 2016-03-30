@@ -3,3 +3,12 @@ $primary-font-family = "Fira Sans OT", "Fira Sans", FiraSansWeb, sans-serif;
 $primary-italic-font-family = "Fira Sans OT Italic", "Fira Sans Italic", FiraSansItalicWeb, sans-serif;
 
 $light-italic-font-family = "Fira Sans OT Light Italic", "Fira Sans Light Italic", FiraSansLightItalicWeb, sans-serif;
+
+// Font Functions
+
+// Our base font size is 10px, but the minimum font size in Google Chrome is 12px.
+// Which will caused the size of rem is different from Firefox and Google Chrome.
+// Therefore, we use this function to simulate the effects of rem.
+rem(num) {
+    num * 10px;
+}

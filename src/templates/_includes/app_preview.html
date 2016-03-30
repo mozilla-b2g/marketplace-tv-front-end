@@ -5,16 +5,6 @@
   </div>
 {% endif %}
 
-<div class="app-preview-image invisible">
-  {% if app.promo_imgs['640'] %}
-    <img src="{{ app.promo_imgs['640'] }}"
-         alt="{{ app.name }}" title="{{ app.name }}">
-  {% elif app.promo_imgs['320'] %}
-    <img src="{{ app.promo_imgs['320'] }}"
-         alt="{{ app.name }}" title="{{ app.name }}">
-  {% endif %}
-</div>
-
 <div class="app-preview-detail">
   <h1 class="name">
     <span class="text">{{ app.name }}</span>
@@ -27,4 +17,14 @@
   </div>
 
   <article class="description">{{ app.description | safe }}</article>
+</div>
+
+<div class="app-preview-image invisible">
+  {% if app.promo_imgs['640'] %}
+    <img src="{{ app.promo_imgs['640'] }}"
+         alt="{{ app.name }}" title="{{ app.name }}">
+  {% elif app.promo_imgs['320'] %}
+    <img src="{{ app.promo_imgs['320'] }}"
+         alt="{{ app.name }}" title="{{ app.name }}">
+  {% endif %}
 </div>

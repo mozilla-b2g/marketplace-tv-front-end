@@ -1,3 +1,39 @@
+ltr() {
+    [dir="ltr"] & {
+        {block}
+    }
+}
+
+rtl() {
+    [dir="rtl"] & {
+        {block}
+    }
+}
+
+full-screen(position = fixed) {
+    position: position;
+    top: 0;
+    left: @top;
+
+    width: 100%;
+    height: @width;
+}
+
+centered-screen() {
+    position: absolute;
+    top: 50%;
+    left: @top;
+
+    transform: translate(-@top, -@top);
+}
+
+centered-screen-horizontal() {
+    position: absolute;
+    left: 50%;
+
+    transform: translateX(-@left);
+}
+
 cubic-bezier-transition() {
     transition-property: all;
     transition-timing-function: cubic-bezier(.25, 0, 0, 1);

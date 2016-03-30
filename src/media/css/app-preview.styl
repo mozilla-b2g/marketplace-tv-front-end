@@ -9,64 +9,179 @@ $app-preview-background-color = #72C9B0;
 .app-preview {
     position: absolute;
     top: 0;
-    left: 0;
+    left: @top;
+
+    display: flex;
+    justify-content: space-around;
 
     width: 100%;
-    height: 46.6rem;
-    padding: (7.2 / 192) * 100% 18.5rem (6.9 / 192) * 100% 15rem;
+    height: rem(46.6);
 
     background-color: $app-preview-background-color;
     background-image: url('../img/pattern_overlay.png');
     background-size: cover;
+
+    +ltr() {
+        padding: rem(7.2) rem(18.5) rem(6.9) rem(15);
+    }
+
+    +rtl() {
+        padding: rem(7.2) rem(15) rem(6.9) rem(18.5);
+    }
 }
 
 .app-preview-suggested {
     position: absolute;
-    top: 1.6rem;
-    left: 0;
+    top: rem(1.6);
     z-index: 1;
 
-    padding: 0 .5rem 0 1rem;
+    display: flex;
 
-    font-size: 1.9rem;
-    line-height: 4.2rem;
+    font-size: rem(1.9);
+    line-height: rem(4.2);
+    white-space: nowrap;
 
     color: $greyscale-white;
-    background: linear-gradient(90deg,
-                                $suggested-star-color,
-                                $suggested-flag-color);
 
     &::before {
-        float: left;
-        width: 25px;
-        margin-right: .5rem;
+        width: rem(2.5);
 
-        font-size: 4.2rem;
-        white-space: nowrap;
+        font-size: rem(4.2);
     }
 
     .flag {
         position: absolute;
         top: 0;
-        right: -4rem;
 
-        width: 4rem;
-        height: 4.2rem;
+        width: rem(4);
+        height: rem(4.2);
 
         background-image: url('../img/flag_R.png');
         background-size: cover;
     }
+
+    +ltr() {
+        left: 0;
+
+        padding: 0 rem(.5) 0 rem(1);
+
+        background: linear-gradient(90deg,
+                                    $suggested-star-color,
+                                    $suggested-flag-color);
+
+        &::before {
+            margin-right: rem(.5);
+        }
+
+        .flag {
+            right: rem(-4);
+        }
+    }
+
+
+    +rtl() {
+        right: 0;
+
+        padding: 0 rem(1) 0 rem(.5);
+
+        background: linear-gradient(90deg,
+                                    $suggested-flag-color,
+                                    $suggested-star-color);
+
+        &::before {
+            margin-left: rem(.5);
+        }
+
+        .flag {
+            left: rem(-4);
+
+            transform: scaleX(-1);
+        }
+    }
+
+    // chrome only
+    @supports (-webkit-appearance:none) {
+        +rtl() {
+            &::before {
+                text-indent: rem(-43.625);
+            }
+        }
+    }
+}
+
+.app-preview-detail {
+    position: relative;
+
+    padding-top: rem(1);
+    overflow: hidden;
+
+    color: $greyscale-white;
+
+    .name,
+    .provider {
+        overflow: hidden;
+
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .name {
+        height: rem(6.4);
+        margin: 0;
+        padding-bottom: rem(1.2);
+
+        font-size: rem(5.2);
+        font-weight: normal;
+    }
+
+    .provider {
+        height: rem(6.3);
+        padding-bottom: rem(4);
+
+        font-size: rem(2.3);
+        white-space: nowrap;
+
+        color: $greyscale-white;
+    }
+
+    .description {
+        height: rem(3.1) * 6;
+        overflow: hidden;
+
+        font-size: rem(2.6);
+        line-height: rem(3.1);
+
+        a {
+            color: $greyscale-white;
+
+            text-decoration: none;
+        }
+    }
+
+    +ltr() {
+        .name,
+        .provider {
+            margin-right: rem(12);
+        }
+    }
+
+    +rtl() {
+        .name,
+        .provider {
+            margin-left: rem(12);
+        }
+    }
 }
 
 .app-preview-image {
-    float: right;
-    width: (57.5 / 158.5) * 100%;
-    height: 100%;
-    min-height: 20rem;
-    border-radius: .6rem;
-    overflow: hidden;
+    flex: none;
+    display: flex;
+    justify-content: flex-end;
 
-    text-align: right;
+    width: rem(57.5);
+    height: 100%;
+    border-radius: rem(.6);
+    overflow: hidden;
 
     color: transparent;
 
@@ -79,61 +194,14 @@ $app-preview-background-color = #72C9B0;
     img {
         width: auto;
         height: 100%;
-        border-radius: .6rem;
-    }
-}
-
-.app-preview-detail {
-    position: relative;
-
-    width: (89 / 158.5) * 100%;
-    height: 100%;
-    min-height: 20rem;
-    padding-top: 1rem;
-    overflow: hidden;
-
-    color: $greyscale-white;
-
-    .name,
-    .provider {
-        margin-right: 12rem;
-        overflow: hidden;
-
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        border-radius: rem(.6);
     }
 
-    .name {
-        height: 6.4rem;
-        margin-top: 0;
-        margin-bottom: 0;
-        padding-bottom: 1.2rem;
-
-        font-size: 5.2rem;
-        font-weight: normal;
+    +ltr() {
+        margin-left: rem(12);
     }
 
-    .provider {
-        height: 6.3rem;
-        padding-bottom: 4rem;
-
-        font-size: 2.3rem;
-        white-space: nowrap;
-
-        color: $greyscale-white;
-    }
-
-    .description {
-        height: 3.1rem * 6;
-        overflow: hidden;
-
-        font-size: 2.6rem;
-        line-height: 3.1rem;
-
-        a {
-            color: $greyscale-white;
-
-            text-decoration: none;
-        }
+    +rtl() {
+        margin-right: rem(12);
     }
 }

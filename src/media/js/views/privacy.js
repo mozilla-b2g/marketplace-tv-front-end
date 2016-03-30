@@ -1,9 +1,10 @@
 define('views/privacy',
-    ['core/l10n', 'core/z',
+    ['core/l10n', 'templates', 'core/z',
      'key_helper', 'smart_button', 'spatial_navigation', 'scrollable'],
-    function(l10n, z,
+    function(l10n, nunjucks, z,
              keyHelper, smartButton, SpatialNavigation, Scrollable) {
     var gettext = l10n.gettext;
+    var globals = nunjucks.require('globals');
 
     var $privacyButton;
     var $privacyContent;
@@ -211,7 +212,13 @@ define('views/privacy',
     });
 
     return function(builder) {
-        builder.start('privacy.html');
+        var privacy = "docs/privacy/" + globals.language + ".html";
+
+        if (!nunjucks.templates[privacy]) {
+            privacy = privacy.replace(globals.language, 'en-US');
+        }
+
+        builder.start('privacy.html', { privacy: privacy });
 
         builder.z('type', 'leaf');
         builder.z('title', gettext('Privacy Notice'));

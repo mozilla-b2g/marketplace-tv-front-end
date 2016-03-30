@@ -4,37 +4,29 @@
 
 @import 'lib';
 
-$privacy-content-height = 70rem;
+$privacy-content-height = rem(70);
 $privacy-background-color = #E0E2E4;
 $privacy-font-color = #4D4D4D;
 $privacy-scrollbar-color = #CACCCE;
 
 .privacy-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
+    full-screen();
 
     background-color: $privacy-background-color;
 }
 
 .privacy-window {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    centered-screen();
 
     width: (161 / 192) * 100%;
-    transform: translate(-50%, -50%);
 
     color: $privacy-font-color;
 }
 
 .privacy-content {
     max-height: $privacy-content-height;
-    margin: 0 -3rem 11rem 0;
-    padding-right: 3rem;
+    margin: 0 rem(-3) rem(11) 0;
+    padding-right: rem(3);
     outline: none;
     overflow: hidden;
 
@@ -43,21 +35,22 @@ $privacy-scrollbar-color = #CACCCE;
     }
 
     h3 {
-        margin: 0 0 7rem;
+        margin: 0 0 rem(7);
 
         font-family: $light-italic-font-family;
-        font-size: 7rem;
+        font-size: rem(7);
+        line-height: @font-size;
         font-weight: normal;
         text-align: center;
     }
 
     ul {
-        font-size: 2.6rem;
-        line-height: 3.6rem;
+        font-size: rem(2.6);
+        line-height: rem(3.6);
     }
 
     li {
-        margin-bottom: 3.6rem;
+        margin-bottom: rem(3.6);
 
         list-style: none;
     }
@@ -72,16 +65,16 @@ $privacy-scrollbar-color = #CACCCE;
         cubic-bezier-transition();
 
         &.focused {
-            font-size: 3.12rem;
+            font-size: rem(3.12);
         }
     }
 
     .scrollbar {
         position: absolute;
         top: 0;
-        right: -3rem;
+        right: rem(-3);
 
-        width: 2rem;
+        width: rem(2);
         height: $privacy-content-height;
         outline: none;
 
@@ -90,12 +83,12 @@ $privacy-scrollbar-color = #CACCCE;
 
     .holder {
         position: absolute;
-        top: .3rem;
-        left: .5rem;
+        top: rem(.3);
+        left: rem(.5);
 
-        width: 1rem;
-        height: 7.6rem;
-        border-radius: 1rem;
+        width: rem(1);
+        height: rem(7.6);
+        border-radius: rem(1);
 
         background-color: $greyscale-white;
 
@@ -104,11 +97,11 @@ $privacy-scrollbar-color = #CACCCE;
 
     .indicator {
         position: absolute;
-        left: .3rem;
-        bottom: .3rem;
+        left: rem(.3);
+        bottom: @left;
 
-        width: 1.4rem;
-        height: 5.6rem;
+        width: rem(1.4);
+        height: rem(5.6);
 
         background-image: url('../img/indicator.png');
     }

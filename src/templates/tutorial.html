@@ -1,7 +1,7 @@
-<div class="slide-container">
+<div class="tutorial-container">
   {% for i in range(1, 4) %}
-    <div class="slide {% if i > 1 %} hidden {% else %} invisible {% endif %}">
-      <div class="slide-section-top">
+    <div class="tutorial-slide {% if i > 1 %} hidden {% else %} invisible {% endif %}">
+      <div class="tutorial-section-top">
         <div class="title">{{ _('Learn how to use') }}</div>
         {% if i == 1 %}
           <div class="description">{{ _('Press <b>OK</b> to open and use an app') }}</div>
@@ -12,8 +12,8 @@
         {% endif %}
       </div>
 
-      <div class="slide-section-middle">
-        <div class="slide-image slide-image-0{{ i }}"></div>
+      <div class="tutorial-section-middle">
+        <div class="tutorial-image tutorial-image-0{{ i }}"></div>
         {% if i == 2 %}
           <div class="circle">
             <span>{{ _('Add to Apps') }}</span>
@@ -21,21 +21,21 @@
         {% endif %}
       </div>
 
-      <div class="slide-section-bottom">
+      <div class="tutorial-section-bottom">
         {% if i > 1 %}
-          <button class="smart-button slide-button focusable"
+          <button class="smart-button tutorial-button focusable"
                   data-type="rounded-corner-text"
                   data-behavior="prev">{{ _('Back') }}</button>
         {% endif %}
 
         {% if i < 3 %}
-          <button class="smart-button primary slide-button focusable"
+          <button class="smart-button primary tutorial-button focusable"
                   data-type="rounded-corner-text"
                   data-behavior="next">{{ _('Next') }}</button>
         {% endif %}
 
         {% if i == 3 %}
-          <button class="smart-button primary slide-button focusable"
+          <button class="smart-button primary tutorial-button focusable"
                   data-type="rounded-corner-text"
                   data-behavior="finish">{{ _('Done') }}</button>
         {% endif %}
