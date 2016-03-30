@@ -9,53 +9,52 @@ $app-preview-background-color = #72C9B0;
 .app-preview {
     position: absolute;
     top: 0;
-    left: 0;
+    left: @top;
 
     display: flex;
     justify-content: space-around;
 
     width: 100%;
-    height: 46.6rem;
+    height: rem(46.6);
 
     background-color: $app-preview-background-color;
     background-image: url('../img/pattern_overlay.png');
     background-size: cover;
 
     +ltr() {
-        padding: 7.2rem 18.5rem 6.9rem 15rem;
+        padding: rem(7.2) rem(18.5) rem(6.9) rem(15);
     }
 
     +rtl() {
-        padding: 7.2rem 15rem 6.9rem 18.5rem;
+        padding: rem(7.2) rem(15) rem(6.9) rem(18.5);
     }
 }
 
 .app-preview-suggested {
     position: absolute;
-    top: 1.6rem;
+    top: rem(1.6);
     z-index: 1;
 
     display: flex;
-    height: 4.2rem;
 
-    font-size: 1.9rem;
-    line-height: 4.2rem;
+    font-size: rem(1.9);
+    line-height: rem(4.2);
     white-space: nowrap;
 
     color: $greyscale-white;
 
     &::before {
-        width: 25px;
+        width: rem(2.5);
 
-        font-size: 4.2rem;
+        font-size: rem(4.2);
     }
 
     .flag {
         position: absolute;
         top: 0;
 
-        width: 4rem;
-        height: 4.2rem;
+        width: rem(4);
+        height: rem(4.2);
 
         background-image: url('../img/flag_R.png');
         background-size: cover;
@@ -64,18 +63,18 @@ $app-preview-background-color = #72C9B0;
     +ltr() {
         left: 0;
 
-        padding: 0 .5rem 0 1rem;
+        padding: 0 rem(.5) 0 rem(1);
 
         background: linear-gradient(90deg,
                                     $suggested-star-color,
                                     $suggested-flag-color);
 
         &::before {
-            margin-right: .5rem;
+            margin-right: rem(.5);
         }
 
         .flag {
-            right: -4rem;
+            right: rem(-4);
         }
     }
 
@@ -83,18 +82,18 @@ $app-preview-background-color = #72C9B0;
     +rtl() {
         right: 0;
 
-        padding: 0 1rem 0 .5rem;
+        padding: 0 rem(1) 0 rem(.5);
 
         background: linear-gradient(90deg,
                                     $suggested-flag-color,
                                     $suggested-star-color);
 
         &::before {
-            margin-left: .5rem;
+            margin-left: rem(.5);
         }
 
         .flag {
-            left: -4rem;
+            left: rem(-4);
 
             transform: scaleX(-1);
         }
@@ -104,7 +103,7 @@ $app-preview-background-color = #72C9B0;
     @supports (-webkit-appearance:none) {
         +rtl() {
             &::before {
-                text-indent: -36.375rem;
+                text-indent: rem(-43.625);
             }
         }
     }
@@ -113,7 +112,7 @@ $app-preview-background-color = #72C9B0;
 .app-preview-detail {
     position: relative;
 
-    padding-top: 1rem;
+    padding-top: rem(1);
     overflow: hidden;
 
     color: $greyscale-white;
@@ -127,30 +126,30 @@ $app-preview-background-color = #72C9B0;
     }
 
     .name {
-        height: 6.4rem;
+        height: rem(6.4);
         margin: 0;
-        padding-bottom: 1.2rem;
+        padding-bottom: rem(1.2);
 
-        font-size: 5.2rem;
+        font-size: rem(5.2);
         font-weight: normal;
     }
 
     .provider {
-        height: 6.3rem;
-        padding-bottom: 4rem;
+        height: rem(6.3);
+        padding-bottom: rem(4);
 
-        font-size: 2.3rem;
+        font-size: rem(2.3);
         white-space: nowrap;
 
         color: $greyscale-white;
     }
 
     .description {
-        height: 3.1rem * 6;
+        height: rem(3.1) * 6;
         overflow: hidden;
 
-        font-size: 2.6rem;
-        line-height: 3.1rem;
+        font-size: rem(2.6);
+        line-height: rem(3.1);
 
         a {
             color: $greyscale-white;
@@ -162,14 +161,14 @@ $app-preview-background-color = #72C9B0;
     +ltr() {
         .name,
         .provider {
-            margin-right: 12rem;
+            margin-right: rem(12);
         }
     }
 
     +rtl() {
         .name,
         .provider {
-            margin-left: 12rem;
+            margin-left: rem(12);
         }
     }
 }
@@ -179,9 +178,9 @@ $app-preview-background-color = #72C9B0;
     display: flex;
     justify-content: flex-end;
 
-    width: 57.5rem;
+    width: rem(57.5);
     height: 100%;
-    border-radius: .6rem;
+    border-radius: rem(.6);
     overflow: hidden;
 
     color: transparent;
@@ -195,14 +194,14 @@ $app-preview-background-color = #72C9B0;
     img {
         width: auto;
         height: 100%;
-        border-radius: .6rem;
+        border-radius: rem(.6);
     }
 
     +ltr() {
-        margin-left: 12rem;
+        margin-left: rem(12);
     }
 
     +rtl() {
-        margin-right: 12rem;
+        margin-right: rem(12);
     }
 }

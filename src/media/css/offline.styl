@@ -5,12 +5,7 @@
 @import 'lib';
 
 .offline-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
+    full-screen();
 
     background-image: url('../img/bg_loading_error.png');
     background-size: cover;
@@ -19,11 +14,9 @@
 
 .offline-description,
 .offline-control {
-    position: absolute;
-    left: 50%;
+    centered-screen-horizontal();
 
-    width: 100rem;
-    margin-left: -50rem;
+    width: rem(100);
 
     text-align: center;
 }
@@ -39,15 +32,15 @@
     }
 
     .title {
-        margin-bottom: .3rem;
+        margin-bottom: rem(.3);
 
-        font-size: 5.2rem;
-        line-height: 5.2rem;
+        font-size: rem(5.2);
+        line-height: @font-size;
     }
 
     .content {
-        font-size: 2.6rem;
-        line-height: 3.6rem;
+        font-size: rem(2.6);
+        line-height: rem(3.6);
     }
 }
 
@@ -56,7 +49,7 @@
 }
 
 .offline-button {
-    margin: 0 2rem;
+    margin: 0 rem(2);
 
     font-family: $primary-italic-font-family;
 }
