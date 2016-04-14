@@ -19,7 +19,7 @@ define('views/homepage',
         var margin = 5.8 * 10;
 
         var appTop = top - margin;
-        var appBottom = top + height + margin - appListHeight;
+        var appBottom = top + height + margin * 2/3 - appListHeight;
         var appHeight = height + margin * 2;
 
         var newPosition;
