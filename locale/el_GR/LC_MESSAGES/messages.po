@@ -1,0 +1,44 @@
+#: /media/js/views/app_context_menu.js
+#: /templates/tutorial.html
+msgid "Add to Apps"
+msgstr "Προσθήκη στις Εφαρμογές"
+
+#: /templates/_includes/app_preview.html
+msgid "Suggested"
+msgstr "Πρoτάθηκε"
+
+#: /templates/_includes/app_preview.html
+msgid "by {author}"
+msgstr "από {author}"
+
+#: /templates/homepage.html
+msgid "URL"
+msgstr "URL"
+
+#: /templates/tutorial.html
+msgid "Learn how to use"
+msgstr "Μάθετε τη χρήση"
+
+#: /templates/tutorial.html
+msgid "Press <b>OK</b> to open and use an app"
+msgstr "Πατήστε <b>OK</b> για να ανοίξετε και χρησιμοποιήσετε μια εφαρμογή"
+
+#: /templates/tutorial.html
+msgid "Press <b>OPTION</b> to add an app to the Apps folder"
+msgstr "Πατήστε <b>OPTION</b> για να προσθέσετε μια εφαρμογή στο φάκελο εφαρμογών"
+
+#: /templates/tutorial.html
+msgid "Press <b>APPS</b> to see apps added to the Apps folder"
+msgstr "Πατήστε <b>APPS</b> για δείτε τις εφαρμογές στο φάκελο εφαρμογών"
+
+#: /templates/tutorial.html
+msgid "Next"
+msgstr "Επόμενο"
+
+#: /templates/tutorial.html
+msgid "Back"
+msgstr "Επιστροφή"
+
+#: /templates/tutorial.html
+msgid "Done"
+msgstr "Τέλος"

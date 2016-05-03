@@ -1,0 +1,44 @@
+#: /media/js/views/app_context_menu.js
+#: /templates/tutorial.html
+msgid "Add to Apps"
+msgstr "Pievienot lietotnēm"
+
+#: /templates/_includes/app_preview.html
+msgid "Suggested"
+msgstr "Ieteiktās"
+
+#: /templates/_includes/app_preview.html
+msgid "by {author}"
+msgstr "no {author}"
+
+#: /templates/homepage.html
+msgid "URL"
+msgstr "URL"
+
+#: /templates/tutorial.html
+msgid "Learn how to use"
+msgstr "Uzziniet, kā izmantot"
+
+#: /templates/tutorial.html
+msgid "Press <b>OK</b> to open and use an app"
+msgstr "Nospiediet <b>OK</b> (Labi), lai atvērtu un izmantotu lietotni"
+
+#: /templates/tutorial.html
+msgid "Press <b>OPTION</b> to add an app to the Apps folder"
+msgstr "Nospiediet <b>OPTION</b> (IZVĒLE), lai to pievienotu lietotni lietotņu mapei"
+
+#: /templates/tutorial.html
+msgid "Press <b>APPS</b> to see apps added to the Apps folder"
+msgstr "Nospiediet <b>APPS</b> (LIETOTNES), lai apskatītu lietotņu mapē ievietotās lietotnes"
+
+#: /templates/tutorial.html
+msgid "Next"
+msgstr "Tālāk"
+
+#: /templates/tutorial.html
+msgid "Back"
+msgstr "Atgriezties"
+
+#: /templates/tutorial.html
+msgid "Done"
+msgstr "Gatavs"

@@ -1,0 +1,44 @@
+#: /media/js/views/app_context_menu.js
+#: /templates/tutorial.html
+msgid "Add to Apps"
+msgstr "アプリ一覧に追加する"
+
+#: /templates/_includes/app_preview.html
+msgid "Suggested"
+msgstr "おすすめ"
+
+#: /templates/_includes/app_preview.html
+msgid "by {author}"
+msgstr "by {author}"
+
+#: /templates/homepage.html
+msgid "URL"
+msgstr "URL"
+
+#: /templates/tutorial.html
+msgid "Learn how to use"
+msgstr "ご利用方法"
+
+#: /templates/tutorial.html
+msgid "Press <b>OK</b> to open and use an app"
+msgstr "決定キーを押してアプリを起動しましょう"
+
+#: /templates/tutorial.html
+msgid "Press <b>OPTION</b> to add an app to the Apps folder"
+msgstr "サブメニューボタンを押してアプリ一覧にアプリを追加しましょう"
+
+#: /templates/tutorial.html
+msgid "Press <b>APPS</b> to see apps added to the Apps folder"
+msgstr "アプリボタンを押して追加されたアプリを確認しましょう"
+
+#: /templates/tutorial.html
+msgid "Next"
+msgstr "次へ"
+
+#: /templates/tutorial.html
+msgid "Back"
+msgstr "戻る"
+
+#: /templates/tutorial.html
+msgid "Done"
+msgstr "終了"

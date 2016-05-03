@@ -1,0 +1,44 @@
+#: /media/js/views/app_context_menu.js
+#: /templates/tutorial.html
+msgid "Add to Apps"
+msgstr "Ajouter aux applications"
+
+#: /templates/_includes/app_preview.html
+msgid "Suggested"
+msgstr "Suggéré"
+
+#: /templates/_includes/app_preview.html
+msgid "by {author}"
+msgstr "par {author}"
+
+#: /templates/homepage.html
+msgid "URL"
+msgstr "URL"
+
+#: /templates/tutorial.html
+msgid "Learn how to use"
+msgstr "Apprendre comment l'utiliser"
+
+#: /templates/tutorial.html
+msgid "Press <b>OK</b> to open and use an app"
+msgstr "Appuyez sur <b>OK</b> pour ouvrir et utiliser une application"
+
+#: /templates/tutorial.html
+msgid "Press <b>OPTION</b> to add an app to the Apps folder"
+msgstr "Appuyez sur <b>OPTION</b> pour ajouter une application au dossier Apps"
+
+#: /templates/tutorial.html
+msgid "Press <b>APPS</b> to see apps added to the Apps folder"
+msgstr "Appuyez sur <b>APPS</b> pour voir les applications ajoutées au dossier Apps"
+
+#: /templates/tutorial.html
+msgid "Next"
+msgstr "Suivant"
+
+#: /templates/tutorial.html
+msgid "Back"
+msgstr "Revenir"
+
+#: /templates/tutorial.html
+msgid "Done"
+msgstr "Terminer"

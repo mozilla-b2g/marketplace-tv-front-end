@@ -1,0 +1,44 @@
+#: /media/js/views/app_context_menu.js
+#: /templates/tutorial.html
+msgid "Add to Apps"
+msgstr "افزودن به اپلیکیشن ها"
+
+#: /templates/_includes/app_preview.html
+msgid "Suggested"
+msgstr "توصیه شده"
+
+#: /templates/_includes/app_preview.html
+msgid "by {author}"
+msgstr "توسط {author}"
+
+#: /templates/homepage.html
+msgid "URL"
+msgstr "URL"
+
+#: /templates/tutorial.html
+msgid "Learn how to use"
+msgstr "یادگیری نحوه استفاده"
+
+#: /templates/tutorial.html
+msgid "Press <b>OK</b> to open and use an app"
+msgstr "برای باز کردن و استفاده از یک اپلیکیشن، <b>OK</b> را فشار دهید"
+
+#: /templates/tutorial.html
+msgid "Press <b>OPTION</b> to add an app to the Apps folder"
+msgstr "برای افزودن یک اپلیکیشن به پوشه اپلیکیشن ها، <b>OPTION</b> را فشار دهید"
+
+#: /templates/tutorial.html
+msgid "Press <b>APPS</b> to see apps added to the Apps folder"
+msgstr "برای دیدن اپلیکیشن های افزوده شده به پوشه اپلیکیشن ها، <b>APPS</b> را فشار دهید"
+
+#: /templates/tutorial.html
+msgid "Next"
+msgstr "بعدی"
+
+#: /templates/tutorial.html
+msgid "Back"
+msgstr "بازگشت"
+
+#: /templates/tutorial.html
+msgid "Done"
+msgstr "انجام شد"

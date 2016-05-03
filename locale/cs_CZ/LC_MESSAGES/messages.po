@@ -1,0 +1,44 @@
+#: /media/js/views/app_context_menu.js
+#: /templates/tutorial.html
+msgid "Add to Apps"
+msgstr "Přidat do složky Aplikace"
+
+#: /templates/_includes/app_preview.html
+msgid "Suggested"
+msgstr "Navrženo"
+
+#: /templates/_includes/app_preview.html
+msgid "by {author}"
+msgstr "od {author}"
+
+#: /templates/homepage.html
+msgid "URL"
+msgstr "URL"
+
+#: /templates/tutorial.html
+msgid "Learn how to use"
+msgstr "Naučte se používat"
+
+#: /templates/tutorial.html
+msgid "Press <b>OK</b> to open and use an app"
+msgstr "Stisknutím tlačítka <b>OK</b> aplikaci otevřete a začnete používat"
+
+#: /templates/tutorial.html
+msgid "Press <b>OPTION</b> to add an app to the Apps folder"
+msgstr "Stisknutím tlačítka <b>OPTION</b> přidáte aplikaci do složky Aplikace"
+
+#: /templates/tutorial.html
+msgid "Press <b>APPS</b> to see apps added to the Apps folder"
+msgstr "Stisknutím tlačítka <b>APPS</b> zobrazíte aplikace přidané do složky Aplikace"
+
+#: /templates/tutorial.html
+msgid "Next"
+msgstr "Další"
+
+#: /templates/tutorial.html
+msgid "Back"
+msgstr "Návrat"
+
+#: /templates/tutorial.html
+msgid "Done"
+msgstr "Hotovo"

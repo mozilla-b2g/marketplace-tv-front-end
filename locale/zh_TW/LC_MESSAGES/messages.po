@@ -1,0 +1,44 @@
+#: /media/js/views/app_context_menu.js
+#: /templates/tutorial.html
+msgid "Add to Apps"
+msgstr "加入至應用程式"
+
+#: /templates/_includes/app_preview.html
+msgid "Suggested"
+msgstr "推薦"
+
+#: /templates/_includes/app_preview.html
+msgid "by {author}"
+msgstr "{author}"
+
+#: /templates/homepage.html
+msgid "URL"
+msgstr "URL"
+
+#: /templates/tutorial.html
+msgid "Learn how to use"
+msgstr "了解如何使用"
+
+#: /templates/tutorial.html
+msgid "Press <b>OK</b> to open and use an app"
+msgstr "按<b>OK</b>鍵打開及使用應用程式"
+
+#: /templates/tutorial.html
+msgid "Press <b>OPTION</b> to add an app to the Apps folder"
+msgstr "按副目錄鍵去加入一個app至應用程式"
+
+#: /templates/tutorial.html
+msgid "Press <b>APPS</b> to see apps added to the Apps folder"
+msgstr "按<b>APPS</b>鍵來看那些app被加入至應用程式"
+
+#: /templates/tutorial.html
+msgid "Next"
+msgstr "下次"
+
+#: /templates/tutorial.html
+msgid "Back"
+msgstr "返回"
+
+#: /templates/tutorial.html
+msgid "Done"
+msgstr "完成"

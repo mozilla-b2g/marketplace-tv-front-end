@@ -1,0 +1,44 @@
+#: /media/js/views/app_context_menu.js
+#: /templates/tutorial.html
+msgid "Add to Apps"
+msgstr "Hozzáadás az Alkalmazásokhoz"
+
+#: /templates/_includes/app_preview.html
+msgid "Suggested"
+msgstr "Javasolt"
+
+#: /templates/_includes/app_preview.html
+msgid "by {author}"
+msgstr "szerző: {author}"
+
+#: /templates/homepage.html
+msgid "URL"
+msgstr "URL"
+
+#: /templates/tutorial.html
+msgid "Learn how to use"
+msgstr "A használat megismerése"
+
+#: /templates/tutorial.html
+msgid "Press <b>OK</b> to open and use an app"
+msgstr "Nyomja meg az <b>OK</b> gombot egy alkalmazás megnyitásához és használatához"
+
+#: /templates/tutorial.html
+msgid "Press <b>OPTION</b> to add an app to the Apps folder"
+msgstr "Nyomja meg az <b>OPTION</b> gombot egy alkalmazás Alkalmazások mappához történő hozzáadásához"
+
+#: /templates/tutorial.html
+msgid "Press <b>APPS</b> to see apps added to the Apps folder"
+msgstr "Nyomja meg az <b>APPS</b> gombot az Alkalmazások mappához adott alkalmazások megtekintéséhez"
+
+#: /templates/tutorial.html
+msgid "Next"
+msgstr "Következő"
+
+#: /templates/tutorial.html
+msgid "Back"
+msgstr "Visszalépni"
+
+#: /templates/tutorial.html
+msgid "Done"
+msgstr "Kész"

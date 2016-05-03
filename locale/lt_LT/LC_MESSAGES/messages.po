@@ -1,0 +1,44 @@
+#: /media/js/views/app_context_menu.js
+#: /templates/tutorial.html
+msgid "Add to Apps"
+msgstr "Pridėti į programas"
+
+#: /templates/_includes/app_preview.html
+msgid "Suggested"
+msgstr "Siūloma"
+
+#: /templates/_includes/app_preview.html
+msgid "by {author}"
+msgstr "autorius: {author}"
+
+#: /templates/homepage.html
+msgid "URL"
+msgstr "URL"
+
+#: /templates/tutorial.html
+msgid "Learn how to use"
+msgstr "Sužinokite, kaip naudoti"
+
+#: /templates/tutorial.html
+msgid "Press <b>OK</b> to open and use an app"
+msgstr "Paspauskite <b>OK</b> (Gerai), kad atvertumėte ir naudotumėte programą"
+
+#: /templates/tutorial.html
+msgid "Press <b>OPTION</b> to add an app to the Apps folder"
+msgstr "Paspauskite <b>OPTION</b> (Parinktis), kad pridėtumėte programą į programų aplanką"
+
+#: /templates/tutorial.html
+msgid "Press <b>APPS</b> to see apps added to the Apps folder"
+msgstr "Paspauskite <b>APPS</b> (Programos), kad pamatytumėte į programų aplanką pridėtas programas"
+
+#: /templates/tutorial.html
+msgid "Next"
+msgstr "Toliau"
+
+#: /templates/tutorial.html
+msgid "Back"
+msgstr "Grįžti"
+
+#: /templates/tutorial.html
+msgid "Done"
+msgstr "Atlikta"
