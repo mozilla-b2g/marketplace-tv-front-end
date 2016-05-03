@@ -6,7 +6,6 @@
 
 $privacy-content-height = rem(70);
 $privacy-background-color = #E0E2E4;
-$privacy-font-color = #4D4D4D;
 $privacy-scrollbar-color = #CACCCE;
 
 .privacy-container {
@@ -20,7 +19,7 @@ $privacy-scrollbar-color = #CACCCE;
 
     width: (161 / 192) * 100%;
 
-    color: $privacy-font-color;
+    color: $main-font-color;
 }
 
 .privacy-content {
@@ -60,7 +59,7 @@ $privacy-scrollbar-color = #CACCCE;
 
         font-weight: bold;
 
-        color: $privacy-font-color;
+        color: $main-font-color;
 
         cubic-bezier-transition();
 
@@ -72,7 +71,7 @@ $privacy-scrollbar-color = #CACCCE;
     .scrollbar {
         position: absolute;
         top: 0;
-        right: rem(-3);
+        right: - rem(3);
 
         width: rem(2);
         height: $privacy-content-height;

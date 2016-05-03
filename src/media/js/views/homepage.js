@@ -16,19 +16,26 @@ define('views/homepage',
 
         var top = this.offsetTop;
         var height = this.offsetHeight;
-        var margin = 5.8 * 10;
 
-        var appTop = top - margin;
-        var appBottom = top + height + margin * 2/3 - appListHeight;
-        var appHeight = height + margin * 2;
+        var computedStyle = getComputedStyle(this);
+
+        var marginTop = parseInt(computedStyle.marginTop, 10);
+        var marginBottom = parseInt(computedStyle.marginBottom, 10);
+
+        var appTop = top - marginTop;
+        var appBottom = top + height + marginBottom * 1.5 - appListHeight;
+        var appHeight = height + marginTop + marginBottom;
 
         var newPosition;
 
-        if (appListHeight < appHeight) {
+        if (appListScrollTop === 0) {
+            newPosition = appTop;
+        } else if (appListHeight < appHeight) {
             // Current scope height is too narrow.
             // Scroll to the center of the app.
-            newPosition = appTop + (appHeight - appListHeight) / 2;
-        } else if (appListScrollTop >= appTop) {
+            newPosition = top - (marginTop + marginBottom) / 2 +
+                          (appHeight - appListHeight) / 2;
+        } else if (appListScrollTop > appTop) {
             // App is above current scope.
             newPosition = appTop;
         } else if (appListScrollTop < appBottom) {
