@@ -1,0 +1,44 @@
+#: /media/js/views/app_context_menu.js
+#: /templates/tutorial.html
+msgid "Add to Apps"
+msgstr "Apps သို့ ထည့်ပါ"
+
+#: /templates/_includes/app_preview.html
+msgid "Suggested"
+msgstr "အကြံပြုထားသော"
+
+#: /templates/_includes/app_preview.html
+msgid "by {author}"
+msgstr "{author} မှ"
+
+#: /templates/homepage.html
+msgid "URL"
+msgstr "URL"
+
+#: /templates/tutorial.html
+msgid "Learn how to use"
+msgstr "သုံးစွဲပုံကို လေ့လာပါ"
+
+#: /templates/tutorial.html
+msgid "Press <b>OK</b> to open and use an app"
+msgstr "အက်ပ်ကို အသုံးပြုရန် <b>OK</b> နှိပ်ပါ"
+
+#: /templates/tutorial.html
+msgid "Press <b>OPTION</b> to add an app to the Apps folder"
+msgstr "Apps ဖိုဒါသို့ အက်ပ်ထည့်ရန် <b>OPTION</b> နှိပ်ပါ"
+
+#: /templates/tutorial.html
+msgid "Press <b>APPS</b> to see apps added to the Apps folder"
+msgstr "Apps ဖိုဒါသို့ ထည့်ထားသော အက်ပ်များကို ကြည့်ရန် <b>APPS</b> နှိပ်ပါ"
+
+#: /templates/tutorial.html
+msgid "Next"
+msgstr "နောက်သို့"
+
+#: /templates/tutorial.html
+msgid "Back"
+msgstr "ပြန်ပေးသည်"
+
+#: /templates/tutorial.html
+msgid "Done"
+msgstr "ပြီးပါပြီ"

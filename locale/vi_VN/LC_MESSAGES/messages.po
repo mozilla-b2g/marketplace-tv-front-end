@@ -1,0 +1,44 @@
+#: /media/js/views/app_context_menu.js
+#: /templates/tutorial.html
+msgid "Add to Apps"
+msgstr "Thêm vào Ứng dụng"
+
+#: /templates/_includes/app_preview.html
+msgid "Suggested"
+msgstr "Đề nghị"
+
+#: /templates/_includes/app_preview.html
+msgid "by {author}"
+msgstr "bằng {author}"
+
+#: /templates/homepage.html
+msgid "URL"
+msgstr "URL"
+
+#: /templates/tutorial.html
+msgid "Learn how to use"
+msgstr "Tìm hiểu cách sử dụng"
+
+#: /templates/tutorial.html
+msgid "Press <b>OK</b> to open and use an app"
+msgstr "Nhấn <b>OK</b> để mở và sử dụng ứng dụng"
+
+#: /templates/tutorial.html
+msgid "Press <b>OPTION</b> to add an app to the Apps folder"
+msgstr "Nhấn <b>OPTION</b> để thêm ứng dụng vào thư mục Ứng dụng"
+
+#: /templates/tutorial.html
+msgid "Press <b>APPS</b> to see apps added to the Apps folder"
+msgstr "Nhấn <b>APPS</b> để xem ứng dụng đã thêm vào thư mục Ứng dụng"
+
+#: /templates/tutorial.html
+msgid "Next"
+msgstr "Tiếp theo"
+
+#: /templates/tutorial.html
+msgid "Back"
+msgstr "Trở về"
+
+#: /templates/tutorial.html
+msgid "Done"
+msgstr "Xong"

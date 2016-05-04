@@ -1,0 +1,44 @@
+#: /media/js/views/app_context_menu.js
+#: /templates/tutorial.html
+msgid "Add to Apps"
+msgstr "Tambahkan ke Aplikasi"
+
+#: /templates/_includes/app_preview.html
+msgid "Suggested"
+msgstr "Disarankan"
+
+#: /templates/_includes/app_preview.html
+msgid "by {author}"
+msgstr "oleh {author}"
+
+#: /templates/homepage.html
+msgid "URL"
+msgstr "URL"
+
+#: /templates/tutorial.html
+msgid "Learn how to use"
+msgstr "Pelajari cara untuk menggunakan"
+
+#: /templates/tutorial.html
+msgid "Press <b>OK</b> to open and use an app"
+msgstr "Tekan <b>OK</b> untuk membuka dan menggunakan aplikasi"
+
+#: /templates/tutorial.html
+msgid "Press <b>OPTION</b> to add an app to the Apps folder"
+msgstr "Tekan <b>OPTION</b> untuk menambahkan aplikasi ke folder Aplikasi"
+
+#: /templates/tutorial.html
+msgid "Press <b>APPS</b> to see apps added to the Apps folder"
+msgstr "Tekan <b>APPS</b> untuk melihat aplikasi yang ditambahkan ke folder Aplikasi"
+
+#: /templates/tutorial.html
+msgid "Next"
+msgstr "Berikutnya"
+
+#: /templates/tutorial.html
+msgid "Back"
+msgstr "Kembali"
+
+#: /templates/tutorial.html
+msgid "Done"
+msgstr "Selesai"

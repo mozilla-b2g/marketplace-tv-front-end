@@ -1,0 +1,44 @@
+#: /media/js/views/app_context_menu.js
+#: /templates/tutorial.html
+msgid "Add to Apps"
+msgstr "Lisää sovelluksiin"
+
+#: /templates/_includes/app_preview.html
+msgid "Suggested"
+msgstr "Ehdotetut"
+
+#: /templates/_includes/app_preview.html
+msgid "by {author}"
+msgstr "tekijä {author}"
+
+#: /templates/homepage.html
+msgid "URL"
+msgstr "URL"
+
+#: /templates/tutorial.html
+msgid "Learn how to use"
+msgstr "Opi, kuinka käytetään"
+
+#: /templates/tutorial.html
+msgid "Press <b>OK</b> to open and use an app"
+msgstr "Avaa ja käytä sovellusta painamalla <b>OK</b>"
+
+#: /templates/tutorial.html
+msgid "Press <b>OPTION</b> to add an app to the Apps folder"
+msgstr "Lisää sovellus sovelluskansioon painamalla <b>OPTION</b>"
+
+#: /templates/tutorial.html
+msgid "Press <b>APPS</b> to see apps added to the Apps folder"
+msgstr "Näytä sovelluskansioon lisätyt sovellukset painamalla <b>APPS</b>"
+
+#: /templates/tutorial.html
+msgid "Next"
+msgstr "Seuraava"
+
+#: /templates/tutorial.html
+msgid "Back"
+msgstr "Takaisin"
+
+#: /templates/tutorial.html
+msgid "Done"
+msgstr "Valmis"
