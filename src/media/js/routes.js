@@ -11,9 +11,14 @@ define('routes',
         {pattern: '^/tv/?$', view_name: 'homepage'}
     ]);
 
+    if (location.origin.match(/github/)) {
+        router.addRoutes([
+            {pattern: '^/marketplace-tv-front-end/?$', view_name: 'homepage'}
+        ]);
+    }
+
     router.api.addRoutes({
-        // TODO: Update API url after backend is ready.
-        'apps': '/api/v2/tv/multi-search/',
+        'apps': '/api/v2/tv/multi-search/'
     });
 
     // Processors to set query arguments on API requests.
